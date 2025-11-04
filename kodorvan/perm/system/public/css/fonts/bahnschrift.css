@@ -1,0 +1,64 @@
+@charset "UTF-8";
+
+@font-face {
+	font-family: 'Bahnschrift';
+	src: url("/fonts/bahnschrift/BAHNSCHRIFT.TTF");
+	font-weight: 100;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Bahnschrift';
+	src: url("/fonts/bahnschrift/BAHNSCHRIFT 2.TTF");
+	font-weight: 200;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Bahnschrift';
+	src: url("/fonts/bahnschrift/BAHNSCHRIFT 3.TTF");
+	font-weight: 300;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Bahnschrift';
+	src: url("/fonts/bahnschrift/BAHNSCHRIFT 4.TTF");
+	font-weight: 400;
+	font-style: normal;
+}
+
+ @font-face {
+	font-family: 'Bahnschrift';
+	src: url("/fonts/bahnschrift/BAHNSCHRIFT 5.TTF");
+	font-weight: 500;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Bahnschrift';
+	src: url("/fonts/bahnschrift/BAHNSCHRIFT 6.TTF");
+	font-weight: 600;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Bahnschrift';
+	src: url("/fonts/bahnschrift/BAHNSCHRIFT 7.TTF");
+	font-weight: 700;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Bahnschrift';
+	src: url("/fonts/bahnschrift/BAHNSCHRIFT 8.TTF");
+	font-weight: 800;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Bahnschrift';
+	src: url("/fonts/bahnschrift/BAHNSCHRIFT 9.TTF");
+	font-weight: 900;
+	font-style: normal;
+}

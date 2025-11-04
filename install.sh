@@ -10,6 +10,6 @@ fi
 
 if [ -e kodorvan/perm/system/settings/*.sample ]; then
 	for i in kodorvan/perm/system/settings/*.sample; do
-    cp "i" "i/.sample/";
+    cp "$i" "${i/.sample/}";
   done
 fi

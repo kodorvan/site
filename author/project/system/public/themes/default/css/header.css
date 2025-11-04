@@ -1,7 +1,0 @@
-@charset "UTF-8";
-
-header {
-    &:not(:has(*)) {
-        display: none;
-    }
-}

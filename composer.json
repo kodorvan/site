@@ -5,17 +5,24 @@
 	"type": "site",
 	"keywords": [
 		"minimal",
-		"baza"
+		"baza",
+		"landing",
+		"perm"
 	],
 	"readme": "README.md",
 	"license": "WTFPL",
 	"authors": [
 		{
-			"name": "kodorvan",
-			"email": "kodorvan@gmail.com",
-			"homepage": "https://kodorvan.page",
-			"role": "Programmer"
-		}
+      "name": "Arsen Mirzaev Tatyano-Muradovich",
+      "email": "arsen@mirzaev.sexy",
+      "homepage": "https://mirzaev.sexy",
+      "role": "Programmer"
+    },
+		{
+      "name": "Hollspae",
+      "email": "ksena.vilkova79@gmail.om",
+      "role": "Creator-Programmer"
+    }
 	],
 	"support": {
 		"wiki": "https://git.svoboda.works/kodorvan/perm/wiki",
@@ -23,8 +30,8 @@
 	},
 	"require": {
 		"php": "^8.4",
-		"mirzaev/minimal": "^3.7",
-		"mirzaev/baza": "^3.3",		
+		"mirzaev/minimal": "^3.8",
+		"mirzaev/baza": "^3.4",		
 		"mirzaev/languages": "^1",		
 		"twig/twig": "^3.2",
 		"twig/extra-bundle": "^3.7",
