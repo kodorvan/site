@@ -1,0 +1,6 @@
+<?php
+
+// Exit (success)
+return [
+    '' => ''
+]

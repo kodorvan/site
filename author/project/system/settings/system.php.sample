@@ -1,0 +1,4 @@
+<?php
+
+// Initializing default theme for the views templater
+define('THEME', 'default');

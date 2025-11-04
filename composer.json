@@ -1,0 +1,51 @@
+{
+	"name": "kodorvan/perm",
+	"description": "Лендинг для Перми от Ксении",
+	"homepage": "https://git.svoboda.works/kodorvan/perm",
+	"type": "site",
+	"keywords": [
+		"minimal",
+		"baza"
+	],
+	"readme": "README.md",
+	"license": "WTFPL",
+	"authors": [
+		{
+			"name": "kodorvan",
+			"email": "kodorvan@gmail.com",
+			"homepage": "https://kodorvan.page",
+			"role": "Programmer"
+		}
+	],
+	"support": {
+		"wiki": "https://git.svoboda.works/kodorvan/perm/wiki",
+		"issues": "https://git.svoboda.works/kodorvan/perm/issues"
+	},
+	"require": {
+		"php": "^8.4",
+		"mirzaev/minimal": "^3.7",
+		"mirzaev/baza": "^3.3",		
+		"mirzaev/languages": "^1",		
+		"twig/twig": "^3.2",
+		"twig/extra-bundle": "^3.7",
+		"twig/intl-extra": "^3.10"
+	},
+	"suggest": {
+		"mirzaev/files": "Easy working with files",
+		"mirzaev/currencies": "Easy currencies integration"
+
+	},
+	"autoload": {
+		"psr-4": {
+			"kodorvan\\perm\\": "kodorvan/perm/system"
+		}
+	},
+	"autoload-dev": {
+		"psr-4": {
+			"kodorvan\\perm\\tests\\": "kodorvan/perm/tests"
+		}
+	},
+	"scripts": {
+		"pre-update-cmd": "./install.sh"
+	}
+}
