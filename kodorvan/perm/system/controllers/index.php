@@ -45,7 +45,7 @@ final class index extends core
 			// Request for HTML response
 
 			// Render page
-			$page = $this->view->render('index.html');
+			$page = $this->view->render('main/index.html');
 
 			// Sending response
 			$this->response

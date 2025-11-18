@@ -1,0 +1,19 @@
+{% extends "/themes/default/index.html" %}
+
+{% block css %}
+<link type="text/css" rel="stylesheet" href="/themes/default/css/icons/code_slash.css" />
+<link type="text/css" rel="stylesheet" href="/themes/default/css/icons/telegram.css" />
+<link type="text/css" rel="stylesheet" href="/themes/default/css/hotline.css" />
+{% endblock %}
+
+{% block main %}
+{% include '/themes/default/main/blocks/introdution.html' %}
+{% include '/themes/default/main/blocks/projects.html' %}
+{% include '/themes/default/main/blocks/comand.html' %}
+{% include '/themes/default/main/blocks/contacts.html' %}
+{% endblock %}
+
+{% block js %}
+<script src="/js/modules/hotline.mjs" type="module"></script>
+<script src="/js/pages/main.js" defer></script>
+{% endblock %}

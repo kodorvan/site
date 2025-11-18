@@ -1,68 +1,84 @@
 @charset "UTF-8";
 
 header {
-	top: 0;
-	left: 0;
-	position: fixed;
-	width: 100vw;
-	height: 70px;
-	box-sizing: border-box;
-	padding: 0 20%;
-	display: flex;
-	justify-content: space-between;
-	background-color: #931919;
+  top: 0;
+  left: 0;
+  position: fixed;
+  width: 100vw;
+  height: 70px;
+  box-sizing: border-box;
+  padding: 0 20%;
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
 
-	&:not(:has(*)) {
-		display: none;
-	}
+  justify-items: center;
+  align-items: center;
+  background-color: #f7fafc;
+  z-index: 1000;
 
-	>span#logotype {
-		display: flex;
-		flex-direction: column;
-		font-size: 1.1rem;
+  &:not(:has(*)) {
+    display: none;
+  }
 
-		>h4:only-of-type:first-child {
-			margin: unset;
-			font-family: "Cascadia Code";
-			font-size: 2.8em;
-		}
+  > span#logotype {
+    display: flex;
+    flex-direction: column;
+    font-size: 1.1rem;
 
-		>small:only-of-type:last-child {
-			justify-self: end;
-			align-self: end;
-			margin-top: -0.8em;
-			font-family: 'Bahnschrift';
-			font-size: 0.7em;
-			font-weight: 800;
-			text-transform: uppercase;
-		}
-	}
+    > h4:only-of-type:first-child {
+      margin: unset;
+      font-family: "Cascadia Code";
+      font-size: 2.5em;
+    }
 
-	>nav#menu {
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		gap: 1rem;
-		font-family: 'Geologica';
+    > small:only-of-type:last-child {
+      justify-self: end;
+      align-self: end;
+      margin-top: -0.8em;
+      font-family: "Bahnschrift";
+      font-size: 0.62em;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+  }
 
-		>a {
-			text-decoration: none;
-			font-weight: 600;
-			font-size: 1rem;
-			text-transform: uppercase;
-			color: #fff;
-		}
-	}
+  > nav#menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    font-family: "Geologica";
 
-	>a#order {
-		align-self: center;
-		background-color: #660909;
-		padding: 0.5em 1.3em;
-		border-radius: 1.125em;
-		color: #fff;
-		font-family: 'Cascadia Code';
-		font-weight: 400;
-		text-decoration: none;
-		border: 2px solid;
-	}
+    > a {
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 1rem;
+      text-transform: uppercase;
+      color: rgb(0, 0, 0, 0.5);
+      transition: ease 0.2s;
+
+      &:hover {
+        color: #000;
+      }
+    }
+  }
+
+  > a#order {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    padding: 0.5em 1.3em;
+    border-radius: 1.125em;
+
+    font-family: "Cascadia Code";
+    font-weight: 400;
+    text-decoration: none;
+    background-color: #0ea5e9;
+    color: #fff;
+    transition: 0.2s;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
 }

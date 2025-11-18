@@ -5,27 +5,26 @@
 {% use "/themes/default/footer.html" with css as footer_css, body as footer, js as footer_js %}
 
 {% block css %}
-        {{ block('header_css') }}
-        {{ block('aside_css') }}
-        {{ block('footer_css') }}
+	{{ block('header_css') }}
+	{{ block('aside_css') }}
+	{{ block('footer_css') }}
 {% endblock %}
 
 {% block body %}
-        {{ block('header') }}
+	{{ block('header') }}
+	{{ block('aside') }}
 
-        {{ block('aside') }}
+	<main>
+		{% block main %}
+			{{main|raw}}
+		{% endblock %}
+	</main>
 
-        <main>
-                {% block main %}
-                {{ main|raw }}
-                {% endblock %}
-        </main>
-
-        {{ block('footer') }}
+	{{ block('footer') }}
 {% endblock %}
 
 {% block js %}
-        {{ block('header_js') }}
-        {{ block('aside_js') }}
-        {{ block('footer_js') }}
+	{{ block('header_js') }}
+	{{ block('aside_js') }}
+	{{ block('footer_js') }}
 {% endblock %}
