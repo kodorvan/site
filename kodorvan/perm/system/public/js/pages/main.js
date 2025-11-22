@@ -10,6 +10,7 @@ import("../modules/hotline.mjs").then((module) => {
 	instance.alive = true;
 	instance.wheel = false;
 	instance.delta = 3;
+	instance.step = -0.5;
 
 	// Starting the hotline instance
 	instance.start();

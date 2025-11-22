@@ -1,38 +1,66 @@
 section#projects {
-  > h2.title {
-    font-size: 2.4rem;
-    font-family: "Bahnschrift";
-    margin: 0.1em 0 0.2em 0;
-  }
+	>h2.title {
+		font-size: 2.4rem;
+		font-family: "Bahnschrift";
+		margin: 0.1em 0 0.2em 0;
+	}
 
-  div.hotline {
-    max-width: 100vw;
-    max-height: 360px;
-    height: max(16vw, 16vh);
-    display: inline-flex;
-    gap: 15px;
+	div.hotline {
+		width: 100vw;
+		height: 250px;
+		display: inline-flex;
+		gap: 15px;
 
-    > :is(article, div) {
-      position: relative;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      text-align: centr;
+		> :is(article, div) {
+			position: relative;
+			min-width: 220px;
+			max-width: 220px;
+			width: 220px;
+			height: 100%;
+			overflow: hidden;
+			border-radius: 0.75rem;
 
-      min-width: 200px;
-      height: 100%;
-      border-radius: 1.125rem;
-      overflow: hidden;
-      background: rgb(0, 0, 0);
+			h4 {
+				position: absolute;
+				z-index: 50;
+				justify-self: center;
+				bottom: 0.4rem;
+				margin: unset;
+				padding: 0.4rem 1rem 0.3rem;
+				font-family: "Bahnschrift";
+				font-size: 1.2rem;
+				font-weight: 900;
+				color: #fff;
+				text-shadow: 2px 2px 3px #000;
+			}
 
-      p {
-        font-family: "Bahnschrift";
-        font-size: 1.8rem;
-        font-weight: bold;
-        color: #ffffff;
-        text-shadow: 5px 5px 2px rgba(14, 165, 2335, 0.7);
-        text-align: center;
-      }
-    }
-  }
+			img.background {
+				position: absolute;
+				top: 0;
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+			}
+
+			&:is(.pechatalka) {
+				>img.background {
+					filter: blur(1.5px) brightness(0.8);
+				}
+			}
+
+			&:is(.understyle) {
+				>img.background {
+					object-position: bottom;
+					filter: blur(1px) brightness(0.8);
+				}
+			}
+
+			&:is(.surikov) {
+				>img.background {
+					object-position: bottom;
+					filter: blur(0.4px) brightness(0.8);
+				}
+			}
+		}
+	}
 }
