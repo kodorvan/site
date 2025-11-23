@@ -1,20 +1,27 @@
-<div id="description" class="container">
-  <span id="shape">
-    <i class="icon code slash"></i>
-    <span>Профессиональная разработка</span>
-  </span>
+<section id="introdution" class="container">
+	<div class="information">
+		<span id="label">
+			<i class="icon code slash"></i>
+			<span class="unselectable">ПРОФЕССИОНАЛЫ С ОПЫТОМ</span>
+		</span>
 
-  <h2 id="title">
-    Ваша идея — наша <span>реализация</span> 
-  </h2>
-  <p id="description" class="description">
-    Команда из опытных разработчиков, специализирующихся на создании
-    современных веб-приложений, чат-ботов, приложений, видеоигр для малого
-    бизнеса
-  </p>
-</div>
+		<h2 id="title" class="unselectable">ПЕРМСКИЕ РАЗРАБОТЧИКИ</h2>
 
-<!-- IDEA -->
-<!-- Создаем решения будущего -->
-<!-- Ваш рост - наш код -->
-<!-- От идеи до работающего бизнеса -->
+		<p id="team" class="unselectable"><b>Чистый код</b>, реальные сроки и собственные сервера в <strong>Перми</strong><br />по <b>честной цене</b> и с <b>вечной техподдержкой</b></p>
+	</div>
+
+	<div class="background">
+		<div class="dots"></div>
+
+		<canvas id="introdution_animation"></canvas>
+
+		<svg style="position: absolute">
+			<defs>
+			 <filter id="blob">
+					<feGaussianBlur in="SourceGraphic" stdDeviation="12" result="blur"></feGaussianBlur>
+					<feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9" result="blob"></feColorMatrix>
+				</filter>
+			</defs>
+		</svg>
+	</div>
+</section>

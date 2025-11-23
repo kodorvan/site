@@ -5,13 +5,12 @@ header {
   left: 0;
   position: fixed;
   width: 100vw;
-  height: 70px;
+  height: var(--menu-height);
   box-sizing: border-box;
   padding: 0 20%;
-  display: grid;
-  grid-template-columns: 1fr 2fr 1fr;
+  display: flex;
+  justify-content: space-between;
 
-  justify-items: center;
   align-items: center;
   background-color: #f7fafc;
   z-index: 1000;
@@ -20,10 +19,13 @@ header {
     display: none;
   }
 
-  > span#logotype {
+  > a#logotype {
+		margin-top: -0.4rem;
     display: flex;
     flex-direction: column;
     font-size: 1.1rem;
+    text-decoration: none;
+    color: #000;
 
     > h4:only-of-type:first-child {
       margin: unset;
@@ -63,22 +65,5 @@ header {
     }
   }
 
-  > a#order {
-    display: flex;
-    gap: 5px;
-    align-items: center;
-    padding: 0.5em 1.3em;
-    border-radius: 1.125em;
 
-    font-family: "Cascadia Code";
-    font-weight: 400;
-    text-decoration: none;
-    background-color: #0ea5e9;
-    color: #fff;
-    transition: 0.2s;
-
-    &:hover {
-      transform: scale(1.05);
-    }
-  }
 }

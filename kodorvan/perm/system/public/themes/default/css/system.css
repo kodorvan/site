@@ -1,6 +1,8 @@
 @charset "UTF-8";
 
 :root {
+	--width: max(800px, 40vw);
+	--menu-height: 70px;
 	--gap: min(12px, 1rem);
 
 	/* font-family: , system-ui, sans-serif; */

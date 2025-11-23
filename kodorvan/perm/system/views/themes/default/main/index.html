@@ -1,19 +1,37 @@
 {% extends "/themes/default/index.html" %}
 
 {% block css %}
-<link type="text/css" rel="stylesheet" href="/themes/default/css/icons/code_slash.css" />
-<link type="text/css" rel="stylesheet" href="/themes/default/css/icons/telegram.css" />
-<link type="text/css" rel="stylesheet" href="/themes/default/css/hotline.css" />
+	<link type="text/css" rel="stylesheet" href="/css/icons/code_slash.css" />
+	<link type="text/css" rel="stylesheet" href="/css/icons/coffe.css" />
+	<link type="text/css" rel="stylesheet" href="/css/icons/telegram.css" />
+	<link type="text/css" rel="stylesheet" href="/css/icons/close.css" />
+	<link type="text/css" rel="stylesheet" href="/css/icons/check.css" />
+	<link type="text/css" rel="stylesheet" href="/themes/default/css/blocks/introdution.css" />
+	<link type="text/css" rel="stylesheet" href="/themes/default/css/blocks/workload.css" />
+	<link type="text/css" rel="stylesheet" href="/themes/default/css/blocks/statistics.css" />
+	<link type="text/css" rel="stylesheet" href="/themes/default/css/blocks/description.css" />
+	<link type="text/css" rel="stylesheet" href="/themes/default/css/blocks/projects.css" />
+	<link type="text/css" rel="stylesheet" href="/themes/default/css/blocks/service.css" />
+	<link type="text/css" rel="stylesheet" href="/themes/default/css/blocks/advantages.css" />
 {% endblock %}
 
 {% block main %}
-{% include '/themes/default/main/blocks/introdution.html' %}
-{% include '/themes/default/main/blocks/projects.html' %}
-{% include '/themes/default/main/blocks/comand.html' %}
-{% include '/themes/default/main/blocks/contacts.html' %}
+	{% include '/themes/default/main/blocks/introdution.html' %}
+	{% include '/themes/default/main/blocks/workload.html' %}
+	{% include '/themes/default/main/blocks/statistics.html' %}
+	{% include '/themes/default/main/blocks/description.html' %}
+	{% include '/themes/default/main/blocks/projects.html' %}
+	{% include '/themes/default/main/blocks/service.html' %}
+	{% include '/themes/default/main/blocks/advantages.html' %}
+	{% include '/themes/default/main/blocks/comand.html' %}
+
+	{% include '/themes/default/main/blocks/contacts.html' %}
 {% endblock %}
 
 {% block js %}
-<script src="/js/modules/hotline.mjs" type="module"></script>
-<script src="/js/pages/main.js" defer></script>
+	<script src="/js/modules/hotline.mjs" type="module"></script>
+	<script src="/js/modules/womb3-simplex.mjs" type="module"></script>
+	<script src="/js/pages/main.js" defer></script>
+	<script src="/js/modules/service.js" defer></script>
+	<script src="/js/modules/advantages.js" defer></script>
 {% endblock %}

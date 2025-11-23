@@ -62,7 +62,7 @@ final class templater extends controller implements array_access
 		$this->twig = new twig(new FilesystemLoader(VIEWS));
 
 		// Initializing global variables
-		$this->twig->addGlobal('theme', 'test');
+		$this->twig->addGlobal('theme', THEME);
 		$this->twig->addGlobal('server', $_SERVER);
 		$this->twig->addGlobal('cookies', $_COOKIE);
 		$this->twig->addGlobal('language', $language = $session?->buffer['language'] ?? language::en);

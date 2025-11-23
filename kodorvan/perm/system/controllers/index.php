@@ -44,6 +44,12 @@ final class index extends core
 		if (str_contains($this->request->headers['accept'] ?? '', content::html->value)) {
 			// Request for HTML response
 
+			// Initializing the team workload
+			$this->view->workload = (string) ($_COOKIE['workload'] ?? rand(20, 80));
+
+			// Sending the cookie with the team workload (1800 = 30min)
+			setcookie('workload', $this->view->workload, time() + 1800, '/');
+
 			// Render page
 			$page = $this->view->render('main/index.html');
 

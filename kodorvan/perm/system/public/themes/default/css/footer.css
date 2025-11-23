@@ -17,7 +17,7 @@ footer {
   > p#description {
     text-align: center;
     font-size: 1rem;
-    font-family: "Bahnschrift";
+    font-family: "Geologica";
     font-weight: 400;
     margin: unset;
     color: rgb(0, 0, 0, 0.6);
@@ -30,7 +30,7 @@ footer {
     > a {
       text-decoration: none;
       font-size: 1rem;
-      font-family: "Bahnschrift";
+      font-family: "Geologica";
       font-weight: 400;
       color: rgb(160, 160, 160);
       transition: ease 0.2s;

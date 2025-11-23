@@ -1,0 +1,135 @@
+section#introdution {
+	position: relative;
+	width: 100%;
+	height: min(350px, 35vh);
+	overflow: hidden;
+
+	> div.information {
+		z-index: 200;
+		position: fixed;
+		width: 30vw;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		cursor: default;
+
+		> span#label {
+			margin-top: -2em;
+			padding: 0.4em 0.8em 0.2em 1.2em;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			gap: 1em;
+			font-size: 1.2rem;
+			font-family: "Bahnschrift";
+			font-weight: 400;
+			border-radius: 1.125rem;
+			color: #aeb629;
+			border: 1px solid #bababa1c;
+			background-color: #6262623b;
+			backdrop-filter: blur(1.3px);
+
+			> i.icon.code {
+				    margin-bottom: 3px;
+			}
+		}
+
+		> h2#title {
+			margin: unset;
+			width: max-content;
+			padding: 0.2em 0.5em 0em;
+			font-family: Bahnschrift;
+			font-size: 2.6rem;
+			font-weight: 400;
+			color: #fff;
+		}
+
+		> p#team {
+			margin: unset;
+			width: 100%;
+			/* height: 70px; */
+			box-sizing: border-box;
+			padding: 0.6em 1em;
+			text-align: center;
+			font-size: 1.2rem;
+			font-family: "Bahnschrift";
+			font-weight: 400;
+			border-radius: 0.75rem;
+			background-color: #fff;
+
+			> b {
+				color: #152bcb;
+			}
+
+			> strong {
+				color: #de1111;
+			}
+		}
+
+		> span {
+			position: absolute;
+			display: flex;
+			padding: 0.4em 0.8rem 0.3em;
+			font-size: 1.2rem;
+			font-family: "Bahnschrift";
+			font-weight: 400;
+			border-radius: 0.75rem;
+			background-color: #fff;
+		}
+	}
+
+	> div.background {
+		z-index: 100;
+		top: -5%;
+		left: -5%;
+		position: absolute;
+		width: 110%;
+		height: 110%;
+		filter: blur(1.8px) contrast(50);
+
+		> div.dots {
+			--dot-bg: black;
+			--dot-color: #00ff00;
+			--dot-size: 4px;
+			--dot-space: 7px;
+			z-index: -50;
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			background:
+				linear-gradient(
+						90deg,
+						var(--dot-bg) calc(var(--dot-space) - var(--dot-size)),
+						transparent 1%
+					)
+					center / var(--dot-space) var(--dot-space),
+				linear-gradient(
+						var(--dot-bg) calc(var(--dot-space) - var(--dot-size)),
+						transparent 1%
+					)
+					center / var(--dot-space) var(--dot-space),
+				var(--dot-color);
+			mix-blend-mode: color-burn;
+			/* filter: blur(1px); */
+		}
+
+		> video:only-of-type {
+			z-index: -100;
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			object-position: center;
+			scale: 1.1;
+			filter: blur(5px);
+		}
+
+		> canvas#introdution_animation {
+			z-index: -100;
+			position: absolute;
+			width: 100%;
+			scale: 1.2;
+			filter: url(#blob) contrast(var(--contrast, 30));
+		}
+	}
+}

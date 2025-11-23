@@ -1,0 +1,12 @@
+[submodule "hotline.mjs"]
+	path = hotline.mjs
+	url = https://git.svoboda.works/mirzaev/hotline.mjs
+	branch = stable
+[submodule "womb3-simplex.mjs"]
+	path = womb3-simplex.mjs
+	url = https://git.svoboda.works/mirzaev/womb3-simplex.mjs
+	branch = stable
+[submodule "icons"]
+	path = icons
+	url = https://git.svoboda.works/mirzaev/icons
+	branch = stable

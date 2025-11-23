@@ -1,0 +1,35 @@
+section#statistics {
+	> div.row {
+		width: var(--width);
+		display: flex;
+		flex-direction: row;
+		gap: 1rem;
+
+		> div.column {
+			display: flex;
+			flex-direction: column;
+			flex-grow: 1;
+
+			&:is(.statistics) {
+				width: 300px;
+
+				> p {
+					margin: unset;
+					display: flex;
+					gap: 0.4rem;
+					font-family: "Cascadia Code";
+					font-weight: 600;
+
+					> span {
+						font-weight: 400;
+					}
+
+					+ small {
+						font-family: "Bahnschrift";
+						font-weight: 100;
+					}
+				}
+			}
+		}
+	}
+}
