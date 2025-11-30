@@ -1,0 +1,76 @@
+@charset "UTF-8";
+
+section#telegram {
+	--diameter: var(--telegram-diameter, 50px);
+	z-index: 3000;
+	bottom: var(--fixed-bottom);
+	left: var(--fixed-left);
+	position: fixed;
+	width: var(--diameter);
+	height: var(--diameter);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	> a {
+		z-index: 200;
+		width: 100%;
+		height: 100%;
+		border-radius: 100%;
+		box-shadow: 0px 0px 8px 0px rgb(0 0 0 / 30%);
+		transition: scale 0.1s ease-out;
+
+		&:is(:hover, :focus) {
+			scale: 1.05;
+			transition: scale 0.1s ease-in;
+		}
+
+		&:active {
+			scale: 1;
+			filter: brightness(0.8);
+			transition: scale 0s;
+		}
+
+		> img {
+			width: 100%;
+			height: 100%;
+		}
+	}
+
+	> div {
+		--half: calc(var(--telegram-diameter, 0) / 2);
+		--border-radius: 10rem;
+		--gap: 1rem;
+		--border: 1px;
+		z-index: 100;
+		left: var(--half);
+		position: absolute;
+		width: max-content;
+		height: 100%;
+		box-sizing: border-box;
+		padding-right: 2rem;
+		padding-left: calc(var(--half, 0) + var(--gap, 1rem));
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		font-family: "Bahnschrift";
+		border-radius: 0 var(--border-radius) var(--border-radius) 0;
+		border: var(--border, 1px) solid #ded9fae6;
+		border-bottom: unset;
+		background-color: #c0bcd6cc;
+		backdrop-filter: blur(2px);
+
+		> span {
+			font-size: 1.2rem;
+			font-weight: 400;
+			color: #09394e;
+		}
+
+		> small {
+			margin-top: -0.2em;
+			font-size: 0.8rem;
+			font-weight: 400;
+			color: #415970;
+		}
+	}
+}

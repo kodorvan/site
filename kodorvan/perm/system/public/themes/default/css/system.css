@@ -1,9 +1,20 @@
 @charset "UTF-8";
 
 :root {
-	--width: max(800px, 40vw);
+	--width: max(850px, 45vw);
 	--menu-height: 70px;
+	--introdution-height: min(350px, 35vh);
 	--gap: min(12px, 1rem);
+	--fixed-right: 3rem;
+	--fixed-bottom: 2rem;
+	--fixed-left: 3rem;
+	--telegram-diameter: 50px;
+
+	--cookies-z-index: 6000;
+	--cookies-right: var(--fixed-right);
+	--cookies-bottom: var(--fixed-bottom);
+	--cookies-width: 24rem;
+	--cookies-height: 4rem;
 
 	/* font-family: , system-ui, sans-serif; */
 	font-family: "dejavu";
@@ -13,17 +24,11 @@
 	transition: 0.1s ease-out;
 }
 
-/* Selection */
-::selection {
-  color: var(--text-selected-color);
-  background: var(--text-selected-background-color);
+body {
+	margin: unset;
+	overflow-x: hidden;
+	background-color: #f7fafc;
 }
-
-::-moz-selection {
-  color: var(--text-selected-color);
-  background: var(--text-selected-background-color);
-}
-
 
 .unselectable {
 	-webkit-touch-callout: none;
@@ -33,4 +38,3 @@
 	-ms-user-select: none;
 	user-select: none;
 }
-

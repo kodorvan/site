@@ -1,0 +1,27 @@
+@charset "UTF-8";
+
+nav#links {
+	flex-grow: 1;
+	display: inline-flex;
+	justify-content: center;
+	gap: 1rem;
+
+	> a {
+		text-decoration: none;
+		font-family: "Geologica";
+		font-weight: 400;
+		font-size: 0.85rem;
+		color: #807f7f;
+		transition: color 0.1s ease-out;
+
+		&:is(:hover, :focus) {
+			color: #d5d5d5;
+			transition: color 0s;
+		}
+
+		&:active {
+			color: #4b4b4b;
+			transition: color 0s;
+		}
+	}
+}

@@ -1,5 +1,7 @@
-section#statistics {
-	> div.row {
+@charset "UTF-8";
+
+section#shortcut {
+	> div {
 		width: var(--width);
 		display: flex;
 		flex-direction: row;
@@ -8,17 +10,21 @@ section#statistics {
 		> div.column {
 			display: flex;
 			flex-direction: column;
-			flex-grow: 1;
 
 			&:is(.statistics) {
 				width: 300px;
 
 				> p {
 					margin: unset;
+					margin-top: 0.8rem;
 					display: flex;
 					gap: 0.4rem;
 					font-family: "Cascadia Code";
 					font-weight: 600;
+
+					&:is(:first-of-type) {
+						margin-top: unset;
+					}
 
 					> span {
 						font-weight: 400;

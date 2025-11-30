@@ -1,7 +1,7 @@
 @charset "UTF-8";
 
 aside {
-    &:not(:has(*)) {
-        display: none;
-    }
+	&:not(:has(*)) {
+		display: none;
+	}
 }

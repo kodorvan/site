@@ -1,7 +1,11 @@
+@charset "UTF-8";
+
 section#projects {
 	padding-top: 2.5rem;
+	padding-bottom: 1rem;
+	/* transform: rotate3d(220, -777, -100, 385deg) scale(1.1); */
 
-	>h2.title {
+	> h2.title {
 		font-size: 2.4rem;
 		font-family: "Bahnschrift";
 		margin: 0.1em 0 0.2em 0;
@@ -45,20 +49,20 @@ section#projects {
 			}
 
 			&:is(.pechatalka) {
-				>img.background {
+				> img.background {
 					filter: blur(1.5px) brightness(0.8);
 				}
 			}
 
 			&:is(.understyle) {
-				>img.background {
+				> img.background {
 					object-position: bottom;
 					filter: blur(1px) brightness(0.8);
 				}
 			}
 
 			&:is(.surikov) {
-				>img.background {
+				> img.background {
 					object-position: bottom;
 					filter: blur(0.4px) brightness(0.8);
 				}

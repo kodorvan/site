@@ -1,0 +1,54 @@
+@charset "UTF-8";
+
+section#cookies {
+	--shadow: 4px 4px 10px 0px rgb(0 0 0 / 45%);
+	z-index: 3100;
+	right: var(--fixed-right, 2rem);
+	bottom: var(--fixed-bottom, 2rem);
+	position: fixed;
+	font-family: "Bahnschrift";
+	/* border: 1px solid #a8a8a847; */
+	border: 1px solid #fff;
+	/* border-right: unset;
+	border-bottom: unset; */
+	border-radius: 0.75rem;
+	color: #fff;
+	background-color: #000000b8;
+	background-color: #000000;
+	/* backdrop-filter: blur(3px); */
+	box-shadow: var(--shadow);
+	-webkit-box-shadow: var(--shadow);
+	-moz-box-shadow: var(--shadow);
+	transition: opacity 0.1s ease-out;
+
+	> div {
+		padding: 0.8rem 1.2rem 0.7rem;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+
+		> p {
+			margin: unset;
+			font-size: 1rem;
+		}
+
+		> small {
+			font-size: 0.8rem;
+			font-weight: 200;
+			color: #a6a69d;
+		}
+	}
+
+	> button {
+		top: -0.4rem;
+		right: -2rem;
+		position: absolute;
+		padding: unset;
+		padding-right: 0.1em;
+		cursor: pointer;
+		border: unset;
+		color: #f00;
+		background: unset;
+	}
+}

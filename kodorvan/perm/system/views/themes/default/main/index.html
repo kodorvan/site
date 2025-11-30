@@ -1,34 +1,42 @@
 {% extends "/themes/default/index.html" %}
 
 {% block css %}
+	{{ parent() }}
 	<link type="text/css" rel="stylesheet" href="/css/icons/code_slash.css" />
 	<link type="text/css" rel="stylesheet" href="/css/icons/coffe.css" />
 	<link type="text/css" rel="stylesheet" href="/css/icons/telegram.css" />
 	<link type="text/css" rel="stylesheet" href="/css/icons/close.css" />
 	<link type="text/css" rel="stylesheet" href="/css/icons/check.css" />
-	<link type="text/css" rel="stylesheet" href="/themes/default/css/blocks/introdution.css" />
-	<link type="text/css" rel="stylesheet" href="/themes/default/css/blocks/workload.css" />
-	<link type="text/css" rel="stylesheet" href="/themes/default/css/blocks/statistics.css" />
-	<link type="text/css" rel="stylesheet" href="/themes/default/css/blocks/description.css" />
-	<link type="text/css" rel="stylesheet" href="/themes/default/css/blocks/projects.css" />
-	<link type="text/css" rel="stylesheet" href="/themes/default/css/blocks/service.css" />
-	<link type="text/css" rel="stylesheet" href="/themes/default/css/blocks/advantages.css" />
+	<link type="text/css" rel="stylesheet" href="/css/icons/eye.css" />
+	<link type="text/css" rel="stylesheet" href="/css/icons/loading_spinner.css" />
+	<link type="text/css" rel="stylesheet" href="/css/icons/close.css" />
+	<link type="text/css" rel="stylesheet" href="/themes/default/css/pages/index.css" />
+	<link type="text/css" rel="stylesheet" href="/themes/default/css/elements/introdution.css" />
+	<link type="text/css" rel="stylesheet" href="/themes/default/css/elements/shortcut.css" />
+	<link type="text/css" rel="stylesheet" href="/themes/default/css/elements/description.css" />
+	<link type="text/css" rel="stylesheet" href="/themes/default/css/elements/projects.css" />
+	<link type="text/css" rel="stylesheet" href="/themes/default/css/elements/service.css" />
+	<link type="text/css" rel="stylesheet" href="/themes/default/css/elements/advantages.css" />
+	<link type="text/css" rel="stylesheet" href="/themes/default/css/elements/advantages.css" />
+	<link type="text/css" rel="stylesheet" href="/themes/default/css/elements/telegram.css" />
+	<link type="text/css" rel="stylesheet" href="/themes/default/css/elements/workload.css" />
+	<link type="text/css" rel="stylesheet" href="/themes/default/css/elements/cookies.css" />
 {% endblock %}
 
 {% block main %}
-	{% include '/themes/default/main/blocks/introdution.html' %}
-	{% include '/themes/default/main/blocks/workload.html' %}
-	{% include '/themes/default/main/blocks/statistics.html' %}
-	{% include '/themes/default/main/blocks/description.html' %}
-	{% include '/themes/default/main/blocks/projects.html' %}
-	{% include '/themes/default/main/blocks/service.html' %}
-	{% include '/themes/default/main/blocks/advantages.html' %}
-	{% include '/themes/default/main/blocks/comand.html' %}
+	{% include '/themes/default/main/elements/introdution.html' %}
+	{% include '/themes/default/main/elements/workload.html' %}
+	{% include '/themes/default/main/elements/shortcut.html' %}
+	{% include '/themes/default/main/elements/description.html' %}
+	{% include '/themes/default/main/elements/projects.html' %}
+	{% include '/themes/default/main/elements/server.html' %}
 
-	{% include '/themes/default/main/blocks/contacts.html' %}
+	{% include '/themes/default/elements/telegram.html' %}
+	{% include '/themes/default/elements/cookies.html' %}
 {% endblock %}
 
 {% block js %}
+	{{ parent() }}
 	<script src="/js/modules/hotline.mjs" type="module"></script>
 	<script src="/js/modules/womb3-simplex.mjs" type="module"></script>
 	<script src="/js/pages/main.js" defer></script>

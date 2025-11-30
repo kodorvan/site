@@ -1,0 +1,94 @@
+@charset "UTF-8";
+
+section#description {
+	padding-top: 1.5rem;
+	gap: 1rem;
+
+	> p {
+		margin: unset;
+		width: var(--width);
+		font-family: "Cascadia Code";
+		font-weight: 300;
+		font-size: 0.8rem;
+
+		> span {
+			font-weight: 400;
+		}
+
+		+ small {
+			font-family: "Bahnschrift";
+			font-weight: 100;
+		}
+	}
+
+	> ul.table {
+		/* --border-color: #000; */
+		--border-color: unset;
+		margin: unset;
+		margin-top: 1rem;
+		width: var(--width);
+		padding: unset;
+		display: flex;
+		flex-direction: column;
+		font-family: "Bahnschrift";
+		font-size: 0.8rem;
+		font-weight: 400;
+		list-style: none;
+		overflow: hidden;
+		border-radius: 0.75rem;
+		border: 1px solid var(--border-color);
+
+		> li {
+			height: 3rem;
+			display: flex;
+			border-bottom: 1px dashed var(--border-color);
+
+			&:is(:last-of-type) {
+				border-bottom: unset;
+			}
+
+			> span {
+				padding: 0.25rem 0.45rem;
+				display: inline;
+				align-content: center;
+
+				&:is(.bad) {
+					width: 45%;
+					opacity: 0.6;
+					border-right: 1px solid var(--border-color);
+					/* background-color: #ffe1e1; */
+
+					> i.icon.close {
+						margin-top: -0.4em;
+						color: #c64d4d;
+					}
+				}
+
+				&:is(.good) {
+					width: 70%;
+					/* background-color: #e0ffd5; */
+
+					> i.icon.check {
+						min-width: var(--width);
+						color: #77b81b;
+					}
+				}
+
+				> i.icon {
+					float: left;
+					height: 100%;
+				}
+			}
+		}
+	}
+
+	> strong.partners {
+		font-family: "Geologica";
+		font-weight: 400;
+		font-size: 1.2rem;
+
+		> span {
+			color: #1e1df2;
+		}
+	}
+}

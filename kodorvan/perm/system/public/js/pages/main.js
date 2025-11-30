@@ -28,13 +28,13 @@ import("../modules/womb3-simplex.mjs").then((module) => {
 
 	// Initializing the process registers
 	let offset = 0;
-	let speed = 0.003;
+	let speed = 0.01;
 
 	// Starting the process
 	setInterval(function () {
 		womb.dump();
 		womb.generate((offset += speed), '#000');
-	}, 20);
+	}, 60);
 
 	// Initializing the resizing event processor
 	window.addEventListener(
