@@ -1,8 +1,8 @@
 @charset "UTF-8";
 
 section#office {
-	display: flex;
 	height: 100%;
+	display: flex;
 
 	> div.map {
 		width: 250px;

@@ -10,26 +10,40 @@
 	<link type="text/css" rel="stylesheet" href="/css/icons/eye.css" />
 	<link type="text/css" rel="stylesheet" href="/css/icons/loading_spinner.css" />
 	<link type="text/css" rel="stylesheet" href="/css/icons/close.css" />
+	<link type="text/css" rel="stylesheet" href="/css/icons/plus.css" />
+	<link type="text/css" rel="stylesheet" href="/css/icons/minus.css" />
+	<link type="text/css" rel="stylesheet" href="/css/icons/server.css" />
+	<link type="text/css" rel="stylesheet" href="/css/icons/trend.css" />
+	<link type="text/css" rel="stylesheet" href="/css/icons/terminal.css" />
+	<link type="text/css" rel="stylesheet" href="/css/icons/list_tree.css" />
+	<link type="text/css" rel="stylesheet" href="/css/icons/gift.css" />
+	<link type="text/css" rel="stylesheet" href="/css/icons/phone.css" />
 	<link type="text/css" rel="stylesheet" href="/themes/default/css/pages/index.css" />
 	<link type="text/css" rel="stylesheet" href="/themes/default/css/elements/introdution.css" />
-	<link type="text/css" rel="stylesheet" href="/themes/default/css/elements/shortcut.css" />
-	<link type="text/css" rel="stylesheet" href="/themes/default/css/elements/description.css" />
-	<link type="text/css" rel="stylesheet" href="/themes/default/css/elements/projects.css" />
-	<link type="text/css" rel="stylesheet" href="/themes/default/css/elements/service.css" />
-	<link type="text/css" rel="stylesheet" href="/themes/default/css/elements/advantages.css" />
-	<link type="text/css" rel="stylesheet" href="/themes/default/css/elements/advantages.css" />
-	<link type="text/css" rel="stylesheet" href="/themes/default/css/elements/telegram.css" />
 	<link type="text/css" rel="stylesheet" href="/themes/default/css/elements/workload.css" />
+	<link type="text/css" rel="stylesheet" href="/themes/default/css/elements/shortcut.css" />
+	<link type="text/css" rel="stylesheet" href="/themes/default/css/elements/popular.css" />
+	<link type="text/css" rel="stylesheet" href="/themes/default/css/elements/projects.css" />
+	<link type="text/css" rel="stylesheet" href="/themes/default/css/elements/server.css" />
+	<link type="text/css" rel="stylesheet" href="/themes/default/css/elements/description.css" />
+	<link type="text/css" rel="stylesheet" href="/themes/default/css/elements/telegram.css" />
 	<link type="text/css" rel="stylesheet" href="/themes/default/css/elements/cookies.css" />
 {% endblock %}
 
 {% block main %}
 	{% include '/themes/default/main/elements/introdution.html' %}
-	{% include '/themes/default/main/elements/workload.html' %}
-	{% include '/themes/default/main/elements/shortcut.html' %}
-	{% include '/themes/default/main/elements/description.html' %}
-	{% include '/themes/default/main/elements/projects.html' %}
+
+	<section class="wrap row">
+	  <div class="net"></div>
+
+		{% include '/themes/default/main/elements/workload.html' %}
+		{% include '/themes/default/main/elements/shortcut.html' %}
+		{% include '/themes/default/main/elements/popular.html' %}
+		{% include '/themes/default/main/elements/projects.html' %}
+	</section>
+
 	{% include '/themes/default/main/elements/server.html' %}
+	{% include '/themes/default/main/elements/description.html' %}
 
 	{% include '/themes/default/elements/telegram.html' %}
 	{% include '/themes/default/elements/cookies.html' %}
@@ -37,6 +51,7 @@
 
 {% block js %}
 	{{ parent() }}
+
 	<script src="/js/modules/hotline.mjs" type="module"></script>
 	<script src="/js/modules/womb3-simplex.mjs" type="module"></script>
 	<script src="/js/pages/main.js" defer></script>

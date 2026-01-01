@@ -1,0 +1,212 @@
+@charset "UTF-8";
+
+section#server {
+	--height: 440px;
+	--y-max: min(var(--y, 0px), var(--height, 0px));
+	--offset-left: -5vw;
+	position: relative;
+	height: 440px;
+	overflow: hidden;
+	/* background-color: #000; */
+	background: linear-gradient(127deg, #030308, #0e0202, #180101);
+
+	>div.server {
+		z-index: 100;
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		pointer-events: none;
+
+		>img.pc {
+			z-index: 100;
+			position: absolute;
+			top: -225px;
+			/* left: calc(-120px + var(--offset-left) + (var(--y-max, 0px) / 4)); */
+			left: var(--offset-left);
+			height: 290%;
+			clip-path: polygon(0 0, 915px 0, 1065px 100%, 0 100%);
+			transform: perspective(130px) rotateZ(17deg) rotateX(1.3deg) skewX(8deg);
+			filter: contrast(1.1) brightness(1.1);
+			transition: left 0.4s ease-in-out;
+		}
+	}
+
+	>div.right {
+		position: absolute;
+		display: contents;
+
+		>div.title {
+			z-index: 50;
+			position: absolute;
+			left: calc(var(--offset-left, 0px) + 450px);
+			width: 100%;
+			height: 100%;
+			display: flex;
+			flex-direction: column;
+			justify-content: start;
+			align-items: start;
+			font-family: "Geologica";
+			font-size: 3rem;
+			color: #fff;
+			transform: perspective(135px) rotateY(-4deg) skewY(5.4deg);
+
+			>h3 {
+				margin: unset;
+				margin-left: min(calc(-100% + (var(--y-max, 0px) * 4.35)), 0px);
+				width: 100%;
+				display: flex;
+				justify-content: start;
+				align-items: center;
+				gap: 0.4em;
+				font-size: 7.6vw;
+				font-weight: 800;
+				color: #ff9400;
+				transition: margin-left 0.4s cubic-bezier(0.55, 0.04, 0.12, 1);
+
+				>i.icon.server {
+					margin-left: 0.3em;
+					scale: 5;
+					color: #fff;
+				}
+			}
+
+			>span {
+				margin-top: -2rem;
+				/* margin-left: 0.1em; */
+				margin-left: min(calc(-100% + 0.1em + (var(--y-max, 0px) * 4.35)), 0px);
+				font-weight: 400;
+				font-size: 3.65vw;
+				color: #b81515;
+				color: #fff;
+				transition: margin-left 0.5s cubic-bezier(0.55, 0.04, 0.12, 1);
+			}
+		}
+
+		>div.bottom {
+			position: absolute;
+			bottom: 0;
+			width: 100%;
+			display: flex;
+
+			>div.column {
+				--margin-bottom: 1.4rem;
+				--height: 105px;
+				z-index: 100;
+				margin: auto 2rem var(--margin-bottom, 1.4rem) auto;
+				margin-bottom: min(calc(var(--height, 100%) * -4 + var(--y-max) / 1),
+						var(--margin-bottom));
+				height: var(--height, fit-content);
+				display: flex;
+				flex-direction: column;
+				font-family: "Geologica";
+				font-weight: 400;
+				font-size: 3rem;
+				color: #fff;
+				transition: margin-bottom 0.3s cubic-bezier(0.55, 0.04, 0.12, 1) 0.2s;
+
+				>span.location {
+					margin-bottom: -0.2em;
+					text-align: end;
+					font-size: 0.85em;
+					font-weight: 400;
+					color: #fff;
+
+					>strong {
+						margin-left: 0.1em;
+						font-weight: 500;
+						/* color: #f00; */
+						color: #0AF;
+					}
+				}
+
+				>strong.cost {
+					display: flex;
+					justify-content: start;
+					align-items: center;
+					gap: 0.2em;
+					font-weight: 400;
+
+					>span {
+						font-weight: 500;
+						color: #00ff08;
+					}
+
+					>i.icon.trend {
+						margin-bottom: 0em;
+						margin-right: 0.45em;
+						scale: 3;
+						rotate: -17deg;
+						color: #fff;
+					}
+				}
+			}
+
+			>ul.advantages {
+				--border-color: #fff;
+				z-index: 500;
+				position: relative;
+				margin: unset;
+				margin-top: auto;
+				margin-right: 10vw;
+				height: 150px;
+				box-sizing: border-box;
+				padding: 1em 1.2em;
+				display: flex;
+				justify-content: center;
+				gap: 0.3em;
+				flex-direction: column;
+				font-family: "Bahnschrift";
+				font-size: 1.2em;
+				font-weight: 600;
+				list-style: none;
+				border-radius: 0.75rem 0.75rem 0 0;
+				border: 2px solid var(--border-color);
+				border-bottom: unset;
+				color: #000;
+				background-color: #fff;
+				transform-origin: left;
+
+				&:before {
+					content: "";
+					position: absolute;
+					left: -2.4rem;
+					bottom: 0;
+					height: 2.25rem;
+					width: 2.25rem;
+					pointer-events: none;
+					border-bottom-right-radius: 0.75rem;
+					box-shadow: 0 20px 0 0 #fff;
+				}
+
+				&:after {
+					content: "";
+					position: absolute;
+					right: -2.4rem;
+					bottom: 0;
+					height: 2.25rem;
+					width: 2.25rem;
+					pointer-events: none;
+					border-bottom-left-radius: 0.75rem;
+					box-shadow: 0 20px 0 0 #fff;
+				}
+
+				>li {
+					position: relative;
+					display: inline-flex;
+					align-items: center;
+					padding-left: 1.8em;
+
+					>i.icon {
+						position: absolute !important;
+						left: 0;
+
+						&:is(.trophy) {
+							top: 0.15em;
+							left: 0.6em;
+						}
+					}
+				}
+			}
+		}
+	}
+}

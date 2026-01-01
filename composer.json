@@ -17,11 +17,6 @@
       "email": "arsen@mirzaev.sexy",
       "homepage": "https://mirzaev.sexy",
       "role": "Programmer"
-    },
-		{
-      "name": "Hollspae",
-      "email": "ksena.vilkova79@gmail.om",
-      "role": "Creator-Programmer"
     }
 	],
 	"support": {
@@ -29,7 +24,7 @@
 		"issues": "https://git.svoboda.works/kodorvan/perm/issues"
 	},
 	"require": {
-		"php": "^8.4",
+		"php": "^8.5",
 		"mirzaev/minimal": "^3.8",
 		"mirzaev/baza": "^3.4",		
 		"mirzaev/languages": "^1",		

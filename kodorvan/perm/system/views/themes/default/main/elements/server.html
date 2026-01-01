@@ -1,2 +1,39 @@
-<section id="server" class="row">
+<section id="server" class="row unselectable">
+	<div class="server">
+		<img
+			src="/themes/default/images/server.png"
+			alt="Kodorvan сервер в Перми"
+			class="pc"
+			ondragstart="return false"
+		/>
+	</div>
+	<div class="right">
+		<div class="title">
+			<h3><i class="icon server"></i>НАШИ СЕРВЕРА</h3>
+			<span>ПОЛНЫЙ КОНТРОЛЬ НАД ПРОЕКТОМ</span>
+		</div>
+
+		<div class="bottom">
+			<div class="column">
+				<span class="location">ЛОКАЦИЯ: <strong>ПЕРМЬ</strong></span>
+				<strong class="cost">
+					<i class="icon trend"></i>
+					ОТ <span>200₽</span> В МЕСЯЦ
+				</strong>
+			</div>
+
+			<ul class="advantages">
+				<li><i class="icon list tree"></i>Бесплатно на этапе разработки</li>
+				<li><i class="icon gift"></i>Самые низкие цены</li>
+				<li><i class="icon phone"></i>Адекватная техподдержка</li>
+				<li><i class="icon terminal"></i>Оперативный доступ</li>
+			</ul>
+		</div>
+	</div>
 </section>
+
+<script>
+	let server = document.getElementById('server');
+
+	setInterval(() => server.style.setProperty('--y', (window.pageYOffset + window.innerHeight - server.offsetTop) + 'px'), 350);
+</script>

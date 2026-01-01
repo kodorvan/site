@@ -5,8 +5,9 @@ section#introdution {
 	width: 100%;
 	height: var(--introdution-height, 350px);
 	overflow: hidden;
+	background-color: #000;
 
-	+ section.row {
+	+section.row {
 		--shadow: 0px -10px 60px 30px rgba(0, 0, 0, 0.6);
 		padding-top: 1rem;
 		box-shadow: var(--shadow);
@@ -14,16 +15,18 @@ section#introdution {
 		-moz-box-shadow: var(--shadow);
 	}
 
-	> div.information {
+	>div.information {
 		z-index: 200;
 		position: fixed;
-		width: 30vw;
+		width: 33rem;
 		display: flex;
 		flex-direction: column;
 		align-items: center;
 		cursor: default;
+		/* transform: perspective(35px) rotatex(1deg); */
 
-		> span#label {
+		>span#label {
+			--shadow: 0px 9px 8px 0px rgb(0 0 0 / 40%);
 			margin-top: -2em;
 			padding: 0.4em 0.8em 0.2em 1.2em;
 			display: flex;
@@ -35,16 +38,21 @@ section#introdution {
 			font-weight: 400;
 			border-radius: 1.125rem;
 			color: #aeb629;
-			border: 1px solid #bababa1c;
-			background-color: #6262623b;
+			border: 1px solid #e06a6a6e;
+			border-bottom: unset;
+			background-color: #472929a8;
 			backdrop-filter: blur(1.3px);
+			box-shadow: var(--shadow);
+			-webkit-box-shadow: var(--shadow);
+			-moz-box-shadow: var(--shadow);
+			/* transform: perspective(25px) rotatex(-1deg); */
 
-			> i.icon.code {
+			>i.icon.code {
 				margin-bottom: 3px;
 			}
 		}
 
-		> h2#title {
+		>h2#title {
 			margin: unset;
 			width: max-content;
 			padding: 0.2em 0.5em 0em;
@@ -53,11 +61,18 @@ section#introdution {
 			font-weight: 400;
 			color: #fff;
 			text-shadow:
-				0px 0px 4px #ffffff,
-				0px 0px 9px #ffffff96;
+				0px 0px 4px #ffffff85,
+				0px 0px 9px #ffffff47;
+
+			>span.kodorvan {
+				color: #ffff00;
+				text-shadow:
+					0px 0px 4px #ffff00b5,
+					0px 0px 11px #ffff008a
+			}
 		}
 
-		> p#team {
+		>p#team {
 			margin: unset;
 			width: 100%;
 			/* height: 70px; */
@@ -70,16 +85,16 @@ section#introdution {
 			border-radius: 0.75rem;
 			background-color: #fff;
 
-			> b {
+			>b {
 				color: #152bcb;
 			}
 
-			> strong {
+			>strong {
 				color: #de1111;
 			}
 		}
 
-		> span {
+		>span {
 			position: absolute;
 			display: flex;
 			padding: 0.4em 0.8rem 0.3em;
@@ -91,7 +106,7 @@ section#introdution {
 		}
 	}
 
-	> div.background {
+	>div.background {
 		z-index: 100;
 		top: -5%;
 		left: -5%;
@@ -101,10 +116,11 @@ section#introdution {
 		animation-name: appearance;
 		animation-fill-mode: forwards;
 		animation-duration: 0.2s;
+		animation-delay: 1s;
 		animation-timing-function: ease-in;
 		filter: blur(1.8px) contrast(50);
 
-		> div.dots {
+		>div.dots {
 			--dot-bg: black;
 			--dot-color: #00ff00;
 			--dot-size: 4px;
@@ -114,23 +130,17 @@ section#introdution {
 			width: 100%;
 			height: 100%;
 			background:
-				linear-gradient(
-						90deg,
-						var(--dot-bg) calc(var(--dot-space) - var(--dot-size)),
-						transparent 1%
-					)
-					center / var(--dot-space) var(--dot-space),
-				linear-gradient(
-						var(--dot-bg) calc(var(--dot-space) - var(--dot-size)),
-						transparent 1%
-					)
-					center / var(--dot-space) var(--dot-space),
+				linear-gradient(90deg,
+					var(--dot-bg) calc(var(--dot-space) - var(--dot-size)),
+					transparent 1%) center / var(--dot-space) var(--dot-space),
+				linear-gradient(var(--dot-bg) calc(var(--dot-space) - var(--dot-size)),
+					transparent 1%) center / var(--dot-space) var(--dot-space),
 				var(--dot-color);
 			mix-blend-mode: color-burn;
 			filter: contrast(5);
 		}
 
-		> video:only-of-type {
+		>video:only-of-type {
 			z-index: -100;
 			position: absolute;
 			width: 100%;
@@ -141,7 +151,7 @@ section#introdution {
 			filter: blur(5px);
 		}
 
-		> canvas#introdution_animation {
+		>canvas#introdution_animation {
 			z-index: -100;
 			position: absolute;
 			width: 100%;

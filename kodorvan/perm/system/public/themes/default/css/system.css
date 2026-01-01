@@ -1,7 +1,7 @@
 @charset "UTF-8";
 
 :root {
-	--width: max(850px, 45vw);
+	--width: max(1050px, 55vw);
 	--menu-height: 70px;
 	--introdution-height: min(350px, 35vh);
 	--gap: min(12px, 1rem);
@@ -16,8 +16,14 @@
 	--cookies-width: 24rem;
 	--cookies-height: 4rem;
 
-	/* font-family: , system-ui, sans-serif; */
-	font-family: "dejavu";
+	font-family: "Commissioner";
+	font-family: "Share Tech Mono";
+	font-family: "Montserrat";
+	font-family: "Alumni Sans Pinstripe";
+	font-family: "DejaVu";
+	font-family: "Fira";
+	font-family: "Hack";
+	font-family: "Nunito", "DejaVu", sans-serif;
 	text-decoration: none;
 	outline: none;
 	border: none;
@@ -26,6 +32,7 @@
 
 body {
 	margin: unset;
+	width: 100vw;
 	overflow-x: hidden;
 	background-color: #f7fafc;
 }

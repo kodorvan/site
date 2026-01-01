@@ -9,7 +9,7 @@ use kodorvan\perm\controllers\core;
 
 // Framework for PHP
 use mirzaev\minimal\http\enumerations\content,
-  mirzaev\minimal\http\enumerations\status;
+	mirzaev\minimal\http\enumerations\status;
 
 /**
  * Index
@@ -46,6 +46,143 @@ final class index extends core
 
 			// Initializing the team workload
 			$this->view->workload = (string) ($_COOKIE['workload'] ?? rand(20, 80));
+
+			// Initializing services
+			$this->view->services = [
+				[
+					'class' => 'telegram voronka',
+					'title' => 'Телеграм воронка',
+					'icon_left' => '',
+					/* 'icon_center' => 'import', */
+					'icon_center' => 'crown',
+					'icon_right' => '',
+					'description' => <<<TXT
+						Поступательно запросит данные пользователя, скомпонует, запишет в базу данных и синхронизирует в CRM
+						<br><br>
+						Используя иммерсивные технологии и многофакторный сбор обеспечивает максимальное удержание пользователя
+						TXT,
+					'howto' => 'Направьте к нему клиентов и ждите новых заказов в вашей CRM, на сайте или в чате',
+					'buttons' => [
+						[
+							'icon' => 'comment',
+							'link' => ''
+						]
+					],
+					'theses' => [
+						[
+							'class' => 'yellow',
+							'characteristic' => '-80%',
+							'text' => 'НАГРУЗКА'
+						],
+						[
+							'class' => 'blue',
+							'colored' => true,
+							'characteristic' => '+5%',
+							'text' => 'КОНВЕРСИИ'
+						],
+						[
+							'class' => 'green',
+							'characteristic' => '0₽',
+							'text' => 'НИКАКОЙ АРЕНДЫ'
+						]
+					],
+					'background_image_src' => '/themes/default/images/telegram_voronka.png',
+					'background_image_alt' => 'Телеграм воронка КОДОРВАНЬ',
+					'cost' => '2000'
+				],
+				[
+					'class' => 'parser',
+					'title' => 'Парсер',
+					'icon_left' => '',
+					'icon_center' => 'search',
+					'icon_right' => '',
+					'description' => <<<TXT
+						Любая работа за компьютером может быть автоматизирована
+						<br><br>
+						Парсер берёт данные с сайтов через API, либо эмулируя пользователя, а так же из excel-документов, CRM и бухгалтерии, затем просчитывает, анализирует и записывает результат
+						TXT,
+					'howto' => 'Подключите источники и снизьте нагрузку на операторов, оптимизируйте процессы',
+					'extra' => [
+						'Wildberries',
+						'OZON',
+						'Yandex Market',
+						'Avito',
+						'CDEK',
+						'1C',
+						'Bitrix',
+						'Мой Склад'
+					],
+					'buttons' => [
+						[
+							'icon' => 'comment',
+							'link' => ''
+						]
+					],
+					'theses' => [
+						[
+							'class' => 'yellow',
+							'colored' => true,
+							'characteristic' => '-100%',
+							'text' => 'НАГРУЗКА'
+						],
+						[
+							'class' => 'cyan',
+							'icon' => 'infinity',
+							'text' => 'ВЕЧНАЯ ПОДДЕРЖКА'
+						],
+						[
+							'class' => 'green',
+							'icon' => 'play forwards',
+							'text' => 'РЕКОРД СКОРОСТИ'
+						]
+					],
+					'background_image_src' => '/themes/default/images/excel_small_compressed.jpg',
+					'background_image_alt' => 'Парсеры КОДОРВАНЬ',
+					'cost' => '3000'
+				],
+				[
+					'class' => 'calculator',
+					'title' => 'Калькулятор',
+					'icon_left' => '',
+					'icon_center' => 'calculator',
+					'icon_right' => '',
+					'description' => <<<TXT
+						Составление алгоритма обработки большого объёма данных с использованием нейросетей и грамотно выбранной сортировки
+						<br><br>
+						Оператор вводит данные, нажимает на кнопки, двигает ползунки и мгновенно получает точный результат вычислений
+						TXT,
+					'howto' => 'Настройте параметры в панели управления и в долгосрочной перспективе сэкономьте тысячи часов рабочего времени',
+					'extra' => [],
+					'buttons' => [
+						[
+							'icon' => 'comment',
+							'link' => ''
+						]
+					],
+					'theses' => [
+						[
+							'class' => 'yellow',
+							'characteristic' => '-95%',
+							'text' => 'НАГРУЗКА'
+						],
+						[
+							'class' => 'green',
+							'characteristic' => '-80%',
+							'text' => 'ОШИБОК ВЫЧИСЛЕНИЙ'
+						],
+						[
+							'class' => 'red',
+							'colored' => true,
+							'characteristic' => '+20%',
+							'text' => 'ОБУЧАЕМОСТЬ'
+						]
+					],
+					'background_image_src' => '/themes/default/images/tordv_compressed.jpg',
+					'background_image_alt' => 'Калькулятор КОДОРВАНЬ',
+					'cost' => '10 000'
+				]
+
+			];
 
 			// Sending the cookie with the team workload (1800 = 30min)
 			setcookie('workload', $this->view->workload, time() + 1800, '/');
