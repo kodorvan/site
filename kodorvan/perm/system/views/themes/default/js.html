@@ -1,4 +1,12 @@
 {% block js %}
+	<script type="importmap">
+		{
+			"imports": {
+        "three": "/js/three.module.js"
+			}
+		}
+	</script>
+
 	{% for element in js %}
 		<script 
 			{% if element.src %}src="{{ element.src }}" {% endif %} 

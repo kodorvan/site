@@ -108,37 +108,17 @@ section#introdution {
 
 	>div.background {
 		z-index: 100;
-		top: -5%;
-		left: -5%;
 		position: absolute;
-		width: 110%;
-		height: 110%;
+		top: 0%;
+		left: 0%;
+		width: 100%;
+		height: 100%;
+		filter: brightness(0.4);
 		animation-name: appearance;
 		animation-fill-mode: forwards;
 		animation-duration: 0.2s;
 		animation-delay: 1s;
 		animation-timing-function: ease-in;
-		filter: blur(1.8px) contrast(50);
-
-		>div.dots {
-			--dot-bg: black;
-			--dot-color: #00ff00;
-			--dot-size: 4px;
-			--dot-space: 7px;
-			z-index: -50;
-			position: absolute;
-			width: 100%;
-			height: 100%;
-			background:
-				linear-gradient(90deg,
-					var(--dot-bg) calc(var(--dot-space) - var(--dot-size)),
-					transparent 1%) center / var(--dot-space) var(--dot-space),
-				linear-gradient(var(--dot-bg) calc(var(--dot-space) - var(--dot-size)),
-					transparent 1%) center / var(--dot-space) var(--dot-space),
-				var(--dot-color);
-			mix-blend-mode: color-burn;
-			filter: contrast(5);
-		}
 
 		>video:only-of-type {
 			z-index: -100;
@@ -151,12 +131,18 @@ section#introdution {
 			filter: blur(5px);
 		}
 
-		>canvas#introdution_animation {
-			z-index: -100;
+		>div#ebashilovo {
+			z-index: 1000;
 			position: absolute;
 			width: 100%;
-			scale: 1.2;
-			filter: url(#blob) contrast(var(--contrast, 30));
+			height: 100%;
+
+			>canvas {
+				width: 200%;
+				height: 100%;
+				display: block;
+			}
+
 		}
 	}
 }
