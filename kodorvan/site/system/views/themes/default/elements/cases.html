@@ -46,21 +46,21 @@
 </section>
 
 <script>
-document.addEventListener('core.initialized', () => 
-	core.modules.connect(["hotline"]).then((connected) => {
-		// Imported the hotline.mjs module
+	document.addEventListener('core.initialized', () => 
+		core.modules.connect(["hotline"]).then((connected) => {
+			// Imported the hotline.mjs module
 
-		// Initializing an instance of the hotline.mjs
-		const instance = new connected.hotline(document.getElementById("cases"));
+			// Initializing an instance of the hotline.mjs
+			const instance = new connected.hotline(document.getElementById("cases"));
 
-		// Initializing settings of the hotline instance
-		instance.alive = true;
-		instance.wheel = false;
-		instance.delta = 3;
-		instance.step = -0.5;
+			// Initializing settings of the hotline instance
+			instance.alive = true;
+			instance.wheel = false;
+			instance.delta = 3;
+			instance.step = -0.5;
 
-		// Starting the hotline instance
-		instance.start();
-	})
-);
+			// Starting the hotline instance
+			instance.start();
+		})
+	);
 </script>

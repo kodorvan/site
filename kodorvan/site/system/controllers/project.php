@@ -83,20 +83,20 @@ final class project extends core
 			$mail->setLanguage('ru');
 			$mail->CharSet = mail::CHARSET_UTF8;
 			$mail->isSMTP();
-			$mail->Host = 'smtp.mail.ru';
+			$mail->Host = MAIL_SERVER['host'];
 			$mail->SMTPAuth = true;
-			$mail->Username = 'system@kodorvan.tech';
-			$mail->Password = 'c6oQF2nY0javI312eDS0';
+			$mail->Username = MAIL_SERVER['sender']['mail'];
+			$mail->Password = MAIL_SERVER['password'];
 			$mail->SMTPSecure = mail::ENCRYPTION_SMTPS;
 			$mail->Port = 465;
-			$mail->setFrom('system@kodorvan.tech', 'Система');
-			$mail->addAddress('request@kodorvan.tech', 'Заявки');
+			$mail->setFrom(MAIL_SERVER['sender']['mail'], MAIL_SERVER['sender']['name']);
+			$mail->addAddress(MAIL_SERVER['receiver']['mail'], MAIL_SERVER['receiver']['name']);
 
 			// The message
 			$mail->isHTML(true);
 			$mail->Subject = empty($request['project']['name']) ? 'Заказ' : 'Заказ: ' . $request['project']['name'];
 			$mail->Body = $this->view->render('messages/request.html', $request);
-			$mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
+			/* $mail->AltBody = 'This is the body in plain text for non-HTML mail clients'; */
 
 			// Attachments
 			foreach ($files as $name => $file) {

@@ -1,27 +1,27 @@
-<section id="companies" class="unselectable">
+<article id="companies" class="unselectable">
   {% for alt, file in integrations %}
 	<img class="{{ file }}" src="/themes/{{ theme }}/images/logotypes/{{ file }}.svg" alt="{{ alt }}" ondragstart="return false"/>
 	{% endfor %}
-</section>
+</article>
 
 <script>
-document.addEventListener('core.initialized', () => 
-	core.modules.connect(["hotline"]).then((connected) => {
-		// Imported the hotline.mjs module
+	document.addEventListener('core.initialized', () => 
+		core.modules.connect(["hotline"]).then((connected) => {
+			// Imported the hotline.mjs module
 
-		// Initializing an instance of the hotline.mjs
-		const instance = new connected.hotline(document.getElementById("companies"));
+			// Initializing an instance of the hotline.mjs
+			const instance = new connected.hotline(document.getElementById("companies"));
 
-		// Initializing settings of the hotline instance
-		instance.alive = true;
-		instance.wheel = false;
-		instance.movable = false;
-		instance.hover = false;
-		instance.delta = 3;
-		instance.step = 0.2;
+			// Initializing settings of the hotline instance
+			instance.alive = true;
+			instance.wheel = false;
+			instance.movable = false;
+			instance.hover = false;
+			instance.delta = 3;
+			instance.step = -0.2;
 
-		// Starting the hotline instance
-		instance.start();
-	})
-);
+			// Starting the hotline instance
+			instance.start();
+		})
+	);
 </script>

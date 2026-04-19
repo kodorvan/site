@@ -1,0 +1,61 @@
+@charset "UTF-8";
+
+body {
+	&:has(> article#rofls > img.eye:is(:hover, :focus, :active)) {
+		>article#rofls {
+			>img.eye {
+				cursor: none;
+			}
+
+			>img:not(.eye) {
+				opacity: 0;
+				transition: opacity 0.1s ease-in;
+			}
+		}
+
+		>*:not(section#buttons) {
+			opacity: 0;
+			transition: opacity 0.1s ease-in;
+		}
+	}
+
+	>article#rofls {
+		z-index: 50;
+		width: min-content;
+		height: 32px;
+		display: flex;
+		flex-direction: row;
+		overflow: hidden;
+
+		&:has(> img.colors:is(:hover, :focus, :active)) {
+			z-index: 9999;
+			mix-blend-mode: color-dodge;
+			filter: contrast(50);
+		}
+
+		>img {
+			margin: unset;
+			height: 100%;
+			overflow: hidden;
+
+			&:is(.noclick) {
+				cursor: not-allowed;
+			}
+
+			&:is(.antibuttons) {
+				cursor: pointer;
+			}
+
+			&:is(.construction, .cogs) {
+				cursor: wait;
+			}
+		}
+	}
+}
+
+@media (width < 800px) {
+	section#rofls {
+		height: 50px;
+		padding-bottom: 2.5rem;
+	}
+}

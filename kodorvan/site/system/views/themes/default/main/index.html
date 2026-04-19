@@ -21,7 +21,10 @@
 	<link type="text/css" rel="stylesheet" href="/themes/default/css/elements/companies.css" />
 	<link type="text/css" rel="stylesheet" href="/themes/default/css/elements/project.css" />
 	<link type="text/css" rel="stylesheet" href="/themes/default/css/elements/superpacks.css" />
-	{% if not smartphone %}
+	{% if smartphone %}
+		<link rel="preload" as="image" href="/themes/default/images/interface/labubumba_2_mobile.svg" />
+	{% else %}
+		<link rel="preload" as="image" href="/themes/default/images/interface/labubumba_2.svg" />
 		<!-- <link type="text/css" rel="stylesheet" href="/themes/default/css/elements/cases.css" /> -->
 	{% endif %}
 	<link type="text/css" rel="stylesheet" href="/themes/default/css/elements/cookies.css" />
@@ -46,7 +49,7 @@
 	{% if cookies.cookies_popup_closed is empty %}
 		{% include '/themes/default/elements/cookies.html' %}
 	{% endif %}
-{% endblock %}
+	{% endblock %}
 
 {% block after %}
 	<div class="vignette"></div>
@@ -63,6 +66,20 @@
 			main.style.setProperty('--scroll-px', window.pageYOffset + 'px');
 			main.style.setProperty('--scroll-deg', window.pageYOffset / 100 + 'deg')
 		}, 60);
+	</script>
+
+	<script>
+		const companies = document.getElementById("companies");
+
+		companies.style.setProperty('margin-top', '70vh');
+		companies.style.setProperty('transition', 'margin 0.6s cubic-bezier(0, 1, .45, 1)');
+
+		const companies_show = setTimeout(() => companies.style.removeProperty('margin-top'), 2000);
+
+		document.addEventListener('load', () => {
+			clearTimeout(companies_show);
+			companies.style.removeProperty('margin-top');
+		});
 	</script>
 
 	<script src="/js/modules/project.mjs" type="module"></script>

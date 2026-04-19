@@ -20,12 +20,24 @@ section#superpacks {
 		scale: 1.4;
 		transform-origin: top;
 
+		/* &:before {
+			content: '';
+			border-bottom: 0.65vw solid #1f5a58;
+			position: absolute;
+			bottom: 0;
+			width: 12.8%;
+		} */
+
 		>img.layer {
 			z-index: 30;
 			position: absolute;
 			padding-left: 3.2vw;
 			width: 100%;
 			height: 5vw;
+
+			&:is(.packs) {
+				margin-left: 3px;
+			}
 		}
 
 		>div.labubumba {
@@ -35,7 +47,8 @@ section#superpacks {
 			width: 72vw;
 			height: 17.2vw;
 			background: red;
-			background: radial-gradient(circle, red 20vw, #af0000 40vw);
+			background: radial-gradient(circle, red 12vw, #000 50vw);
+			background: radial-gradient(circle, hsl(calc(var(--scroll-deg, 0deg) * 12) 100% 50%) 12vw, #000 50vw);
 			mask: var(--mask);
 			clip-path: polygon(0 0, 0 100%, 39% 100%, 39% 46.5%, 61% 46.5%, 61% 100%, 100% 100%, 100% 0);
 		}

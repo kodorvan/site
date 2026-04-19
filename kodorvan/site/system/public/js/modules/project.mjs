@@ -340,18 +340,46 @@ export default class project {
 			symbol: Symbol("moy_sklad"),
 			coefficient: 3
 		},
-    telegram: {
-			symbol: Symbol("telegram"),
-			coefficient: 2
-		},
     mail: {
 			symbol: Symbol("mail"),
 			coefficient: 1.4
 		},
     excel: {
 			symbol: Symbol("excel"),
-			coefficient: 1.6
-		}	
+			coefficient: 1.8
+		},
+    ozon: {
+			symbol: Symbol("ozon"),
+			coefficient: 2.8
+		},
+    wildberries: {
+			symbol: Symbol("wildberries"),
+			coefficient: 2.9
+		},
+    yandex_market: {
+			symbol: Symbol("yandex_market"),
+			coefficient: 2.6
+		},
+    avito: {
+			symbol: Symbol("avito"),
+			coefficient: 2.4
+		},
+    vk: {
+			symbol: Symbol("vk"),
+			coefficient: 2
+		},
+    max: {
+			symbol: Symbol("max"),
+			coefficient: 2
+		},
+    telegram: {
+			symbol: Symbol("telegram"),
+			coefficient: 2
+		},
+    neural_networks: {
+			symbol: Symbol("neural_networks"),
+			coefficient: 2.6
+		},
 	});
 
 	/**
@@ -399,33 +427,49 @@ export default class project {
 	 * @protected
 	 */
 	#purposes = Object.freeze({
-    project: {
-			symbol: Symbol("project"),
+    funnel: {
+			symbol: Symbol("funnel"),
 			integrations: new Set([
 				this.services.telegram,
+				this.services.max,
+				this.services.vk,
 				this.services.mail,
-				this.services.bitrix24
+				this.services.bitrix24,
+				this.services.neural_networks,
 			]),
-			coefficient: 2.1
+			coefficient: 1.2
 		},
-    contact: {
-			symbol: Symbol("contact"),
+    contacts: {
+			symbol: Symbol("contacts"),
 			integrations: new Set([
 				this.services.telegram,
+				this.services.max,
+				this.services.vk,
 				this.services.mail,
-				this.services.bitrix24
+				this.services.bitrix24,
+				this.services.neural_networks,
 			]),
 			coefficient: 1.1
 		},
-    neural_network: {
-			symbol: Symbol("neural_network"),
+    ai: {
+			symbol: Symbol("ai"),
 			integrations: new Set([
-				this.services.telegram
+				this.services.telegram,
+				this.services.max,
+				this.services.vk,
+				this.services.one_c,
+				this.services.bitrix24,
+				this.services.excel,
+				this.services.mail,
+				this.services.ozon,
+				this.services.wildberries,
+				this.services.avito,
+				this.services.yandex_market,
 			]),
-			coefficient: 4
+			coefficient: 3
 		},
-    gallery: {
-			symbol: Symbol("gallery"),
+    archive: {
+			symbol: Symbol("archive"),
 			integrations: new Set([
 			]),
 			coefficient: 1
@@ -433,9 +477,16 @@ export default class project {
     crm: {
 			symbol: Symbol("crm"),
 			integrations: new Set([
+				this.services.telegram,
+				this.services.max,
+				this.services.vk,
 				this.services.one_c,
 				this.services.moy_sklad,
-				this.services.excel
+				this.services.excel,
+				this.services.ozon,
+				this.services.wildberries,
+				this.services.avito,
+				this.services.yandex_market,
 			]),
 			coefficient: 6
 		},
@@ -443,8 +494,10 @@ export default class project {
 			symbol: Symbol("landing"),
 			integrations: new Set([
 				this.services.telegram,
+				this.services.max,
+				this.services.vk,
 				this.services.mail,
-				this.services.bitrix24
+				this.services.bitrix24,
 			]),
 			coefficient: 1.5
 		},
@@ -453,13 +506,24 @@ export default class project {
 			integrations: new Set([
 				this.services.one_c,
 				this.services.moy_sklad,
-				this.services.excel
+				this.services.excel,
+				this.services.ozon,
+				this.services.wildberries,
+				this.services.avito,
+				this.services.yandex_market,
 			]),
 			coefficient: 8
 		},
     search: {
 			symbol: Symbol("search"),
 			integrations: new Set([
+				this.services.telegram,
+				this.services.max,
+				this.services.vk,
+				this.services.ozon,
+				this.services.wildberries,
+				this.services.avito,
+				this.services.yandex_market,
 			]),
 			coefficient: 1
 		},
@@ -468,19 +532,25 @@ export default class project {
 			integrations: new Set([
 				this.services.one_c,
 				this.services.moy_sklad,
-				this.services.excel
+				this.services.excel,
+				this.services.ozon,
+				this.services.wildberries,
+				this.services.avito,
+				this.services.yandex_market,
 			]),
 			coefficient: 2
 		},
-    logic: {
-			symbol: Symbol("logic"),
+    game: {
+			symbol: Symbol("game"),
 			integrations: new Set([
 			]),
-			coefficient: 1
+			coefficient: 4
 		},
-    special: {
-			symbol: Symbol("special"),
-			integrations: this.services,
+    individual: {
+			symbol: Symbol("individual"),
+			// integrations: this.services,
+			integrations: new Set([
+			]),
 			coefficient: 3
 		}
 	});
@@ -510,19 +580,22 @@ export default class project {
     site:  {
 			symbol: Symbol("site"),
 			purposes: new Set([
-				this.purposes.project,
-				this.purposes.contact,
-				this.purposes.neural_network,
-				this.purposes.gallery,
+				this.purposes.funnel,
+				this.purposes.landing,
+				this.purposes.contacts,
+				this.purposes.archive,
+				this.purposes.ai,
 				this.purposes.crm,
 				this.purposes.calculate,
-				this.purposes.landing,
-				this.purposes.marketplace
+				this.purposes.saas,
+				this.purposes.marketplace,
+				this.purposes.search,
+				this.purposes.individual,
 			]),
 			coefficient: 3,
 			cost: {
-				usd: 80,
-				rub: 8000
+				usd: 120,
+				rub: 12000
 			},
 			team: new Map([
 				[this.#workers.programmer, 1],
@@ -533,15 +606,16 @@ export default class project {
     chat_robot: {
 			symbol: Symbol("chat_robot"),
 			purposes: new Set([
-				this.purposes.project,
-				this.purposes.contact,
-				this.purposes.neural_network,
-				this.purposes.game,
-				this.purposes.gallery,
+				this.purposes.funnel,
+				this.purposes.landing,
+				this.purposes.contacts,
+				this.purposes.archive,
+				this.purposes.ai,
 				this.purposes.crm,
 				this.purposes.calculate,
-				this.purposes.landing,
-				this.purposes.marketplace
+				this.purposes.saas,
+				this.purposes.marketplace,
+				this.purposes.individual,
 			]),
 			coefficient: 3,
 			cost: {
@@ -551,21 +625,23 @@ export default class project {
 			team: new Map([
 				[this.#workers.programmer, 1],
 				[this.#workers.designer, 0],
-				[this.#workers.booster, 1]
+				[this.#workers.booster, 0]
 ])
 		},
 		program:  {
 			symbol: Symbol("program"),
 			purposes: new Set([
 				this.purposes.neural_network,
+				this.purposes.ai,
 				this.purposes.crm,
 				this.purposes.calculate,
-				this.purposes.marketplace
+				this.purposes.marketplace,
+				this.purposes.individual,
 			]),
 			coefficient: 4,
 			cost: {
-				usd: 100,
-				rub: 10000
+				usd: 180,
+				rub: 18000
 			},
 			team: new Map([
 				[this.#workers.programmer, 1],
@@ -573,38 +649,7 @@ export default class project {
 				[this.#workers.booster, 0]
 ])
 		},
-    parser:  {
-			symbol: Symbol("parser"),
-			purposes: new Set([
-				this.purposes.search
-			]),
-			coefficient: 2,
-			cost: {
-				usd: 35,
-				rub: 3500
-			},
-			team: new Map([
-				[this.#workers.programmer, 1],
-				[this.#workers.designer, 0],
-				[this.#workers.booster, 0]
-])
-		},
-    script:  {
-			symbol: Symbol("script"),
-			purposes: new Set([
-				this.purposes.logic
-			]),
-			coefficient: 1,
-			cost: {
-				usd: 20,
-				rub: 2000
-			},
-			team: new Map([
-				[this.#workers.programmer, 1],
-				[this.#workers.designer, 0],
-				[this.#workers.booster, 0]
-])
-		},
+    
 		game:  {
 			symbol: Symbol("game"),
 			purposes: new Set([
@@ -619,6 +664,39 @@ export default class project {
 				[this.#workers.programmer, 1],
 				[this.#workers.designer, 1],
 				[this.#workers.booster, 1]
+])
+		},
+		script:  {
+			symbol: Symbol("script"),
+			purposes: new Set([
+				this.purposes.search,
+				this.purposes.individual,
+			]),
+			coefficient: 1,
+			cost: {
+				usd: 20,
+				rub: 2000
+			},
+			team: new Map([
+				[this.#workers.programmer, 1],
+				[this.#workers.designer, 0],
+				[this.#workers.booster, 0]
+])
+		},
+		module:  {
+			symbol: Symbol("module"),
+			purposes: new Set([
+				this.purposes.individual,
+			]),
+			coefficient: 1,
+			cost: {
+				usd: 60,
+				rub: 6000
+			},
+			team: new Map([
+				[this.#workers.programmer, 1],
+				[this.#workers.designer, 0],
+				[this.#workers.booster, 0]
 ])
 		}
 	});
@@ -1758,6 +1836,15 @@ export default class project {
 
 												// Reloading the page @todo make something smarter
 												alert("Запрос доставлен, ожидайте обратной связи");
+
+												// Initializing the rofls HTML-element
+												const rofls = document.getElementById('rofls');
+
+												// Showing rofls
+												rofls.style.removeProperty('display');
+
+												// Starting the rofls hotline.mjs instance
+												rofls.instance.start();
 
 												// Exit (success)
 												resolve();

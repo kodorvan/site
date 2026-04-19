@@ -9,6 +9,7 @@
 			--company-tax: "{{ language.name == 'ru' or true ? 'ИНН' : 'TAX' }}";
 		}
 	</style>
+	<link type="text/css" rel="stylesheet" href="/themes/default/css/elements/rofls.css" />
 {% endblock %}
 
 {% block body %}
@@ -46,6 +47,7 @@
 
 		<!-- <strong class="background unselectable">КОДОРВАНЬ</strong> -->
 	</footer>
+	{% include '/themes/default/elements/rofls.html' %}
 {% endblock %}
 
 {% block js %}

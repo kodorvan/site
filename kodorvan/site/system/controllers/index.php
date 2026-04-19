@@ -195,39 +195,37 @@ final class index extends core
 					'site' => 'Сайт',
 					'chat_robot' => 'Чат-робот',
 					'program' => 'Программа',
-					'module' => 'Модуль',
-					'parser' => 'Парсер',
-					'script' => 'Скрипт',
 					'game' => 'Видеоигра',
-					/* 'site' => 'Сайты и браузерные расширения',
-					'chat_robot' => 'Чат-роботы (любой мессенджер)',
-					'program' => 'Программа (Android, iOS, Windows)',
-					'module' => 'Модуль для любой программы',
-					'parser' => 'Парсер данных API, HTTP и эмуляция',
-					'script' => 'Скрипт (автоматизация процессов)',
-					'game' => 'Видеоигра (Android, iOS, Windows)' */
+					'script' => 'Скрипт, парсер, макрос',
+					'module' => 'Модуль, плагин, расширение',
 				],
 				'purposes' => [
-					'funnel' => 'Воронка',
-					'contacts' => 'Контакты',
-					'neural_network' => 'Нейросети',
-					'gallery' => 'Галерея',
-					'crm' => 'CRM',
-					'landing' => 'Лендинг',
-					'marketplace' => 'Маркетплейс',
-					'search' => 'Поиск',
-					'calculate' => 'Расчёты',
-					'logic' => 'Логика',
-					'game' => 'Игра',
-					'special' => 'Особенный',
+					'funnel' => 'Воронка (обработка пользователя)',
+					'contacts' => 'Контакты (сбор данных)',
+					'ai' => 'Внедрение ИИ',
+					'archive' => 'Архив (галерея, библиотека, реестр)',
+					'crm' => 'Индивидуальная CRM',
+					'landing' => 'Лендинг (посадочная страница)',
+					'marketplace' => 'Маркетплейс, магазин, витрина',
+					'saas' => 'SaaS проект',
+					'search' => 'Поиск и анализ',
+					'calculate' => 'Автоматизированное вычисление (калькулятор)',
+					'individual' => 'Индивидуальная разработка',
 				],
 				'integrations' => [
 					'one_c' => '1C',
 					'bitrix24' => 'Битрикс24',
 					'moy_sklad' => 'Мой Склад',
-					'telegram' => 'Телеграм',
 					'mail' => 'Почта',
-					'excel' => 'Excel'
+					'excel' => 'Excel',
+					'ozon' => 'OZON',
+					'wildberries' => 'Wildberries',
+					'yandex_market' => 'Яндекс Маркет',
+					'avito' => 'Авито',
+					'vk' => 'ВКонтакте',
+					'max' => 'МАКС',
+					'telegram' => 'Телеграм',
+					'neural_networks' => 'Нейросети'
 				]
 			];
 
@@ -249,19 +247,19 @@ final class index extends core
 
 			// Initializing contacts data
 			$this->view->integrations = [
+				'Вайлдберриз' => 'wildberries',
+				'ОЗОН' => 'ozon',
 				'Мой Склад' => 'moy_sklad',
 				'1С Предприятие' => '1c',
 				'Битрикс 24' => 'bitrix24',
 				'ВКонтакте' => 'vk',
 				'МАКС' => 'max',
-				/* 'yandex_direct', */
-				'Яндекс Директ' => 'yandex_market',
-				'ОЗОН' => 'ozon',
-				'Вайлдберриз' => 'wildberries',
 				'Авито' => 'avito',
 				'YClients' => 'yclients',
 				'ЮКасса' => 'yookassa',
-				'OpenAI' => 'openai'
+				'OpenAI' => 'openai',
+				/* 'yandex_direct', */
+				'Яндекс Директ' => 'yandex_market',
 			];
 
 			// Render page

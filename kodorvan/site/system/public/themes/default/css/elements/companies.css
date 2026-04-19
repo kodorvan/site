@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-section#companies {
+article#companies {
 	z-index: 50;
 	width: 100vw;
 	height: 70px;
