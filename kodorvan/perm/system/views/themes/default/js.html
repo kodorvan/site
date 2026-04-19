@@ -1,17 +1,4 @@
 {% block js %}
-	<script type="importmap">
-		{
-			"imports": {
-        "three": "/js/three.module.js"
-			}
-		}
-	</script>
-
-	{% for element in js %}
-		<script 
-			{% if element.src %}src="{{ element.src }}" {% endif %} 
-			{% if element.type %}type="{{ element.type }}" {% endif %}>
-			{{ element.innerText }}
-		</script>
-	{% endfor %}
+	<script src="/js/modules/damper.mjs" type="module"></script>
+	<script src="/js/core.js"></script>
 {% endblock %}

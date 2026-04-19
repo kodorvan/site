@@ -46,6 +46,8 @@ $core = new core(namespace: __NAMESPACE__);
 // Initializing routes
 $core->router
 	->write('/', new route('index', 'index'), 'GET')
+	->write('/offer', new route('offer', 'index'), 'GET')
+	->write('/project/request', new route('project', 'request'), 'PUT')
 ;
 
 // Handling request

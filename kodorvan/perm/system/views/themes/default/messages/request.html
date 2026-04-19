@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+	<title>{{ project.name }}</title>
+
+	<link type="text/css" rel="stylesheet" href="/themes/default/css/messages/request.css" />
+</head>
+
+<body>
+	<main>
+		<section id="project">
+			<h1>Проект</h1>
+			<span>{{ project.name }}</span>
+			<p>{{ project.description }}</p>
+			{% if calculator.architecture is not null %}
+				<p>Архитектура:<span>{{ calculator.architecture }}</span></p>
+			{% endif %}
+			{% if calculator.purpose is not null %}
+				<p>Назначение:<span>{{ calculator.purpose }}</span></p>
+			{% endif %}
+			{% if calculator.integrations is not null %}
+				<p>Интеграции:{% for integration in calculator.integrations %}<span>{{ integration }}</span>{% endfor %}</p>
+			{% endif %}
+			{% if calculator.team is not null %}
+				<p>Команда:{% for type, amount in calculator.team %}<span>{{ type }}: <span>{{ amount }}</span></span>{% endfor %}</p>
+			{% endif %}
+		</section>
+
+		<section id="calculation">
+			<h1>Расчёт</h1>
+			<p>Час:<span>{{ calculator.hour.request }}р</span></p>
+			<p>Рабочее время:<span class="time">{{ calculator.calculated.hours }}ч</span><span class="days">({{ calculator.calculated.days }}дней)</span></p>
+			<p>Оплата:<span>{{ calculator.calculated.payment.full }}</span></p>
+			<p>Предоплата:<span>{{ calculator.calculated.payment.prepayment }}</span></p>
+		</section>
+
+		<section id="requester">
+			<h1>Заказчик</h1>
+			<span>{{ requester.name }}</span>
+			<span>{{ requester.sim }}</span>
+			<span>{{ requester.mail }}</span>
+			<p>{{ requester.other }}</p>
+		</section>
+	</main>
+</body>
+
+</html>

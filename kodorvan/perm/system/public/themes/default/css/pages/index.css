@@ -1,165 +1,93 @@
 @charset "UTF-8";
 
-main {
-	>section.row {
-		z-index: 500;
-		width: 100%;
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		background-color: #fff;
-
-		>h2#title {
-			font-size: 2.4rem;
-			font-family: "Bahnschrift";
-			margin: 0.1em 0 0.2em 0;
-
-			>span {
-				color: #0ea5e9;
-			}
-		}
-
-		>p#description {
+body {
+	main {
+		>h1#title {
+			z-index: 200;
 			margin: unset;
+			margin-top: 4rem;
+			margin-bottom: 2rem;
+			width: max-content;
+			display: flex;
+			flex-direction: column;
 			text-align: center;
-			font-size: 1.2rem;
-			font-family: "Geologica";
+			gap: 0.6rem;
+			font-family: "";
+			font-size: min(8vw, 4rem);
 			font-weight: 400;
-			color: rgb(0, 0, 0, 0.6);
-
-			>span {
-				color: #0ea5e9;
-				font-weight: 800;
-			}
-		}
-
-		>p.description {
-			width: 40%;
-		}
-
-		>a#order {
-			padding: 0.5em 1.3em;
-			margin-top: 1rem;
-			display: flex;
-			align-items: center;
-			gap: 5px;
-			border-radius: 1.125em;
-			font-size: 1em;
-			font-family: "Geologica";
-			font-weight: 400;
-			text-decoration: none;
-			background-color: #0ea5e9;
+			/* scale: 0.8; */
 			color: #fff;
-			transition: 0.2s;
 
-			&:hover {
-				transform: scale(1.05);
+			>span.slogan {
+				line-height: 0.8em;
+				font-family: "GOST";
+				font-weight: 400;
+				font-size: 1.24em;
+				color: #3688a2;
+			}
+
+			>a.kodorvan {
+				line-height: 0.8em;
+				font-family: "MT Sans";
+				font-size: 2em;
+				text-decoration: unset;
+				color: #c2ff98;
+				/* text-shadow:
+					0px 0px 4px #ffff00b5,
+					0px 0px 11px #ffff008a */
 			}
 		}
 
-		>div#team {
-			margin-top: 1rem;
-			display: inline-flex;
-			justify-content: center;
-			align-items: center;
-			gap: 1rem;
-
-			>div#card {
-				padding: 0.6em 0.8em;
-				width: 180px;
-				height: 220px;
-				display: flex;
-				flex-direction: column;
-				justify-content: center;
-				align-items: center;
-				text-align: center;
-				border-radius: 1.125rem;
-				box-shadow: 0px 0px 15px 0px rgba(14, 165, 233, 0.1);
-				background-color: #fff;
-				transition: ease 0.2s;
-
-				>img {
-					object-fit: cover;
-					width: 140px;
-					height: 140px;
-					border-radius: 100%;
-				}
-
-				>p {
-					margin: 1em 0 0;
-					font-size: 1.2em;
-					font-family: "Geologica";
-					font-weight: 900;
-					color: #000000;
-				}
-
-				>span {
-					font-size: 1em;
-					font-family: "Geologica";
-					font-weight: 400;
-					color: #0ea5e9;
-				}
-			}
-		}
-
-		>a#telegram {
-			padding: 0.5em 1.3em;
-			margin-top: 1rem;
-			display: flex;
-			align-items: center;
-			gap: 5px;
-			border-radius: 1.125em;
-			font-size: 1em;
-			font-family: "Geologica";
-			font-weight: 400;
-			text-decoration: none;
-			background-color: #0ea5e9;
-			color: #fff;
-			transition: 0.2s;
-
-			&:hover {
-				transform: scale(1.05);
-			}
-
-			>img {
-				width: 20px;
-				height: 20px;
-			}
-		}
-	}
-
-	>section.wrap {
-		position: relative;
-		overflow: hidden;
-		background-color: #fff;
-
-		>section.row {
+		>section.section {
 			z-index: 500;
 			width: 100%;
 			display: flex;
 			flex-direction: column;
 			justify-content: center;
 			align-items: center;
-			background: unset;
-		}
+			background: var(--background-color, #fff);
+			background: var(--background-gradient);
 
-		>div.net {
-			--dot-bg: #5a645a;
-			--dot-color: transparent;
-			--dot-color: transparent;
-			--dot-size: calc(110px + var(--scroll-px-hundred, 0px) * 2);
-			--dot-space: calc(var(--dot-size) + 1px);
-			z-index: -50;
-			position: absolute;
-			top: -30%;
-			width: 200%;
-			height: 200%;
-			background: linear-gradient(90deg, var(--dot-bg) calc(var(--dot-space) - var(--dot-size)), transparent 1%) center / var(--dot-space) var(--dot-space), linear-gradient(var(--dot-bg) calc(var(--dot-space) - var(--dot-size)), transparent 1%) center / var(--dot-space) var(--dot-space), var(--dot-color);
-			mask-image: linear-gradient(transparent, #fff, transparent);
-			transform: perspective(135px) rotateX(calc(6deg + var(--scroll-deg, 0deg) * -0.4)) skewY(6deg) rotateZ(-18deg);
-			transition: transform 0.08s linear, background 0.08s linear;
+			>h1#title {
+				font-size: 2.4rem;
+				font-family: "Bahnschrift";
+				margin: 0.1em 0 0.2em 0;
+
+				>span {
+					color: #0ea5e9;
+				}
+			}
 		}
 	}
-}
+
+	>div.vignette {
+		z-index: 100;
+		position: fixed;
+		top: 0;
+		width: 100vw;
+		height: 100vh;
+		justify-self: center;
+		align-self: center;
+		pointer-events: none;
+		background: linear-gradient(90deg, #000B -20%, #0000 50%, #000B 120%);
+	}
+
+	>div.dots {
+		--dot-bg: #18333f;
+		--dot-color: #041825;
+		--dot-size: 23px;
+		--dot-space: 24px;
+		z-index: -50;
+		position: fixed;top: -200%;
+    left: -200vw;
+		top: -200%;
+		justify-self: center;
+		align-self: center;
+		width: 400vw;
+    min-height: 1000px;
+		height: 800%;
+		rotate: -16deg;
+		pointer-events: none;
+		background: linear-gradient(90deg, var(--dot-bg) calc(var(--dot-space) - var(--dot-size)), transparent 1%) center / var(--dot-space) var(--dot-space), linear-gradient(var(--dot-bg) calc(var(--dot-space) - var(--dot-size)), transparent 1%) center / var(--dot-space) var(--dot-space), var(--dot-color);
+	}
 }

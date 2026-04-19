@@ -1,9 +1,13 @@
 @charset "UTF-8";
 
 :root {
-	--width: max(1050px, 55vw);
-	--menu-height: 70px;
-	--introdution-height: min(350px, 35vh);
+	--width: min(1050px, 55vw);
+	/* --menu-height: 70px; */
+	--menu-height: 0px;
+	--introdution-height: min(36vw, 280px);
+	/* --introdution-height: 130vh; */
+	/* --introdution-height: max(130vh, 1200px); */
+	/* --introdution-height: 1300px; */
 	--gap: min(12px, 1rem);
 	--fixed-right: 3rem;
 	--fixed-bottom: 2rem;
@@ -34,7 +38,8 @@ body {
 	margin: unset;
 	width: 100vw;
 	overflow-x: hidden;
-	background-color: #f7fafc;
+	background: var(--background-color, #fff);
+	background: var(--background-gradient);
 }
 
 .unselectable {
@@ -44,4 +49,87 @@ body {
 	-moz-user-select: none;
 	-ms-user-select: none;
 	user-select: none;
+}
+
+input[type="range"] {
+	cursor: grab;
+
+	&:active {
+		cursor: grabbing;
+	}
+}
+
+input:not([type="range"]) {
+	margin: unset;
+	padding: 0.2em 0.4em 0.3em;
+	box-sizing: border-box;
+	font-size: 1em;
+	outline: unset;
+	border: unset;
+	border-bottom: 1px solid;
+	background: unset;
+}
+
+select {
+	margin: unset;
+	padding: 0.5em 0.4em 0.3em;
+	box-sizing: border-box;
+	font-family: Bahnschrift;
+	font-weight: 300;
+	font-size: 1em;
+	cursor: pointer;
+	outline: unset;
+	border: unset;
+	border-bottom: 1px solid;
+	background: unset;
+
+	>option {
+		cursor: pointer;
+	}
+
+	&:is(:hover, :focus) {
+		background-color: var(--button-plain-hover-background-color, #bdd2c86b);
+	}
+
+	&:active {
+		background-color: var(--button-plain-active-background-color, #7d9f8f6b);
+	}
+}
+
+textarea {
+	margin: unset;
+	padding: 0.5em 0.7em;
+	box-sizing: border-box;
+	font-size: 1em;
+	outline: unset;
+	border: 1px solid;
+	border-bottom: 1px solid;
+	background: unset;
+}
+
+button {
+	padding: 0.77em 1.3em 0.6em;
+	cursor: pointer;
+	font-family: Bahnschrift;
+	font-weight: 400;
+	outline: unset;
+	border-radius: 0.75rem;
+	border: 1px solid #000;
+	background: unset;
+
+	&:not(:disabled) {
+		&:is(:hover, :focus) {
+			background-color: #e7e6e0;
+		}
+
+		&:active {
+			background-color: #c0bfb4;
+		}
+	}
+
+	&:disabled {
+		cursor: not-allowed;
+		background-color: #08111d17;
+		filter: grayscale(1) brightness(0.8);
+	}
 }

@@ -1,10 +1,18 @@
-@import url('/css/fonts/fira.css');
-@import url('/css/fonts/hack.css');
-@import url('/css/fonts/dejavu.css');
+/* @import url('/css/fonts/fira.css'); */
+/* @import url('/css/fonts/hack.css'); */
+/* @import url('/css/fonts/dejavu.css'); */
+@import url('/css/fonts/nunito.css');
+@import url('/css/fonts/cascadia_code.css');
+@import url('/css/fonts/geologica.css');
+@import url('/css/fonts/commissioner.css');
+@import url('/css/fonts/mt_sans.css');
+/* @import url('/css/fonts/vredina.css'); */
+@import url('/css/fonts/gost.css');
 @import url('/css/fonts/bahnschrift.css');
-
-@font-face {
-  font-family: 'Commissioner';
-  src: url('/fonts/commissioner.ttf');
-  font-weight: 400;
-}
+/* @import url('/css/fonts/eitai.css'); */
+/* @import url('/css/fonts/akony.css');  */
+/* @import url('/css/fonts/urban_slavic.css');  */
+/* @import url('/css/fonts/slifted.css'); */
+/* @import url('/css/fonts/compacta.css'); */
+@import url('/css/fonts/industry.css');
+/* @import url('/css/fonts/palui.css'); */

@@ -1,0 +1,122 @@
+{% macro service(class, title, icon_left, icon_center, icon_right, description, howto, extra, buttons, theses, background_image_src, background_image_alt, cost, canceled) %}
+	<article class="superpack{% if class is not empty %} {{ class }}{% endif %}">
+		{% if icon_left is not empty %}<i class="icon left {{ icon_left }}"></i>{% endif %}
+			{% if icon_center is not empty %}
+				<link type="text/css" rel="stylesheet" href="/css/icons/{{ icon_center|replace({' ': '_'}) }}.css" />
+				<i class="icon center {{ icon_center }}"></i>
+			{% endif %}
+		{% if icon_right is not empty %}<i class="icon right {{ icon_right }}"></i>{% endif %}
+
+		{% if icon_center2222 is not empty %}
+			<link type="text/css" rel="stylesheet" href="/css/icons/{{ icon_center|replace({' ': '_'}) }}.css" />
+			<div class="icon">
+				<i class="icon center {{ icon_center }}"></i>
+			</div>
+		{% endif %}
+
+		<div class="head">
+			<h4>{{ title is empty ? 'Разработка' : title }}</h4>
+		</div>
+
+		<div class="body">
+			{% if canceled is not empty %}
+				<span class="canceled">{{ canceled }}</span>
+			{% endif %}
+
+			{% if description is not empty %}
+				<p class="description">{{ description|raw }}</p>
+			{% endif %}
+
+			{% if howto is not empty %}
+				<p class="howto">{{ howto|raw }}</p>
+			{% endif %}
+
+			{% if extra is not empty %}
+				<div class="extra">
+					<p>
+						{% for text in extra %}
+						<span>{{ text }}</span>
+						{% endfor %}
+					</p>
+					<p>
+						{% for text in extra %}
+						<span>{{ text }}</span>
+						{% endfor %}
+					</p>
+				</div>
+			{% endif %}
+
+			<div class="footer">
+				{% if theses is not empty %}
+					<div class="buttons">
+						{% for button in buttons %}
+							{% set icon = button.icon ?? 'close' %}
+							<link type="text/css" rel="stylesheet" href="/css/icons/{{ button.icon|replace({' ': '_'}) }}.css" />
+							<a type="button" href="{{ button.href }}" target="_blank" rel="nofollow noopener noreferrer"><i class="icon {{ button.icon }}"></i></a>
+						{% endfor %}
+					</div>
+				{% endif %}
+
+				{% if theses is not empty %}
+					<div class="theses">
+						{% for thesis in theses %}
+							<p{% if thesis.class is not empty %} class="{{ thesis.class }}{% if thesis.colored is true %} colored{% endif %}"{% endif %}>
+								{% if thesis.icon is not empty %}
+									<span class="characteristic">
+										<link type="text/css" rel="stylesheet" href="/css/icons/{{ thesis.icon|replace({' ': '_'}) }}.css" />
+										<i class="icon {{ thesis.icon }}"></i>
+									</span>
+								{% elseif thesis.characteristic is not empty %}
+									<span class="characteristic">{{ thesis.characteristic }}</span>
+								{% endif %}
+								{{ thesis.text }}
+							</p>
+						{% endfor %}
+					</div>
+				{% endif %}
+			</div>
+
+			{% if background_image_src is not empty and background_image_alt is not empty %}
+				<img class="background" src="{{ background_image_src }}" alt="{{ background_image_alt }}" ondragstart="return false;"/>
+			{% endif %}
+		</div>
+
+		{% if cost is not empty %}
+			<p class="cost">ОТ <span>{{ cost }}₽</span></p>
+		{% endif %}
+	</article>
+{% endmacro service %}
+
+<section id="superpacks" class="section unselectable">
+	<h1 class="unselectable" aria-label="СУПЕРПАКИ">
+		<img class="super layer" src="/themes/{{ theme }}/images/superpacks/super.svg" alt="СУПЕР" ondragstart="return false"/>
+		<img class="packs layer" src="/themes/{{ theme }}/images/superpacks/packs.svg" alt="ПАКИ" ondragstart="return false"/>
+		<div class="labubumba" style="--mask: url('/themes/{{ theme }}/images/interface/labubumba_2.svg') center/var(--mask-size, 72vw) no-repeat; --mask-mobile: url('/themes/{{ theme }}/images/interface/labubumba_2_mobile.svg') center/var(--mask-size, 72vw) no-repeat;"></div>	
+	</h1>
+
+	<p style="margin-bottom: unset; font-family: 'Cascadia Code'; padding: 0 5rem; text-align: center;">На момент <b>2026.04.18</b> суперпаки находятся в полной переработке</p>
+	<p style="margin-top: 0.5rem; margin-bottom: 4rem; padding: 0 5rem; text-align: center;">Формируем готовые предложения с мощной и проверенной годами кодовой базой</p>
+
+	<div class="flow">
+		{% for service in services %}
+			{{ 
+				_self.service(
+					class: service.class,
+					title: service.title,
+					icon_left: service.icon_left,
+					icon_center: service.icon_center,
+					icon_right: service.icon_right,
+					description: service.description,
+					howto: service.howto,
+					extra: service.extra,
+					buttons: service.buttons,
+					theses: service.theses,
+					background_image_src: service.background_image_src,
+					background_image_alt: service.background_image_alt,
+					cost: service.cost,
+					canceled: service.canceled
+				) 
+			}}
+		{% endfor %}
+	</div>
+</section>

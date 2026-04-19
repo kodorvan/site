@@ -1,0 +1,38 @@
+/**
+ * Range datalist CSS-only
+ *
+ * @link https://codepen.io/vsync/pen/mdEJMLv
+ * @link https://stackoverflow.com/a/64306268
+ *
+ * @author Yair Even Or <vsync.design@gmail.com>
+ * @author Arsen Mirzaev Tatyano-Muradovich <arsen@mirzaev.sexy>
+ */
+
+.range.datalist {
+	--tick-width: 2px;
+	--tick-height: 30%;
+	--tick-color: #000;
+	position: relative;
+	display: inline-block;
+	background: linear-gradient(to right, var(--tick-color) var(--tick-width), transparent 1px) repeat-x;
+	background-size: calc(100% / ((var(--max) - var(--min)) / var(--step)) - .1%) var(--tick-height);
+	background-position: 0 bottom;
+
+	&:before,
+	&:after {
+		position: absolute;
+		content: counter(x);
+		bottom: -2ch;
+	}
+
+	&:before {
+		counter-reset: x var(--min);
+		transform: translateX(-50%);
+	}
+
+	&:after {
+		right: 0;
+		counter-reset: x var(--max);
+		transform: translateX(50%);
+	}
+}

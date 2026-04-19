@@ -11,8 +11,9 @@
 {% endblock %}
 
 {% block body %}
-	{{ block('header') }}
 	{{ block('aside') }}
+
+	{{ block('before') }}
 
 	<main id="main">
 		{% block main %}
@@ -20,19 +21,12 @@
 		{% endblock %}
 	</main>
 
+	{{ block('after') }}
+
 	{{ block('footer') }}
 {% endblock %}
 
 {% block js %}
-	<script>
-		let main = document.getElementById('main');
-
-		setInterval(() => {
-			main.style.setProperty('--scroll-px', window.pageYOffset + 'px');
-			main.style.setProperty('--scroll-deg', window.pageYOffset / 100 + 'deg')
-		}, 60);
-	</script>
-
 	{{ block('header_js') }}
 	{{ block('aside_js') }}
 	{{ block('footer_js') }}

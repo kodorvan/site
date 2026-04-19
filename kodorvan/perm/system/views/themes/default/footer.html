@@ -1,19 +1,50 @@
 {% block css %}
-	<link type="text/css" rel="stylesheet" href="/themes/default/css/elements/company.css" />
-	<link type="text/css" rel="stylesheet" href="/themes/default/css/elements/links.css" />
-	<link type="text/css" rel="stylesheet" href="/themes/default/css/elements/office.css" />
+	<style>
+		:root {
+			--map-loading: "Загрузка карты";
+			--map-loading: "Карта не загрузится :(";
+			--contacts-worktime-from: "{{ language.name == 'ru' or true ? 'с' : 'from' }}";
+			--contacts-worktime-to: "{{ language.name == 'ru' or true ? 'до' : 'to' }}";
+			--company-identifier: "{{ language.name == 'ru' or true ? 'ОГРН' : 'ID' }}";
+			--company-tax: "{{ language.name == 'ru' or true ? 'ИНН' : 'TAX' }}";
+		}
+	</style>
 {% endblock %}
 
 {% block body %}
 	<footer>
-		<div class="column">
-			{% include '/themes/default/elements/office.html' %}
-			{% include '/themes/default/elements/links.html' %}
+		<div class="sector">
+			<article id="office">
+				<div class="map">
+					<div class="loading">
+						<i class="icon loading spinner animated"></i>
+					</div>
+				</div>
+			</article>
+
+			<nav id="links" class="unselectable">
+				<a href="/offer">ПУБЛИЧНАЯ ОФЕРТА</a>
+				<a href="https://ru.wikipedia.org/wiki/WTFPL">ЛИЦЕНЗИЯ</a>
+				<a href="https://t.me/kodorvan">КОДОРВАНЬ</a>
+				<a href="https://t.me/from_mirzaev">МИРЗАЕВ</a>
+				<a href="https://git.svoboda.works/kodorvan">РЕПОЗИТОРИЙ</a>
+			</nav>
 		</div>
 
-		<div class="column">
-			{% include '/themes/default/elements/company.html' %}
+		<div class="sector company">
+			<article id="contacts">
+				<h1 class="sim"><span class="country">7</span><span class="operator">901</span><span>592</span><span>4211</span></h1>
+				<span class="mail support">support@kodorvan.tech</span>
+				<p class="worktime unselectable">Пермь, <span class="time from">10:00</span><span class="time to">19:00</span></p>
+			</article>
+
+			<article id="company">
+				<h1 class="name">ИП Мирзаев</h1>
+				<p class="column"><span class="tax row">271103176488</span><span class="identifier row">322270000004691</span></p>
+			</article>
 		</div>
+
+		<!-- <strong class="background unselectable">КОДОРВАНЬ</strong> -->
 	</footer>
 {% endblock %}
 

@@ -25,12 +25,14 @@
 	},
 	"require": {
 		"php": "^8.5",
+		"ext-blake3": "^0.1",
 		"mirzaev/minimal": "^3.8",
 		"mirzaev/baza": "^3.4",		
 		"mirzaev/languages": "^1",		
 		"twig/twig": "^3.2",
 		"twig/extra-bundle": "^3.7",
-		"twig/intl-extra": "^3.10"
+		"twig/intl-extra": "^3.10",
+		"phpmailer/phpmailer": "^7.0"
 	},
 	"suggest": {
 		"mirzaev/files": "Easy working with files",

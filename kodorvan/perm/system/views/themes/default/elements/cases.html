@@ -1,0 +1,66 @@
+<section id="cases" class="section unselectable">
+	<article class="pechatalka">
+		<h4>ПЕЧАТАЛКА биба</h4>
+		<img class="background" src="/themes/default/images/projects/pechatalka.gif" alt="pechatalka" ondragstart="return false;"/>
+	</article>
+
+	<article class="understyle">
+		<h4>under.style</h4>
+		<img class="background" src="/themes/default/images/projects/understyle.png" alt="under.style" ondragstart="return false;"/>
+	</article>
+
+	<article class="surikov">
+		<h4>Музей-библиотека имени Сурикова</h4>
+		<img class="background" src="/themes/default/images/projects/surikov.png" alt="surikov" ondragstart="return false;"/>
+	</article>
+
+	<article class="pechatalka">
+		<h4>ПЕЧАТАЛКА</h4>
+		<img class="background" src="/themes/default/images/projects/pechatalka.gif" alt="pechatalka" ondragstart="return false;"/>
+	</article>
+
+	<article class="understyle">
+		<h4>under.style</h4>
+		<img class="background" src="/themes/default/images/projects/understyle.png" alt="under.style" ondragstart="return false;"/>
+	</article>
+
+	<article class="surikov">
+		<h4>Музей-библиотека имени Сурикова</h4>
+		<img class="background" src="/themes/default/images/projects/surikov.png" alt="surikov" ondragstart="return false;"/>
+	</article>
+
+	<article class="pechatalka">
+		<h4>ПЕЧАТАЛКА</h4>
+		<img class="background" src="/themes/default/images/projects/pechatalka.gif" alt="pechatalka" ondragstart="return false;"/>
+	</article>
+
+	<article class="understyle">
+		<h4>under.style</h4>
+		<img class="background" src="/themes/default/images/projects/understyle.png" alt="under.style" ondragstart="return false;"/>
+	</article>
+
+	<article class="surikov">
+		<h4>Музей-библиотека имени Сурикова</h4>
+		<img class="background" src="/themes/default/images/projects/surikov.png" alt="surikov" ondragstart="return false;"/>
+	</article>
+</section>
+
+<script>
+document.addEventListener('core.initialized', () => 
+	core.modules.connect(["hotline"]).then((connected) => {
+		// Imported the hotline.mjs module
+
+		// Initializing an instance of the hotline.mjs
+		const instance = new connected.hotline(document.getElementById("cases"));
+
+		// Initializing settings of the hotline instance
+		instance.alive = true;
+		instance.wheel = false;
+		instance.delta = 3;
+		instance.step = -0.5;
+
+		// Starting the hotline instance
+		instance.start();
+	})
+);
+</script>

@@ -10,6 +10,11 @@ section#server {
 	/* background-color: #000; */
 	background: linear-gradient(127deg, #030308, #0e0202, #180101);
 
+	&+section,
+	&+script+section {
+		background: #fff;
+	}
+
 	>div.server {
 		z-index: 100;
 		position: absolute;
@@ -22,7 +27,7 @@ section#server {
 			position: absolute;
 			top: -225px;
 			/* left: calc(-120px + var(--offset-left) + (var(--y-max, 0px) / 4)); */
-			left: var(--offset-left);
+			left: -220px;
 			height: 290%;
 			clip-path: polygon(0 0, 915px 0, 1065px 100%, 0 100%);
 			transform: perspective(130px) rotateZ(17deg) rotateX(1.3deg) skewX(8deg);
@@ -169,7 +174,7 @@ section#server {
 				&:before {
 					content: "";
 					position: absolute;
-					left: -2.4rem;
+					left: -2.3rem;
 					bottom: 0;
 					height: 2.25rem;
 					width: 2.25rem;
@@ -181,7 +186,7 @@ section#server {
 				&:after {
 					content: "";
 					position: absolute;
-					right: -2.4rem;
+					right: -2.3rem;
 					bottom: 0;
 					height: 2.25rem;
 					width: 2.25rem;

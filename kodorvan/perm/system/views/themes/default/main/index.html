@@ -2,13 +2,12 @@
 
 {% block css %}
 	{{ parent() }}
-	<link type="text/css" rel="stylesheet" href="/css/icons/code_slash.css" />
+	<link type="text/css" rel="stylesheet" href="/css/icons/loading_spinner.css" />
+	<!-- <link type="text/css" rel="stylesheet" href="/css/icons/code_slash.css" />
 	<link type="text/css" rel="stylesheet" href="/css/icons/coffe.css" />
-	<link type="text/css" rel="stylesheet" href="/css/icons/telegram.css" />
 	<link type="text/css" rel="stylesheet" href="/css/icons/close.css" />
 	<link type="text/css" rel="stylesheet" href="/css/icons/check.css" />
 	<link type="text/css" rel="stylesheet" href="/css/icons/eye.css" />
-	<link type="text/css" rel="stylesheet" href="/css/icons/loading_spinner.css" />
 	<link type="text/css" rel="stylesheet" href="/css/icons/close.css" />
 	<link type="text/css" rel="stylesheet" href="/css/icons/plus.css" />
 	<link type="text/css" rel="stylesheet" href="/css/icons/minus.css" />
@@ -17,44 +16,57 @@
 	<link type="text/css" rel="stylesheet" href="/css/icons/terminal.css" />
 	<link type="text/css" rel="stylesheet" href="/css/icons/list_tree.css" />
 	<link type="text/css" rel="stylesheet" href="/css/icons/gift.css" />
-	<link type="text/css" rel="stylesheet" href="/css/icons/phone.css" />
+	<link type="text/css" rel="stylesheet" href="/css/icons/phone.css" /> -->
 	<link type="text/css" rel="stylesheet" href="/themes/default/css/pages/index.css" />
-	<link type="text/css" rel="stylesheet" href="/themes/default/css/elements/introdution.css" />
-	<link type="text/css" rel="stylesheet" href="/themes/default/css/elements/workload.css" />
-	<link type="text/css" rel="stylesheet" href="/themes/default/css/elements/shortcut.css" />
-	<link type="text/css" rel="stylesheet" href="/themes/default/css/elements/popular.css" />
-	<link type="text/css" rel="stylesheet" href="/themes/default/css/elements/projects.css" />
-	<link type="text/css" rel="stylesheet" href="/themes/default/css/elements/server.css" />
-	<link type="text/css" rel="stylesheet" href="/themes/default/css/elements/description.css" />
-	<link type="text/css" rel="stylesheet" href="/themes/default/css/elements/telegram.css" />
+	<link type="text/css" rel="stylesheet" href="/themes/default/css/elements/companies.css" />
+	<link type="text/css" rel="stylesheet" href="/themes/default/css/elements/project.css" />
+	<link type="text/css" rel="stylesheet" href="/themes/default/css/elements/superpacks.css" />
+	{% if not smartphone %}
+		<!-- <link type="text/css" rel="stylesheet" href="/themes/default/css/elements/cases.css" /> -->
+	{% endif %}
 	<link type="text/css" rel="stylesheet" href="/themes/default/css/elements/cookies.css" />
+	<link type="text/css" rel="stylesheet" href="/themes/default/css/elements/gradient.css" />
+	<link rel="preload" as="image" href="/themes/default/images/icons/close.svg" />
+{% endblock %}
+
+{% block before %}
 {% endblock %}
 
 {% block main %}
-	{% include '/themes/default/main/elements/introdution.html' %}
+	<h1 id="title" class="unselectable">
+		<span class="slogan">ВСЕХ ШАБЛОНОВ</span>
+		<a href="/" class="kodorvan">КОДОРВАНЬ</a>
+	</h1>
 
-	<section class="wrap row">
-	  <div class="net"></div>
+	{% include '/themes/default/elements/project.html' %}
+	
+	{% include '/themes/default/elements/companies.html' %}
+	{% include '/themes/default/elements/superpacks.html' %}
 
-		{% include '/themes/default/main/elements/workload.html' %}
-		{% include '/themes/default/main/elements/shortcut.html' %}
-		{% include '/themes/default/main/elements/popular.html' %}
-		{% include '/themes/default/main/elements/projects.html' %}
-	</section>
+	{% if cookies.cookies_popup_closed is empty %}
+		{% include '/themes/default/elements/cookies.html' %}
+	{% endif %}
+{% endblock %}
 
-	{% include '/themes/default/main/elements/server.html' %}
-	{% include '/themes/default/main/elements/description.html' %}
-
-	{% include '/themes/default/elements/telegram.html' %}
-	{% include '/themes/default/elements/cookies.html' %}
+{% block after %}
+	<div class="vignette"></div>
+	<div class="dots"></div>
 {% endblock %}
 
 {% block js %}
 	{{ parent() }}
 
+	<script>
+		let main = document.getElementById('main');
+
+		setInterval(() => {
+			main.style.setProperty('--scroll-px', window.pageYOffset + 'px');
+			main.style.setProperty('--scroll-deg', window.pageYOffset / 100 + 'deg')
+		}, 60);
+	</script>
+
+	<script src="/js/modules/project.mjs" type="module"></script>
+	<script src="/js/modules/paginator.mjs" type="module"></script>
 	<script src="/js/modules/hotline.mjs" type="module"></script>
-	<script src="/js/modules/womb3-simplex.mjs" type="module"></script>
 	<script src="/js/pages/main.js" type="module" defer></script>
-	<script src="/js/modules/service.js" defer></script>
-	<script src="/js/modules/advantages.js" defer></script>
 {% endblock %}

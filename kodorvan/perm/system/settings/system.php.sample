@@ -2,3 +2,14 @@
 
 // Initializing default theme for the views templater
 define('THEME', 'default');
+
+define('TELEGRAM_ROBOT', [
+	'domain' => 'kodorvan_bot'
+]);
+
+define('PROJECT_CONTACTS_SIM_REQUESTS', '79005004010');
+define('PROJECT_CONTACTS_SIM_REQUESTS_COUNTRY', '7');
+define('PROJECT_CONTACTS_SIM_REQUESTS_OPERATOR', '900');
+define('PROJECT_CONTACTS_SIM_REQUESTS_NUMBER_1', '500');
+define('PROJECT_CONTACTS_SIM_REQUESTS_NUMBER_2', '40');
+define('PROJECT_CONTACTS_SIM_REQUESTS_NUMBER_3', '10');

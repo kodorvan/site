@@ -1,0 +1,66 @@
+@charset "UTF-8";
+
+section#companies {
+	z-index: 50;
+	width: 100vw;
+	height: 70px;
+	padding-bottom: 4rem;
+	display: inline-flex;
+	flex-direction: row;
+	gap: 2rem;
+	pointer-events: none;
+
+	>img {
+		box-sizing: border-box;
+		padding: 0.8rem 1.2rem;
+		border-radius: 1.25rem;
+		/* border-top: 1px solid #e6efff45;
+    border-left: 1px solid #e5edff38;
+    background: #d7f9ff2b;
+    backdrop-filter: blur(1.6px); */
+		color: #fff;
+
+		&:is(.bitrix24) {
+			padding-top: 1.3rem;
+			padding-bottom: 0.5rem;
+		}
+
+		&:is(.moy_sklad) {
+			padding-top: 0.1rem;
+			padding-bottom: 0.4rem;
+		}
+
+		&:is(.wildberries) {
+			padding-top: 0.7rem;
+			padding-bottom: 1.1rem;
+		}
+
+		&:is(.ozon) {
+			padding-top: 0.8rem;
+			padding-bottom: 1.1rem;
+		}
+
+		&:is(.yandex_market) {
+			padding-bottom: 0.8rem;
+		}
+
+		&:is(.vk) {
+			padding-bottom: 0.4rem;
+		}
+
+		&:is(.max) {
+			padding-bottom: 0.5rem;
+		}
+
+		&:is(.avito) {
+			padding-bottom: 1rem;
+		}
+	}
+}
+
+@media (width < 800px) {
+	section#companies {
+		height: 50px;
+		padding-bottom: 2.5rem;
+	}
+}

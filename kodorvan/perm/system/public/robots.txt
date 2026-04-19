@@ -1,0 +1,3 @@
+User-agent: *
+Disallow: /profile/
+Sitemap: https://kodorvan.tech/sitemap.xml

@@ -1,67 +1,79 @@
 @charset "UTF-8";
 
-@media (prefers-color-scheme: default) {
-  :root {
-    --text-color: #fff;
-    --text-color-inverted: #000;
-    --button-background-color-inverted: #fff;
-    --button-background-color: #000;
-    --section-background-color-inverted: #fff;
-    --section-background-color: #000;
-    --background-color: #000;
-    --background-color-inverted: #fff;
+/* @media (prefers-color-scheme: default) { */
+	:root {
+		--text-color: #fff;
+		--text-color-inverted: #000;
+		--button-background-color-inverted: #fff;
+		--button-background-color: #000;
+		--section-background-color-inverted: #fff;
+		--section-background-color: #000;
+		--background-color: #fbfaf6;
+		--background-gradient: linear-gradient(90deg, #eef7f1 0%, var(--background-color) 25%, var(--background-color) 75%, #eef7f1 100%);
+		--background-color-inverted: #fff;
 
-    --interface-top-background-color: var(--background-color, #000);
-    --interface-background-color: var(--background-color, #000);
-    --interface-bottom-background-color: var(--background-color, #000);
+		--interface-top-background-color: var(--background-color, #000);
+		--interface-background-color: var(--background-color, #000);
+		--interface-bottom-background-color: var(--background-color, #000);
 
-    --red: red;
-    --white: #fff;
-    --blue: #0ea5e9;
+		--red: red;
+		--white: #fff;
+		--blue: #0ea5e9;
 
-    --paper: var(--white);
-  }
-}
-@media (prefers-color-scheme: dark) {
-  :root {
-    --text-color: #fff;
-    --text-color-inverted: #000;
-    --button-background-color-inverted: #fff;
-    --button-background-color: #000;
-    --section-background-color-inverted: #fff;
-    --section-background-color: #fff;
-    --background-color: #000;
-    --background-color-inverted: #fff;
+		--paper: var(--white);
 
-    --interface-top-background-color: var(--background-color, #000);
-    --interface-background-color: var(--background-color, #000);
-    --interface-bottom-background-color: var(--background-color, #000);
+		--button-plain-hover-background-color: #bdd2c8;
+		--button-plain-active-background-color: #7d9f8f;
+	}
+/* } */
 
-    --red: red;
-    --white: #fff;
+/* @media (prefers-color-scheme: dark) {
+	:root {
+		--text-color: #fff;
+		--text-color-inverted: #000;
+		--button-background-color-inverted: #fff;
+		--button-background-color: #000;
+		--section-background-color-inverted: #fff;
+		--section-background-color: #fff;
+		--background-color: #000;
+		--background-color-inverted: #fff;
 
-    --paper: var(--white);
-  }
-}
+		--interface-top-background-color: var(--background-color, #000);
+		--interface-background-color: var(--background-color, #000);
+		--interface-bottom-background-color: var(--background-color, #000);
+
+		--red: red;
+		--white: #fff;
+
+		--paper: var(--white);
+
+		--button-plain-hover-background-color: #bdd2c8;
+		--button-plain-active-background-color: #7d9f8f;
+	}
+} */
 
 @media (prefers-color-scheme: light) {
-  :root {
-    --text-color: #fff;
-    --text-color-inverted: #000;
-    --button-background-color-inverted: #fff;
-    --button-background-color: #000;
-    --section-background-color-inverted: #fff;
-    --section-background-color: #000;
-    --background-color: #000;
-    --background-color-inverted: #fff;
+	:root {
+		--text-color: #fff;
+		--text-color-inverted: #000;
+		--button-background-color-inverted: #fff;
+		--button-background-color: #000;
+		--section-background-color-inverted: #fff;
+		--section-background-color: #000;
+		--background-color: #fbfaf6;
+		--background-gradient: linear-gradient(90deg, #eef7f1 0%, var(--background-color) 25%, var(--background-color) 75%, #eef7f1 100%);
+		--background-color-inverted: #fff;
 
-    --interface-top-background-color: var(--background-color, #000);
-    --interface-background-color: var(--background-color, #000);
-    --interface-bottom-background-color: var(--background-color, #000);
+		--interface-top-background-color: var(--background-color, #000);
+		--interface-background-color: var(--background-color, #000);
+		--interface-bottom-background-color: var(--background-color, #000);
 
-    --red: red;
-    --white: #fff;
+		--red: red;
+		--white: #fff;
 
-    --paper: var(--white);
-  }
+		--paper: var(--white);
+
+		--button-plain-hover-background-color: #bdd2c8;
+		--button-plain-active-background-color: #7d9f8f;
+	}
 }

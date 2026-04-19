@@ -1,0 +1,340 @@
+<style>
+	:root {
+		--project-loading: "{{ language.name == 'ru' or true ? 'Загрузка' : 'Loading' }}";
+	}
+</style>
+
+<section id="project">
+	<div>
+		<h1 class="unselectable">Конструктор заказа</h1>
+		<small class="unselectable">Получите стоимость за 2 минуты</small>
+	</div>
+
+	<noscript>
+		<b>Калькулятор не загрузится в вашем браузере</b></br>
+		<i>Оформите заказ через звонок оператору по номеру {{ contacts.sim.requests.full ?? 'Ошибка' }}</i>
+	</noscript>
+
+	<article class="loading" aria-label="Конструктор проекта">
+		<div class="loading"><i class="icon loading spinner animated"></i></div>
+
+		<section data-paginator-page="1" data-paginator-page-focus="architecture_input" class="unselectable">
+			<section id="parameters">
+				<label id="architecture" class="input icon" for="architecture_input">
+					<img class="icon" src="/themes/default/images/icons/extension.svg" alt="extension kodorvan" ondragstart="return false"/>
+					<span class="title">Архитектура</span>
+					<select 
+						id="architecture_input" 
+						class="input"
+						name="architecture_input" 
+						autocomplete="off"
+						oninput="core.project.architecture = this.value"
+					>
+						<option value="" selected="true" disabled="true" hidden="true" data-paginator-select-title="true">Выберите архитектуру</option>
+						{% for value, label in project.architectures %}
+							<option value="{{ value }}">{{ label }}</option>
+						{% endfor %}
+					</select>
+					<small class="guide active">Для начала выберите фундамент проекта</small>
+				</label>
+				<label id="purpose" class="input icon" for="purpose_input" style="display: none;">
+					<img class="icon" src="/themes/default/images/icons/track.svg" alt="track kodorvan" ondragstart="return false"/>
+					<span class="title">Назначение</span>
+					<select 
+						id="purpose_input" 
+						class="input"
+						name="purpose_input" 
+						autocomplete="off"
+						oninput="core.project.purpose = this.value"
+					>
+						<option value="" selected="true" disabled="true" hidden="true" data-paginator-select-title="true">Выберите назначение</option>
+						{% for value, label in project.purposes %}
+							<option value="{{ value }}">{{ label }}</option>
+						{% endfor %}
+					</select>
+					<small class="guide">Теперь выберите деятельность проекта</small>
+				</label>
+				<div id="integrations" style="display: none;">
+					<fieldset>
+						<legend>Интеграции</legend>
+						{% for value, label in project.integrations %}
+							<div class="integration hidden">
+								<input 
+									id="integration_input_{{ value }}" 
+									class="input"
+									name="integrations" 
+									value="{{ value }}" 
+									type="checkbox"
+									value=""
+									autocomplete="off"
+									onchange="this.checked ? core.project.integrate(this.value) : core.project.desintegrate(this.value)" 
+								/>
+								<label for="integration_input_{{ value}}">{{ label }}</label>
+							</div>
+						{% endfor %}
+					</fieldset>
+					<small class="guide">Выберите контрагентов проекта</small>
+				</div>
+			</section>
+
+			<section id="team" class="row" style="display: none;">
+				<fieldset>
+					<legend>Команда</legend>
+					<div class="row">
+						<label for="programmers">
+							<input 
+								id="programmers" 
+								class="input"
+								type="number" 
+								min="0" 
+								max="3" 
+								value="0" 
+								autocomplete="off"
+								onkeyup="core.project.programmers = this.value"
+							/>
+							<span>Программисты</span>
+						</label>
+						<label for="designers">
+							<input 
+								id="designers" 
+								class="input"
+								type="number" 
+								min="0" 
+								max="4" 
+								value="0"
+								autocomplete="off"
+								onkeyup="core.project.designers = this.value"
+							/>
+							<span>Дизайнеры</span>
+						</label>
+						<label for="boosters">
+							<input 
+								id="boosters" 
+								class="input"
+								type="number" 
+								min="0" 
+								max="2" 
+								value="0" 
+								autocomplete="off"
+								onkeyup="core.project.boosters = this.value"
+							/>
+							<span>Бустеры</span>
+						</label>
+					</div>
+				</fieldset>
+				<small class="guide">Соберите команду разработчиков проекта</small>
+			</section>
+
+			<section id="reward" style="display: none;">
+				<label id="hour" for="hour_input_number">
+					<span class="title">Оплата за рабочий час</span>
+					<div class="row">
+						<input
+							id="hour_input_number"
+							class="input"
+							type="number"
+							min="300"
+							max="5000"
+							value="1800"
+							autocomplete="off"
+							oninput="document.getElementById('hour_input_range').value = this.value; core.project.hour = this.value;"
+						/>
+						<span class="currency rubles"></span>
+						<input
+							id="hour_input_range"
+							class="input"
+							type="range"
+							min="300"
+							max="5000"
+							step="100"
+							value="1800"
+							autocomplete="off"
+							oninput="document.getElementById('hour_input_number').value = this.value; core.project.hour = this.value;"
+						/>
+					</div>
+					<small class="guide">Введите предложение оплаты за рабочий час команды</small>
+				</label>
+			</section>
+		</section>
+
+		<section data-paginator-page="2" data-paginator-page-focus="name_input" class="unselectable" style="display: none;">
+			<section id="metadata">
+				<label id="project_name" class="input icon" for="project_name_input">
+					<img class="icon" src="/themes/default/images/icons/nametag.svg" alt="nametag kodorvan" ondragstart="return false"/>
+					<span class="title">Название</span>
+					<input 
+						id="project_name_input" 
+						class="input"
+						name="project_name_input" 
+						type="text"
+						placeholder="Проект А"
+						value="" 
+						autocomplete="off"
+						onkeyup="core.project.project.name = this.value"
+					/>
+					<small class="guide active">Введите внутреннее название проекта</small>
+				</label>
+				<label id="project_description" class="input icon" for="project_description_input">
+					<img class="icon" src="/themes/default/images/icons/notes.svg" alt="notes kodorvan" ondragstart="return false"/>
+					<span class="title">Описание</span>
+					<textarea 
+						id="project_description_input"
+						class="input"
+						name="project_description_input"
+						cols="100%"
+						maxlength="4096"
+						value="" 
+						autocomplete="off"
+						placeholder="Сделайте, чтобы всё было красиво, спасибо"
+						onkeyup="core.project.project.description = this.value"
+					></textarea>
+					<small class="guide active">Опишите задачу в свободной форме</small>
+				</label>
+				<div id="project_files" class="input icon">
+					<img class="icon" src="/themes/default/images/icons/import.svg" alt="import kodorvan" ondragstart="return false"/>
+					<div>
+						<span class="title">Импорт</span>
+						<ol style="display: none;" class="files"></ol>
+						<small class="guide active">Загрузите документы и изображения</small>
+						<label class="pseudoinput" for="project_files_input"></label>
+						<input 
+							id="project_files_input"
+							class="input"
+							name="project_files_input"
+							type="file",
+							accept="image/*,.pdf,pptx,.doc,.docx,.odt,.word,.pages,.rtf,.txt"
+							multiple="true"
+							value="" 
+							autocomplete="off"
+							oninput="core.project.project.files = this.files"
+						/>
+					</div>
+				</div>
+			</section>
+		</section>
+
+		<section data-paginator-page="3" data-paginator-page-focus="requester_name_input" class="unselectable" style="display: none;">
+			<section id="requester">
+				<label id="requester_name" class="input icon" for="requester_name_input">
+					<img class="icon" src="/themes/default/images/icons/smile.svg" alt="smile kodorvan" ondragstart="return false"/>
+					<span class="title">Представитель</span>
+					<input 
+						id="requester_name_input" 
+						class="input"
+						name="requester_name_input" 
+						type="text" 
+						placeholder="Богдан"
+						value="" 
+						autocomplete="off"
+						onkeyup="core.project.requester.name = this.value"
+					/>
+					<small class="guide active">Введите ваши инициалы</small>
+				</label>
+				<label id="requester_sim" class="input icon" for="requester_sim_input">
+					<img class="icon" src="/themes/default/images/icons/phone.svg" alt="phone kodorvan" ondragstart="return false"/>
+					<span class="title">SIM-номер</span>
+					<input 
+						id="requester_sim_input" 
+						class="input"
+						name="requester_sim_input" 
+						type="text" 
+						placeholder="7 (000) 000 0000"
+						value="" 
+						autocomplete="off"
+						onkeyup="core.project.requester.sim = this.value"
+					/>
+					<small class="guide active">Введите номер телефона для связи</small>
+				</label>
+				<label id="requester_mail" class="input icon" for="requester_mail_input">
+					<img class="icon" src="/themes/default/images/icons/mail.svg" alt="mail kodorvan" ondragstart="return false"/>
+					<span class="title">Почта</span>
+					<input 
+						id="requester_mail_input" 
+						class="input"
+						name="requester_mail_input" 
+						type="email" 
+						placeholder="project@company.org"
+						value="" 
+						autocomplete="off"
+						onkeyup="core.project.requester.mail = this.value"
+					/>
+					<small class="guide active">Введите почту для связи</small>
+				</label>
+				<label id="requester_other" class="input icon"for="requester_other_input">
+					<img class="icon" src="/themes/default/images/icons/comment.svg" alt="comment kodorvan" ondragstart="return false"/>
+					<span class="title">Дополнительные контакты</span>
+					<textarea 
+						id="requester_other_input"
+						class="input"
+						name="name_input"
+						cols="100%"
+						maxlength="2048"
+						value=""
+						autocomplete="off"
+						placeholder="Синяя программа: @zornhut"
+						onkeyup="core.project.requester.other = this.value"
+					></textarea>
+					<small class="guide active">Введите дополнительные удобные способы связи</small>
+				</label>
+			</section>
+
+			<section id="confirmation">
+				<label id="requester_personal" for="requester_personal_input">
+						<div>
+							<input 
+								id="requester_personal_input"
+								class="input"
+								name="requester_personal_input" 
+								type="checkbox" 
+								value="" 
+								autocomplete="off"
+								oninput="core.project.requester.personal = this.checked"
+							/>
+							<img src="/themes/default/images/icons/circle.svg" alt="lock kodorvan" style="display: var(--display, none)" ondragstart="return false"/>
+							<img src="/themes/default/images/icons/circle_dot.svg" alt="unlock kodorvan" style="display: var(--display, none)" ondragstart="return false"/>
+						</div>
+						<span class="title">Разрешаю запись, обработку и хранение моих персональных данных</span>
+				</label>
+			</section>
+		</section>
+
+		<section id="result" style="display: none;">
+			<section id="calculated">
+				<div id="hours" style="display: none"><p><span class="title unselectable">Время:</span><span id="hours_output" class="hours">0</span><span id="days_output" class="days unselectable">0</span></p></div>
+				<div id="payment" style="display: none"><p><span class="title unselectable">Стоимость:</span><span id="payment_output" class="currency">0</span></p></div>
+				<div id="prepayment" style="display: none"><p><span class="title unselectable">Предоплата:</span><span id="prepayment_output" class="currency">0</span> <span class="amount unselectable">(30%)</span></p></div>
+			</section>
+		</section>
+	</article>
+	
+	<div class="adaptive">
+		<button id="back" class="unselectable" onclick="core.paginator.relative(-1)" style="display: none">
+			<img src="/themes/default/images/icons/arrow_left.svg" alt="back button kodorvan" ondragstart="return false"/>
+		</button>
+
+		<section id="buttons" style="display: none">
+			<button onclick="core.paginator.relative(1)" data-paginator-page-button="1">ПРОДОЛЖИТЬ</button>
+			<button onclick="core.paginator.relative(1)" style="display: none" data-paginator-page-button="2" disabled="true">ПРОДОЛЖИТЬ</button>
+			<button 
+				id="send" 
+				class="gradient"
+				style="display: none"
+				onclick="core.project.send();" 
+				data-paginator-page-button="3"
+				disabled="true"
+			>
+				<span>НАЧАТЬ РАЗРАБОТКУ</span>
+				<div class="color yellow"></div>
+				<div class="color green"></div>
+				<div class="color blue"></div>
+			</button>
+		</section>
+	</div>
+
+	<small class="offer unselectable">Создан для удобства и <b>не является публичной офертой</b></br>Точная стоимость после изучения задания</small>
+
+	<section id="contacts_shortcut">
+		<p class="sim"><span class="country">7</span><span class="operator">901</span><span>592</span><span>4211</span></p>
+		<small class="unselectable">ЗВОНИТЕ ПО НОМЕРУ</small>
+	</section>
+</section>

@@ -1,0 +1,135 @@
+@keyframes yellow {
+	25% {
+		left: -240%;
+		top: -130%;
+	}
+
+	50% {
+		left: -100%;
+		top: -120%;
+	}
+
+	75% {
+		left: -160%;
+		top: -230%;
+	}
+
+	100% {
+		left: -250%;
+		top: -300%;
+	}
+}
+
+@keyframes blue {
+	25% {
+		left: -180%;
+		top: -100%;
+	}
+
+	50% {
+		left: -120%;
+		top: -250%;
+	}
+
+	75% {
+		left: -250%;
+		top: -300%;
+	}
+
+	100% {
+		left: -280%;
+		top: -80%;
+	}
+}
+
+@keyframes green {
+	25% {
+		left: -120%;
+		top: -250%;
+	}
+
+	50% {
+		left: -250%;
+		top: -300%;
+	}
+
+	75% {
+		left: -280%;
+		top: -80%;
+	}
+
+	100% {
+		left: -180%;
+		top: -100%;
+	}
+}
+
+@keyframes wrap-background {
+	25% {
+		background-color: #9395ff;
+	}
+
+	50% {
+		background-color: #fff393;
+	}
+
+	75% {
+		background-color: #534eff;
+	}
+
+	100% {
+		background-color: #ff5c5c;
+	}
+}
+
+:is(div, section, button).gradient {
+	z-index: 0;
+	position: relative;
+	overflow: hidden;
+	animation-duration: 8s;
+	animation-name: wrap-background;
+	animation-iteration-count: infinite;
+	background-repeat: no-repeat;
+	animation-timing-function: ease-in-out;
+	background-color: #ff5c5c;
+
+	>div:not(.gradient) {
+		z-index: -1000;
+		width: 500%;
+		height: 500%;
+		position: absolute;
+		pointer-events: none;
+		filter: blur(200px);
+		animation-duration: 12s;
+		background-repeat: no-repeat;
+		animation-timing-function: ease-in-out;
+		animation-iteration-count: infinite;
+	}
+
+	>div.yellow {
+		left: -250%;
+		top: -300%;
+		animation-name: yellow;
+		background-image: radial-gradient(circle,
+				rgb(255, 255, 25) 0%,
+				rgba(0, 0, 0, 0) 35%);
+	}
+
+	>div.blue {
+		left: -280%;
+		top: -80%;
+		animation-name: blue;
+		background-image: radial-gradient(circle,
+				rgba(25, 25, 255, 0.6) 0%,
+				rgba(0, 0, 0, 0) 35%);
+	}
+
+	>div.green {
+		left: -180%;
+		top: -100%;
+		animation-name: green;
+		background-image: radial-gradient(circle,
+				rgba(25, 255, 25, 1) 0%,
+				rgba(0, 0, 0, 0) 35%);
+	}
+}

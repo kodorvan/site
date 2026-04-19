@@ -1,0 +1,47 @@
+@charset "UTF-8";
+
+section#workload {
+	height: 80px;
+	padding-top: unset !important;
+	padding-bottom: 1rem;
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+
+	>p {
+		margin: unset;
+		display: inline-flex;
+		align-items: center;
+		gap: 1rem;
+		font-family: "Cascadia Code";
+		font-size: 1.2rem;
+
+		>span {
+			position: relative;
+			margin-left: 1rem;
+			font-weight: 700;
+
+			&:is(.small) {
+				color: #18c32a;
+			}
+
+			&:is(.medium) {
+				color: #184dc3;
+			}
+
+			&:is(.heavy) {
+				color: #ff0b0b;
+			}
+
+			>small {
+				right: 0;
+				bottom: -1rem;
+				position: absolute;
+				width: max-content;
+				font-size: 0.8rem;
+				font-weight: 300;
+				color: initial;
+			}
+		}
+	}
+}

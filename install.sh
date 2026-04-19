@@ -8,14 +8,20 @@ if [ -d author ]; then
 	mv author kodorvan
 fi
 
-if [ -e kodorvan/perm/system/settings/*.sample ]; then
-	for i in kodorvan/perm/system/settings/*.sample; do
-    cp "$i" "${i/.sample/}";
-  done
-fi
+for i in kodorvan/perm/system/settings/*.sample; do
+  echo $i;
+  if [ ! -f "${i/.sample/}" ]; then
+    cp -n "$i" "${i/.sample/}";
+    echo ${i/.sample/};
+  fi
+done
 
 if ! [ -d kodorvan/perm/system/public/js/modules ]; then
 	mkdir kodorvan/perm/system/public/js/modules -p
+fi
+
+if ! [ -L kodorvan/perm/system/public/js/modules/damper.mjs ]; then
+	ln -s ../../../../../../damper.mjs/damper.mjs kodorvan/perm/system/public/js/modules/damper.mjs;
 fi
 
 if ! [ -L kodorvan/perm/system/public/js/modules/hotline.mjs ]; then

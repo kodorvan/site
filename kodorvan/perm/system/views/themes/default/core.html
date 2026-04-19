@@ -3,19 +3,17 @@
 <html lang="ru">
 
 <head>
-	{% use '/themes/default/head.html' with title as head_title, meta as head_meta, css as head_css %}
+	{% use '/themes/default/head.html' with meta as head_meta, css as head_css %}
 
-	{% block title %}
-	{{ block('head_title') }}
-	{% endblock %}
-
-	{% block meta %}
 	{{ block('head_meta') }}
+	{% block meta %}
 	{% endblock %}
 
 	{{ block('head_css') }}
 	{% block css %}
 	{% endblock %}
+
+	{% include '/elements/yandex.html' %}
 </head>
 
 <body>

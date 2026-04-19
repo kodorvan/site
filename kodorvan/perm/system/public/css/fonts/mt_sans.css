@@ -1,0 +1,63 @@
+@charset "UTF-8";
+
+@font-face {
+	font-family: 'MT Sans';
+	src: url("/fonts/mt_sans/MTSans-LightCondensed.ttf");
+	font-weight: 100;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'MT Sans';
+	src: url("/fonts/mt_sans/MTSans-LightCondensed.ttf");
+	font-weight: 200;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'MT Sans';
+	src: url("/fonts/mt_sans/MTSans-LightCondensed.ttf");
+	font-weight: 300;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'MT Sans';
+	src: url("/fonts/mt_sans/MTSans-RegularCondensed.ttf");
+	font-weight: 400;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'MT Sans';
+	src: url("/fonts/mt_sans/MTSans-RegularCondensed.ttf");
+	font-weight: 500;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'MT Sans';
+	src: url("/fonts/mt_sans/MTSans-Bold.ttf");
+	font-weight: 600;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'MT Sans';
+	src: url("/fonts/mt_sans/MTSans-BoldCondensed.ttf");
+	font-weight: 700;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'MT Sans';
+	src: url("/fonts/mt_sans/MTSans-BlackCondensed.ttf");
+	font-weight: 800;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'MT Sans';
+	src: url("/fonts/mt_sans/MTSans-BlackExtended.ttf");
+	font-weight: 900;
+	font-style: normal;
+}
