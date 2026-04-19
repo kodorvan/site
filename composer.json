@@ -1,13 +1,13 @@
 {
-	"name": "kodorvan/perm",
-	"description": "Лендинг для Перми от Ксении",
-	"homepage": "https://git.svoboda.works/kodorvan/perm",
+	"name": "kodorvan/site",
+	"description": "The kodorvan team main site",
+	"homepage": "https://git.svoboda.works/kodorvan/site",
 	"type": "site",
 	"keywords": [
 		"minimal",
 		"baza",
 		"landing",
-		"perm"
+		"site"
 	],
 	"readme": "README.md",
 	"license": "WTFPL",
@@ -20,8 +20,8 @@
     }
 	],
 	"support": {
-		"wiki": "https://git.svoboda.works/kodorvan/perm/wiki",
-		"issues": "https://git.svoboda.works/kodorvan/perm/issues"
+		"wiki": "https://git.svoboda.works/kodorvan/site/wiki",
+		"issues": "https://git.svoboda.works/kodorvan/site/issues"
 	},
 	"require": {
 		"php": "^8.5",
@@ -41,12 +41,12 @@
 	},
 	"autoload": {
 		"psr-4": {
-			"kodorvan\\perm\\": "kodorvan/perm/system"
+			"kodorvan\\site\\": "kodorvan/site/system"
 		}
 	},
 	"autoload-dev": {
 		"psr-4": {
-			"kodorvan\\perm\\tests\\": "kodorvan/perm/tests"
+			"kodorvan\\site\\tests\\": "kodorvan/site/tests"
 		}
 	},
 	"scripts": {

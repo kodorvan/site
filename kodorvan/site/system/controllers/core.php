@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace kodorvan\perm\controllers;
+namespace kodorvan\site\controllers;
 
 // Files of the project
-use kodorvan\perm\views\templater,
-	kodorvan\perm\models\core as models;
+use kodorvan\site\views\templater,
+	kodorvan\site\models\core as models;
 
 // Library for languages support
 use mirzaev\languages\language;
@@ -20,7 +20,7 @@ use mirzaev\minimal\core as minimal,
 /**
  * Controllers core
  *
- * @package kodorvan\perm\controllers
+ * @package kodorvan\site\controllers
  *
  * @param language $language Language
  * @param response $response Response

@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace kodorvan\perm\controllers;
+namespace kodorvan\site\controllers;
 
 // Files of the project
-use kodorvan\perm\controllers\core;
+use kodorvan\site\controllers\core;
 
 // Framework for PHP
 use mirzaev\minimal\http\enumerations\content,
@@ -14,7 +14,7 @@ use mirzaev\minimal\http\enumerations\content,
 /**
  * Index
  *
- * @package kodorvan\perm\controllers
+ * @package kodorvan\site\controllers
  *
  * @param array $errors Registry of errors
  *

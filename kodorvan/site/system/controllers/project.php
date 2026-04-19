@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace kodorvan\perm\controllers;
+namespace kodorvan\site\controllers;
 
 // Files of the project
-use kodorvan\perm\controllers\core;
+use kodorvan\site\controllers\core;
 
 // PHP framework
 use mirzaev\minimal\http\enumerations\content,
@@ -19,7 +19,7 @@ use PHPMailer\PHPMailer\PHPMailer as mail,
 /**
  * Index
  *
- * @package kodorvan\perm\controllers
+ * @package kodorvan\site\controllers
  *
  * @param array $errors Registry of errors
  *

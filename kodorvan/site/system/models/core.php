@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace kodorvan\perm\models;
+namespace kodorvan\site\models;
 
 // Framework for PHP
 use mirzaev\minimal\model,
@@ -14,7 +14,7 @@ use exception;
 /**
  * Models core
  *
- * @package kodorvan\perm\models
+ * @package kodorvan\site\models
  *
  * @method void __construct() Constructor
  *

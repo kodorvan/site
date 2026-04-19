@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace kodorvan\perm\views;
+namespace kodorvan\site\views;
 
 // Library for languages support
 use mirzaev\languages\language;
@@ -24,7 +24,7 @@ use ArrayAccess as array_access,
 /**
  * Templater
  *
- * @package kodorvan\perm\views
+ * @package kodorvan\site\views
  *
  * @param twig $twig Instance of the twig templater
  * @param array $variables Registry of view global variables

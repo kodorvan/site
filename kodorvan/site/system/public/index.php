@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace kodorvan\perm;
+namespace kodorvan\site;
 
 // Framework for PHP
 use mirzaev\minimal\core,
