@@ -44,22 +44,6 @@ final class offer extends core
 		if (str_contains($this->request->headers['accept'] ?? '', content::html->value)) {
 			// Request for HTML response
 
-			// Initializing contacts data
-			$this->view->contacts = [
-				'sim' => [
-					'requests' => [
-						'full' => PROJECT_CONTACTS_SIM_REQUESTS ?? 'Ошибка',
-						'country' => PROJECT_CONTACTS_SIM_REQUESTS_COUNTRY ?? 'Ошибка',
-						'operator' => PROJECT_CONTACTS_SIM_REQUESTS_OPERATOR ?? 'Ошибка',
-						'number' => [
-							PROJECT_CONTACTS_SIM_REQUESTS_NUMBER_1 ?? 'Ошибка',
-							PROJECT_CONTACTS_SIM_REQUESTS_NUMBER_2 ?? 'Ошибка',
-							PROJECT_CONTACTS_SIM_REQUESTS_NUMBER_3 ?? 'Ошибка'
-						]
-					]
-				]
-			];
-
 			// Render page
 			$page = $this->view->render(
 				'main/offer.html',

@@ -18,7 +18,7 @@ footer {
 		display: flex;
 		flex-direction: column;
 		justify-content: end;
-		gap: 1rem;
+		gap: 2rem;
 
 		&.company {
 			justify-content: space-between;
@@ -118,9 +118,13 @@ footer {
 				}
 			}
 
+			>a.mail {
+				margin-top: 0.2em;
+			}
+
 			>p.worktime {
 				margin: unset;
-				margin-top: 0.6em;
+				margin-top: 0.8em;
 				display: flex;
 				gap: 0.5em;
 
@@ -150,7 +154,7 @@ footer {
 			display: flex;
 			flex-direction: column;
 			gap: 0.5rem;
-			font-family: "Bahnschrift";
+			font-family: "Cascadia Code";
 
 			>h1.name {
 				margin: unset;
@@ -170,13 +174,13 @@ footer {
 				color: #a3a396;
 
 				::selection {
-					color: #FFF;
-					background: #12A;
+					color: #000;
+					background: #F22;
 				}
 
 				::-moz-selection {
-					color: #FFF;
-					background: #12A;
+					color: #000;
+					background: #F22;
 				}
 
 				>span.row {

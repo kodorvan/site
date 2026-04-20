@@ -55,6 +55,32 @@ body {
 	background-color: #020c13;
 }
 
+a {
+	font-family: "Cascadia Code";
+	text-decoration: unset;
+	color: #094ef2;
+
+	&:is(:hover, :focus) {
+		color: #487dfa;
+	}
+
+	&:active {
+		color: #1224bc;
+	}
+
+	&::selection {
+	color: #094ef2;
+		background: #FAA;
+		text-shadow: none;
+	}
+
+	&::-moz-selection {
+	color: #094ef2;
+		background: #FAA;
+		text-shadow: none;
+	}
+}
+
 .unselectable {
 	-webkit-touch-callout: none;
 	-webkit-user-select: none;

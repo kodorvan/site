@@ -52,7 +52,7 @@
 						{% for button in buttons %}
 							{% set icon = button.icon ?? 'close' %}
 							<link type="text/css" rel="stylesheet" href="/css/icons/{{ button.icon|replace({' ': '_'}) }}.css" />
-							<a type="button" href="{{ button.href }}" target="_blank" rel="nofollow noopener noreferrer"><i class="icon {{ button.icon }}"></i></a>
+							<a type="button" href="{{ button.href }}" target="_blank" rel="external nofollow noopener noreferrer"><i class="icon {{ button.icon }}"></i></a>
 						{% endfor %}
 					</div>
 				{% endif %}

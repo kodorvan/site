@@ -39,13 +39,22 @@ body {
 		}
 
 		>article#offer {
-			background: #fff;
 			z-index: 500;
 			border-radius: 1.25rem;
-			margin: 3rem 10vw 8rem;
-			padding: 1rem 4rem;
+			margin: 3rem 0 8rem;
+			width: 880px;
+			box-sizing: border-box;
+			padding: 3rem 4rem;
+			background: #fff;
 
-			>h1 {}
+			>h1 {
+				margin-top: unset;
+				margin-bottom: 2.5rem;
+				text-align: center;
+				font-family: "MT Sans";
+				font-size: 3rem;
+				font-weight: 400;
+			}
 		}
 	}
 

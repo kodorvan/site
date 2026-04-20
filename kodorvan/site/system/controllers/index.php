@@ -230,22 +230,6 @@ final class index extends core
 			];
 
 			// Initializing contacts data
-			$this->view->contacts = [
-				'sim' => [
-					'requests' => [
-						'full' => PROJECT_CONTACTS_SIM_REQUESTS ?? 'Ошибка',
-						'country' => PROJECT_CONTACTS_SIM_REQUESTS_COUNTRY ?? 'Ошибка',
-						'operator' => PROJECT_CONTACTS_SIM_REQUESTS_OPERATOR ?? 'Ошибка',
-						'number' => [
-							PROJECT_CONTACTS_SIM_REQUESTS_NUMBER_1 ?? 'Ошибка',
-							PROJECT_CONTACTS_SIM_REQUESTS_NUMBER_2 ?? 'Ошибка',
-							PROJECT_CONTACTS_SIM_REQUESTS_NUMBER_3 ?? 'Ошибка'
-						]
-					]
-				]
-			];
-
-			// Initializing contacts data
 			$this->view->integrations = [
 				'Вайлдберриз' => 'wildberries',
 				'ОЗОН' => 'ozon',

@@ -1,13 +1,37 @@
 <?php
 
-// Initializing default theme for the views templater
 define('THEME', 'default');
 
-define('TELEGRAM_ROBOT', [
-	'domain' => 'kodorvan_bot'
+define('DOMAIN', 'kodorvan.tech');
+
+define('COMPANY', [
+	'identifier' => '000000000000000',
+	'tax' => '000000000000',
+	'name' => [
+		'short' => 'ИП Мирзаев',
+		'full' => 'ИП Мирзаев Арсен Магомедович'
+	],
+	'address' => [
+		'full' => 'Пермь'
+	],
+	'worktime' => [
+		'from' => '10:00',
+		'to' => '19:00'
+	],
+	'contacts' => [
+		'request' => [
+			'sim' => [
+				'full' => '79005004010',
+				'country' => '7',
+				'operator' => '900',
+				'number' => ['500',	'40',	'10']
+			],
+			'mail' => 'request@kodorvan.tech'
+		]
+	]
 ]);
 
-define('MAIL_SERVER', [
+define('MAIL', [
 	'host' => 'smtp.mail.ru',
 	'sender' => [
 		'mail' => 'system@kodorvan.tech',
@@ -15,14 +39,11 @@ define('MAIL_SERVER', [
 		'password' => '',
 	],
 	'receiver' => [
-		'mail' => 'requests@kodorvan.tech',
+		'mail' => 'request@kodorvan.tech',
 		'name' => 'Заявки'
 	]
 ]);
 
-define('PROJECT_CONTACTS_SIM_REQUESTS', '79005004010');
-define('PROJECT_CONTACTS_SIM_REQUESTS_COUNTRY', '7');
-define('PROJECT_CONTACTS_SIM_REQUESTS_OPERATOR', '900');
-define('PROJECT_CONTACTS_SIM_REQUESTS_NUMBER_1', '500');
-define('PROJECT_CONTACTS_SIM_REQUESTS_NUMBER_2', '40');
-define('PROJECT_CONTACTS_SIM_REQUESTS_NUMBER_3', '10');
+define('TELEGRAM_ROBOT', [
+	'domain' => 'kodorvan_bot'
+]);

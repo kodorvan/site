@@ -83,14 +83,14 @@ final class project extends core
 			$mail->setLanguage('ru');
 			$mail->CharSet = mail::CHARSET_UTF8;
 			$mail->isSMTP();
-			$mail->Host = MAIL_SERVER['host'];
+			$mail->Host = MAIL['host'];
 			$mail->SMTPAuth = true;
-			$mail->Username = MAIL_SERVER['sender']['mail'];
-			$mail->Password = MAIL_SERVER['sender']['password'];
+			$mail->Username = MAIL['sender']['mail'];
+			$mail->Password = MAIL['sender']['password'];
 			$mail->SMTPSecure = mail::ENCRYPTION_SMTPS;
 			$mail->Port = 465;
-			$mail->setFrom(MAIL_SERVER['sender']['mail'], MAIL_SERVER['sender']['name']);
-			$mail->addAddress(MAIL_SERVER['receiver']['mail'], MAIL_SERVER['receiver']['name']);
+			$mail->setFrom(MAIL['sender']['mail'], MAIL['sender']['name']);
+			$mail->addAddress(MAIL['receiver']['mail'], MAIL['receiver']['name']);
 
 			// The message
 			$mail->isHTML(true);

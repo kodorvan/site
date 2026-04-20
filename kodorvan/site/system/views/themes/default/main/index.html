@@ -1,7 +1,10 @@
 {% extends "/themes/default/index.html" %}
 
 {% block css %}
+	<link rel="canonical" href="https://{{ domain }}/" />
+
 	{{ parent() }}
+
 	<link type="text/css" rel="stylesheet" href="/css/icons/loading_spinner.css" />
 	<!-- <link type="text/css" rel="stylesheet" href="/css/icons/code_slash.css" />
 	<link type="text/css" rel="stylesheet" href="/css/icons/coffe.css" />
@@ -22,9 +25,9 @@
 	<link type="text/css" rel="stylesheet" href="/themes/default/css/elements/project.css" />
 	<link type="text/css" rel="stylesheet" href="/themes/default/css/elements/superpacks.css" />
 	{% if smartphone %}
-		<link rel="preload" as="image" href="/themes/default/images/interface/labubumba_2_mobile.svg" />
+		<link rel="preload expect" as="image" href="/themes/default/images/interface/labubumba_2_mobile.svg" />
 	{% else %}
-		<link rel="preload" as="image" href="/themes/default/images/interface/labubumba_2.svg" />
+		<link rel="preload expect" as="image" href="/themes/default/images/interface/labubumba_2.svg" />
 		<!-- <link type="text/css" rel="stylesheet" href="/themes/default/css/elements/cases.css" /> -->
 	{% endif %}
 	<link type="text/css" rel="stylesheet" href="/themes/default/css/elements/cookies.css" />
@@ -82,8 +85,8 @@
 		});
 	</script>
 
+	<link rel="modulepreload" href="/js/modules/hotline.mjs" ></script>
 	<script src="/js/modules/project.mjs" type="module"></script>
 	<script src="/js/modules/paginator.mjs" type="module"></script>
-	<script src="/js/modules/hotline.mjs" type="module"></script>
 	<script src="/js/pages/main.js" type="module" defer></script>
 {% endblock %}

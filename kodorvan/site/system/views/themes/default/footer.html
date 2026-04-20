@@ -24,28 +24,39 @@
 			</article>
 
 			<nav id="links" class="unselectable">
-				<a href="/offer">ПУБЛИЧНАЯ ОФЕРТА</a>
-				<a href="https://ru.wikipedia.org/wiki/WTFPL">ЛИЦЕНЗИЯ</a>
-				<a href="https://t.me/kodorvan">КОДОРВАНЬ</a>
-				<a href="https://t.me/from_mirzaev">МИРЗАЕВ</a>
-				<a href="https://git.svoboda.works/kodorvan">РЕПОЗИТОРИЙ</a>
+				<a rel="terms-of-service noreferrer noopener" href="/offer">ОФЕРТА</a>
+				<a rel="privacy-policy noreferrer noopener" href="/policy">ПОЛИТИКА</a>
+				<a rel="license external nofollow noopener" href="https://ru.wikipedia.org/wiki/WTFPL">ЛИЦЕНЗИЯ</a>
+				<a rel="external nofollow noopener" href="https://git.svoboda.works/kodorvan">РЕПОЗИТОРИЙ</a>
+				<a rel="help external nofollow noopener" href="https://t.me/kodorvan">БЛОГ</a>
+				<a rel="author external nofollow noopener" href="https://t.me/from_mirzaev">МИРЗАЕВ</a>
 			</nav>
 		</div>
 
 		<div class="sector company">
 			<article id="contacts">
-				<h1 class="sim"><span class="country">7</span><span class="operator">901</span><span>592</span><span>4211</span></h1>
-				<span class="mail support">support@kodorvan.tech</span>
-				<p class="worktime unselectable">Пермь, <span class="time from">10:00</span><span class="time to">19:00</span></p>
+				{% if company.contacts.request.sim is not empty %}
+					<h1 class="sim" aria-label="{{ company.contacts.request.sim.full }}">
+						<span class="country">{{ company.contacts.request.sim.country }}</span>
+						<span class="operator">{{ company.contacts.request.sim.operator }}</span>
+						<span>{{ company.contacts.request.sim.number[0] }}</span>
+						<span>{{ company.contacts.request.sim.number[1] ~ company.contacts.request.sim.number[2] }}</span>
+					</h1>
+				{% endif %}
+				{% if company.contacts.request.mail is not empty %}
+					<a class="mail support" href="mailto:{{ company.contacts.request.mail }}">{{ company.contacts.request.mail }}</a>
+				{% endif %}
+				<p class="worktime unselectable">
+					{% if company.address.full is not empty %}{{ company.address.full }}{% endif %}, 
+					<span class="time from">{{ company.worktime.from }}</span>
+					<span class="time to">{{ company.worktime.to }}</span></p>
 			</article>
 
 			<article id="company">
-				<h1 class="name">ИП Мирзаев</h1>
-				<p class="column"><span class="tax row">271103176488</span><span class="identifier row">322270000004691</span></p>
+				<h1 class="name">{{ company.name.short }}</h1>
+				<p class="column"><span class="tax row">{{ company.tax }}</span><span class="identifier row">{{ company.identifier }}</span></p>
 			</article>
 		</div>
-
-		<!-- <strong class="background unselectable">КОДОРВАНЬ</strong> -->
 	</footer>
 	{% include '/themes/default/elements/rofls.html' %}
 {% endblock %}
