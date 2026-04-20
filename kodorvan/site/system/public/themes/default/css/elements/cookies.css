@@ -30,11 +30,12 @@ section#cookies {
 		}
 
 		>div {
-			padding: 0.8rem 1.2rem 0.7rem;
+			padding: 0.9rem 1.2rem 0.8rem;
 			display: flex;
 			flex-direction: column;
 			justify-content: center;
 			align-items: center;
+			gap: 0.3rem;
 
 			>p {
 				margin: unset;
@@ -43,6 +44,8 @@ section#cookies {
 			}
 
 			>small {
+				line-height: 1rem;
+				text-align: center;
 				font-family: Nunito;
 				font-size: 0.9rem;
 				font-weight: 400;

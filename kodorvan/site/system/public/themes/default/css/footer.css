@@ -167,12 +167,23 @@ footer {
 				text-align: right;
 				gap: 0.2em;
 				font-size: 0.8rem;
-				color: grey;
+				color: #a3a396;
+
+				::selection {
+					color: #FFF;
+					background: #12A;
+				}
+
+				::-moz-selection {
+					color: #FFF;
+					background: #12A;
+				}
 
 				>span.row {
 					display: inline-flex;
 					justify-content: end;
 					font-weight: 400;
+					gap: 0.6em;
 
 					&:before {
 						margin-right: auto;
@@ -242,6 +253,26 @@ footer {
 
 				>article#contacts {
 					align-items: start;
+				}
+			}
+		}
+	}
+}
+
+@media (width < 520px) {
+	footer {
+		>div.sector {
+			&:is(.company) {
+				flex-direction: column;
+				gap: 3rem;
+
+				>article#contacts {
+					width: 100%;
+					align-items: center;
+				}
+
+				>article#company {
+					width: 100%;
 				}
 			}
 		}

@@ -4,8 +4,10 @@
 	:root {
 		--text-color: #fff;
 		--text-color-inverted: #000;
-		--button-background-color-inverted: #fff;
-		--button-background-color: #000;
+		--button-background-color: #fff;
+		--button-background-color-inverted: #000;
+		--button-hover-background-color: #abc7c6;
+		--button-active-background-color: #8fa3a2;
 		--section-background-color-inverted: #fff;
 		--section-background-color: #000;
 		--background-color: #fbfaf6;
@@ -21,9 +23,6 @@
 		--blue: #0ea5e9;
 
 		--paper: var(--white);
-
-		--button-plain-hover-background-color: #bdd2c8;
-		--button-plain-active-background-color: #7d9f8f;
 	}
 /* } */
 
@@ -56,8 +55,10 @@
 	:root {
 		--text-color: #fff;
 		--text-color-inverted: #000;
-		--button-background-color-inverted: #fff;
-		--button-background-color: #000;
+		--button-background-color: #fff;
+		--button-background-color-inverted: #000;
+		--button-hover-background-color: #abc7c6;
+		--button-active-background-color: #8fa3a2;
 		--section-background-color-inverted: #fff;
 		--section-background-color: #000;
 		--background-color: #fbfaf6;
@@ -72,8 +73,5 @@
 		--white: #fff;
 
 		--paper: var(--white);
-
-		--button-plain-hover-background-color: #bdd2c8;
-		--button-plain-active-background-color: #7d9f8f;
 	}
 }

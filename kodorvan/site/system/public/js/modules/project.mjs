@@ -514,6 +514,22 @@ export default class project {
 			]),
 			coefficient: 8
 		},
+    saas: {
+			symbol: Symbol("saas"),
+			integrations: new Set([
+				this.services.telegram,
+				this.services.max,
+				this.services.vk,
+				this.services.one_c,
+				this.services.moy_sklad,
+				this.services.excel,
+				this.services.ozon,
+				this.services.wildberries,
+				this.services.avito,
+				this.services.yandex_market,
+			]),
+			coefficient: 8
+		},
     search: {
 			symbol: Symbol("search"),
 			integrations: new Set([

@@ -125,8 +125,8 @@ section#project {
 			display: flex;
 			flex-direction: column;
 			gap: 0.8em;
-			overflow: hidden;
-			border-radius: 1.125rem;
+			/* overflow: hidden;
+			border-radius: 1.125rem; */
 			/* border: 2px solid;
 		background-color: #fff;
 		box-shadow: var(--shadow);
@@ -185,6 +185,8 @@ section#project {
 					>:is(input, select, textarea) {
 						grid-column: 2;
 						grid-row: 2;
+						width: 100%;
+						border-radius: 0;
 					}
 
 					>small.guide {
@@ -266,7 +268,7 @@ section#project {
 						width: 100%;
 						box-sizing: border-box;
 						display: flex;
-						flex-flow: row wrap;
+						justify-content: space-between;
 						gap: 0.6em 1em;
 						/* border-radius: 0.75rem; */
 						border: 1px solid #000;
@@ -278,45 +280,39 @@ section#project {
 							font-weight: 400;
 						}
 
-						>div.row {
+						>label {
 							width: 100%;
 							display: flex;
-							justify-content: space-between;
+							flex-direction: column;
+							align-items: center;
+							gap: 0.3rem;
 
-							>label {
-								width: 100%;
-								display: flex;
-								flex-direction: column;
-								align-items: center;
-								gap: 0.3rem;
+							>input[type="number"] {
+								appearance: textfield;
+								-moz-appearance: textfield;
+								width: 80%;
+								/* padding: 0.4em 0.6em 0.4em 1.2em; */
+								padding: 0.4em 0.6em;
+								box-sizing: border-box;
+								text-align: center;
+								font-family: Nunito;
+								font-weight: 400;
+								font-size: 1em;
+								outline: unset;
+								border: unset;
+								border-bottom: 1px solid #000;
+								background: unset;
 
-								>input[type="number"] {
-									appearance: textfield;
-									-moz-appearance: textfield;
-									width: 80%;
-									/* padding: 0.4em 0.6em 0.4em 1.2em; */
-									padding: 0.4em 0.6em;
-									box-sizing: border-box;
-									text-align: center;
-									font-family: Nunito;
-									font-weight: 400;
-									font-size: 1em;
-									outline: unset;
-									border: unset;
-									border-bottom: 1px solid #000;
-									background: unset;
-
-									&::-webkit-outer-spin-button,
-									&::-webkit-inner-spin-button {
-										-webkit-appearance: none;
-										display: none;
-									}
+								&::-webkit-outer-spin-button,
+								&::-webkit-inner-spin-button {
+									-webkit-appearance: none;
+									display: none;
 								}
+							}
 
-								>span {
-									font-size: 0.9em;
-									cursor: pointer;
-								}
+							>span {
+								font-size: 0.9em;
+								cursor: pointer;
 							}
 						}
 					}
@@ -703,11 +699,9 @@ section#project {
 					gap: unset;
 
 					>label#requester_personal {
-						padding: 1em 0.8em;
+						padding: 0.6em 0.8em;
 						box-sizing: border-box;
-						display: grid;
-						grid-template-columns: 3ch auto;
-						grid-template-rows: 2ch;
+						display: flex;
 						align-items: center;
 						gap: 0.7ch;
 						font-size: 0.9rem;
@@ -725,8 +719,7 @@ section#project {
 						}
 
 						>div {
-							grid-column: 1;
-							scale: 0.7;
+							scale: 0.8;
 
 							>input {
 								position: absolute;
@@ -762,7 +755,6 @@ section#project {
 						}
 
 						>span {
-							grid-column: 2;
 							margin-top: 0.15ch;
 						}
 					}
@@ -858,7 +850,7 @@ section#project {
 		display: contents;
 
 		>button#back {
-			--diameter: 6ch;
+			--diameter: 7ch;
 			--radius: calc(var(--diameter, 4ch) / 2);
 			position: absolute;
 			left: calc(-1.2rem - var(--diameter, 4ch));
@@ -870,14 +862,14 @@ section#project {
 			align-items: center;
 			border-radius: 100%;
 			border: unset;
-			background-color: #fff;
+			background-color: var(--button-background-color, #fff);
 
 			&:is(:hover, :focus) {
-				background-color: var(--button-plain-hover-background-color, #bdd2c8);
+				background-color: var(--button-hover-background-color, #abc7c6);
 			}
 
 			&:active {
-				background-color: var(--button-plain-active-background-color, #7d9f8f);
+				background-color: var(--button-active-background-color, #8fa3a2);
 			}
 
 			>img {
@@ -894,20 +886,33 @@ section#project {
 				/* padding: 1.05em 1.3em 1em;
 				border-radius: 0.75rem; */
 				box-sizing: border-box;
-				padding: 1.55em 1.3em 1.5em;
+				padding: 1.25em 1.3em 1.2em;
+				font-size: 1rem;
 				border-radius: 1.25rem;
 				border: unset;
-				background-color: #fff;
+				background-color: var(--button-background-color, #fff);
+
+				&:is(:hover, :focus) {
+					background-color: var(--button-hover-background-color, #abc7c6);
+				}
+
+				&:active {
+					background-color: var(--button-active-background-color, #8fa3a2);
+				}
 
 				&:is(#send) {
 					--shadow: 0 4px 5px -4px rgba(0, 0, 0, 0.5);
 					/* padding: 2.3ch 4.5ch 2.5ch; */
-					line-height: 0.9em;
+					font-weight: 600;
+					font-size: 1rem;
+					color: #fff;
+					text-shadow: 0 0 4px #000, 0 3px 1.4rem #0009;
 					border: unset;
-					background: #ff5c5c;
+					background: hsl(var(--button-send-background-color, 120deg) 40% 50%);
 					box-shadow: var(--shadow);
 					-webkit-box-shadow: var(--shadow);
 					-moz-box-shadow: var(--shadow);
+					transition: background 1.2s ease-out;
 
 					&:not(:disabled) {
 						filter: contrast(1.1);
@@ -934,16 +939,6 @@ section#project {
 							filter: grayscale(1) brightness(0.8);
 						}
 					}
-
-					>span {
-						line-height: 1rem;
-						font-family: Geologica;
-						font-weight: 600;
-						font-size: 1rem;
-						color: #fff;
-						text-shadow: 0 0 4px #00000070;
-						/* mix-blend-mode: overlay; */
-					}
 				}
 			}
 
@@ -965,6 +960,10 @@ section#project {
 		font-size: 0.8em;
 		color: #fff;
 		text-shadow: 0px 1px 3px #000C, 0px 1px 1px #000B;
+
+		>b {
+			display: block;
+		}
 	}
 
 	>section#contacts_shortcut {
@@ -1022,7 +1021,22 @@ section#project {
 				margin: unset;
 				min-width: var(--diameter, 4ch);
 				width: 30%;
-				border-radius: 0.75rem;
+				height: auto;
+				border-radius: 1.25rem;
+			}
+		}
+	}
+}
+
+@media (width < 480px) {
+	section#project {
+		>article {
+			>section[data-paginator-page] {
+				>section#team {
+					>fieldset {
+						flex-flow: row wrap;
+					}
+				}
 			}
 		}
 	}

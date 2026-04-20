@@ -86,7 +86,7 @@ final class project extends core
 			$mail->Host = MAIL_SERVER['host'];
 			$mail->SMTPAuth = true;
 			$mail->Username = MAIL_SERVER['sender']['mail'];
-			$mail->Password = MAIL_SERVER['password'];
+			$mail->Password = MAIL_SERVER['sender']['password'];
 			$mail->SMTPSecure = mail::ENCRYPTION_SMTPS;
 			$mail->Port = 465;
 			$mail->setFrom(MAIL_SERVER['sender']['mail'], MAIL_SERVER['sender']['name']);

@@ -30,7 +30,7 @@
 						autocomplete="off"
 						oninput="core.project.architecture = this.value"
 					>
-						<option value="" selected="true" disabled="true" hidden="true" data-paginator-select-title="true">Выберите архитектуру</option>
+						<option value="" selected="true" disabled="true" hidden="true" data-project-select-title="true">Выберите архитектуру</option>
 						{% for value, label in project.architectures %}
 							<option value="{{ value }}">{{ label }}</option>
 						{% endfor %}
@@ -47,7 +47,7 @@
 						autocomplete="off"
 						oninput="core.project.purpose = this.value"
 					>
-						<option value="" selected="true" disabled="true" hidden="true" data-paginator-select-title="true">Выберите назначение</option>
+						<option value="" selected="true" disabled="true" hidden="true" data-project-select-title="true">Выберите назначение</option>
 						{% for value, label in project.purposes %}
 							<option value="{{ value }}">{{ label }}</option>
 						{% endfor %}
@@ -80,47 +80,45 @@
 			<section id="team" class="row" style="display: none;">
 				<fieldset>
 					<legend>Команда</legend>
-					<div class="row">
-						<label for="programmers">
-							<input 
-								id="programmers" 
-								class="input"
-								type="number" 
-								min="0" 
-								max="3" 
-								value="0" 
-								autocomplete="off"
-								onkeyup="core.project.programmers = this.value"
-							/>
-							<span>Программисты</span>
-						</label>
-						<label for="designers">
-							<input 
-								id="designers" 
-								class="input"
-								type="number" 
-								min="0" 
-								max="4" 
-								value="0"
-								autocomplete="off"
-								onkeyup="core.project.designers = this.value"
-							/>
-							<span>Дизайнеры</span>
-						</label>
-						<label for="boosters">
-							<input 
-								id="boosters" 
-								class="input"
-								type="number" 
-								min="0" 
-								max="2" 
-								value="0" 
-								autocomplete="off"
-								onkeyup="core.project.boosters = this.value"
-							/>
-							<span>Бустеры</span>
-						</label>
-					</div>
+					<label for="programmers">
+						<input 
+							id="programmers" 
+							class="input"
+							type="number" 
+							min="0" 
+							max="3" 
+							value="0" 
+							autocomplete="off"
+							onkeyup="core.project.programmers = this.value"
+						/>
+						<span>Программисты</span>
+					</label>
+					<label for="designers">
+						<input 
+							id="designers" 
+							class="input"
+							type="number" 
+							min="0" 
+							max="4" 
+							value="0"
+							autocomplete="off"
+							onkeyup="core.project.designers = this.value"
+						/>
+						<span>Дизайнеры</span>
+					</label>
+					<label for="boosters">
+						<input 
+							id="boosters" 
+							class="input"
+							type="number" 
+							min="0" 
+							max="2" 
+							value="0" 
+							autocomplete="off"
+							onkeyup="core.project.boosters = this.value"
+						/>
+						<span>Бустеры</span>
+					</label>
 				</fieldset>
 				<small class="guide">Соберите команду разработчиков проекта</small>
 			</section>
@@ -317,21 +315,21 @@
 			<button onclick="core.paginator.relative(1)" style="display: none" data-paginator-page-button="2" disabled="true">ПРОДОЛЖИТЬ</button>
 			<button 
 				id="send" 
-				class="gradient"
 				style="display: none"
 				onclick="core.project.send();" 
 				data-paginator-page-button="3"
 				disabled="true"
-			>
-				<span>НАЧАТЬ РАЗРАБОТКУ</span>
-				<div class="color yellow"></div>
-				<div class="color green"></div>
-				<div class="color blue"></div>
-			</button>
+			>ОТПРАВИТЬ</button>
 		</section>
+
+		<script>
+			const send = document.getElementById('send');
+			let deg = 120;
+			setInterval(() => send.style.setProperty('--button-send-background-color', (deg += 43) + 'deg'), 1200);
+		</script>
 	</div>
 
-	<small class="offer unselectable">Создан для удобства и <b>не является публичной офертой</b></br>Точная стоимость после изучения задания</small>
+	<small class="offer unselectable">Создан для удобного планирования и <b>не является публичной офертой</b></small>
 
 	<section id="contacts_shortcut">
 		<p class="sim"><span class="country">7</span><span class="operator">901</span><span>592</span><span>4211</span></p>

@@ -34,12 +34,25 @@
 	transition: 0.1s ease-out;
 }
 
+::selection {
+	color: #000;
+	background: #FF2;
+	text-shadow: none;
+}
+
+::-moz-selection {
+	color: #000;
+	background: #FF2;
+	text-shadow: none;
+}
+
 body {
 	margin: unset;
 	width: 100vw;
 	overflow-x: hidden;
-	background: var(--background-color, #fff);
-	background: var(--background-gradient);
+	/* background: var(--background-color, #fff);
+	background: var(--background-gradient); */
+	background-color: #020c13;
 }
 
 .unselectable {
@@ -67,6 +80,7 @@ input:not([type="range"]) {
 	outline: unset;
 	border: unset;
 	border-bottom: 1px solid;
+	border-radius: unset;
 	background: unset;
 }
 
@@ -130,6 +144,6 @@ button {
 	&:disabled {
 		cursor: not-allowed;
 		background-color: #08111d17;
-		filter: grayscale(1) brightness(0.8);
+		filter: grayscale(1) brightness(0.55);
 	}
 }

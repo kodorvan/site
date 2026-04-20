@@ -68,16 +68,15 @@ body {
 		--dot-space: 24px;
 		z-index: -50;
 		position: fixed;
-		top: -200%;
-		left: -200vw;
-		top: -200%;
+		top: 0;
+		left: min(-30vw, -300px);
 		justify-self: center;
 		align-self: center;
-		width: 400vw;
-		min-height: 1000px;
-		height: 800%;
+		width: max(250vw, 600px);
+		height: 200vh;
 		rotate: -16deg;
 		pointer-events: none;
 		background: linear-gradient(90deg, var(--dot-bg) calc(var(--dot-space) - var(--dot-size)), transparent 1%) center / var(--dot-space) var(--dot-space), linear-gradient(var(--dot-bg) calc(var(--dot-space) - var(--dot-size)), transparent 1%) center / var(--dot-space) var(--dot-space), var(--dot-color);
+		transform-origin: top left;
 	}
 }

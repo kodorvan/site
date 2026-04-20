@@ -209,7 +209,7 @@ final class index extends core
 					'marketplace' => 'Маркетплейс, магазин, витрина',
 					'saas' => 'SaaS проект',
 					'search' => 'Поиск и анализ',
-					'calculate' => 'Автоматизированное вычисление (калькулятор)',
+					'calculate' => 'Вычисления (калькулятор)',
 					'individual' => 'Индивидуальная разработка',
 				],
 				'integrations' => [
