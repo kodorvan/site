@@ -1860,7 +1860,7 @@ export default class project {
 												rofls.style.removeProperty('display');
 
 												// Starting the rofls hotline.mjs instance
-												rofls.instance.start();
+												rofls.hotline.start();
 
 												// Exit (success)
 												resolve();

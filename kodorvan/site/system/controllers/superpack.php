@@ -5,11 +5,19 @@ declare(strict_types=1);
 namespace kodorvan\site\controllers;
 
 // Files of the project
-use kodorvan\site\controllers\core;
+use kodorvan\site\controllers\core,
+	kodorvan\site\models\superpack;
 
 // Framework for PHP
 use mirzaev\minimal\http\enumerations\content,
 	mirzaev\minimal\http\enumerations\status;
+
+// Baza database
+use mirzaev\baza\database,
+	mirzaev\baza\column,
+	mirzaev\baza\record,
+	mirzaev\baza\enumerations\encoding,
+	mirzaev\baza\enumerations\type;
 
 /**
  * Offer
@@ -23,7 +31,7 @@ use mirzaev\minimal\http\enumerations\content,
  * @license http://www.wtfpl.net/ Do What The Fuck You Want To Public License
  * @author Arsen Mirzaev Tatyano-Muradovich <arsen@mirzaev.sexy>
  */
-final class offer extends core
+final class superpack extends core
 {
 	/**
 	 * Errors
@@ -35,23 +43,37 @@ final class offer extends core
 	];
 
 	/**
-	 * Page: offer
+	 * Page: superpack
 	 *
 	 * @return null
 	 */
-	public function index(): null
+	public function index(string $urn): null
 	{
 		if (str_contains($this->request->headers['accept'] ?? '', content::html->value)) {
 			// Request for HTML response
 
-			// Render page
-			$page = $this->view->render(
-				'pages/offer.html',
-				[
-					'smartphone' => $this->request->smartphone,
-					'tablet' => $this->request->tablet
-				]
-			);
+			// Initializing the superpack
+			$superpack = new superpack()->read(filter: fn(record $record) => $record->urn === $urn && $record->active === 1);
+
+			if ($superpack instanceof superpack) {
+				// Initialized the superpack
+
+				// Render page
+				$page = $this->view->render(
+					'pages/article.html',
+					[
+						'article' => [
+							'urn' => $urn,
+							'title' => $superpack->title,
+							'html' => $superpack->html
+						],
+						'smartphone' => $this->request->smartphone,
+						'tablet' => $this->request->tablet
+					]
+				);
+			} else {
+				// Not initialized the superpack
+			}
 
 			// Sending response
 			$this->response

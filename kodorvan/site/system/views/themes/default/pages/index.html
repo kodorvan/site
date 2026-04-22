@@ -1,8 +1,6 @@
 {% extends "/themes/default/index.html" %}
 
 {% block css %}
-	<link rel="canonical" href="https://{{ domain }}/" />
-
 	{{ parent() }}
 
 	<link type="text/css" rel="stylesheet" href="/css/icons/loading_spinner.css" />
@@ -39,10 +37,7 @@
 {% endblock %}
 
 {% block main %}
-	<h1 id="title" class="unselectable">
-		<span class="slogan">ВСЕХ ШАБЛОНОВ</span>
-		<a href="/" class="kodorvan">КОДОРВАНЬ</a>
-	</h1>
+	{% include '/themes/default/interface/logotype.html' %}
 
 	{% include '/themes/default/elements/project.html' %}
 	

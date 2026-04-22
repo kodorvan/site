@@ -16,9 +16,6 @@ class core {
 	// Language
 	static language = "ru";
 
-	// Theme
-	static theme = window.getComputedStyle(document.getElementById('theme'));
-
 	// Window
 	static window;
 

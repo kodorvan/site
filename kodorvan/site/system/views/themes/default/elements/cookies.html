@@ -1,11 +1,19 @@
 <section id="cookies" class="unselectable">
-	<div class="popup">
+	<div class="popup" aria-label="Используется технология cookies">
 		<div>
 			<p>ИСПОЛЬЗУЕТСЯ ТЕХНОЛОГИЯ COOKIES</p>
 			<small>№152-ФЗ «О персональных данных»</small>
 		</div>
 	</div>
-	<button onclick="let date = new Date(); document.cookie = 'cookies_popup_closed=true; expires=' + date.setDate(date.getDate() + 7) + '; path=/'; setTimeout(() => this.parentElement.remove(), 700); this.parentElement.style.opacity = 0">
-		<img class="cookie" src="/themes/default/images/cookie.png" alt="kodorvan cookies" ondragstart="return false" />
+	<button 
+		onclick="let date = new Date(); document.cookie = 'cookies_popup_closed=true; expires=' + date.setDate(date.getDate() + 7) + '; path=/'; setTimeout(() => this.parentElement.remove(), 700); this.parentElement.style.opacity = 0"
+		title="Закрыть"
+	>
+		<img 
+			class="cookie" 
+			src="/themes/default/images/cookie.png" 
+			alt="kodorvan cookies" 
+			ondragstart="return false" 
+		/>
 	</button>
 </section>

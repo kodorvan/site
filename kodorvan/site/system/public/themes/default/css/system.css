@@ -20,18 +20,12 @@
 	--cookies-width: 24rem;
 	--cookies-height: 4rem;
 
-	font-family: "Commissioner";
-	font-family: "Share Tech Mono";
-	font-family: "Montserrat";
-	font-family: "Alumni Sans Pinstripe";
-	font-family: "DejaVu";
-	font-family: "Fira";
-	font-family: "Hack";
 	font-family: "Nunito", "DejaVu", sans-serif;
 	text-decoration: none;
 	outline: none;
 	border: none;
 	transition: 0.1s ease-out;
+	overscroll-behavior: none;
 }
 
 ::selection {
@@ -50,33 +44,33 @@ body {
 	margin: unset;
 	width: 100vw;
 	overflow-x: hidden;
+
 	/* background: var(--background-color, #fff);
 	background: var(--background-gradient); */
 	background-color: #020c13;
 }
 
 a {
-	font-family: "Cascadia Code";
 	text-decoration: unset;
-	color: #094ef2;
+	color: var(--link-color);
 
 	&:is(:hover, :focus) {
-		color: #487dfa;
+		color: var(--link-hover-color);
 	}
 
 	&:active {
-		color: #1224bc;
+		color: var(--link-active-color);
 	}
 
 	&::selection {
-	color: #094ef2;
-		background: #FAA;
+		color: #094ef2;
+		background: #FFF;
 		text-shadow: none;
 	}
 
 	&::-moz-selection {
-	color: #094ef2;
-		background: #FAA;
+		color: #094ef2;
+		background: #FFF;
 		text-shadow: none;
 	}
 }
@@ -148,28 +142,34 @@ textarea {
 }
 
 button {
-	padding: 0.77em 1.3em 0.6em;
-	cursor: pointer;
 	font-family: Bahnschrift;
 	font-weight: 400;
+	cursor: pointer;
 	outline: unset;
-	border-radius: 0.75rem;
-	border: 1px solid #000;
 	background: unset;
-
-	&:not(:disabled) {
-		&:is(:hover, :focus) {
-			background-color: #e7e6e0;
-		}
-
-		&:active {
-			background-color: #c0bfb4;
-		}
-	}
 
 	&:disabled {
 		cursor: not-allowed;
-		background-color: #08111d17;
-		filter: grayscale(1) brightness(0.55);
+	}
+
+	&:not(.inline) {
+		padding: 0.77em 1.3em 0.6em;
+		border-radius: 0.75rem;
+		border: 1px solid #000;
+
+		&:not(:disabled) {
+			&:is(:hover, :focus) {
+				background-color: #e7e6e0;
+			}
+
+			&:active {
+				background-color: #c0bfb4;
+			}
+		}
+
+		&:disabled {
+			background-color: #08111d17;
+			filter: grayscale(1) brightness(0.55);
+		}
 	}
 }

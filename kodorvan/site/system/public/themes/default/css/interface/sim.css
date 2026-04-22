@@ -1,0 +1,37 @@
+@charset "UTF-8";
+
+div.sim {
+	display: flex;
+	gap: 0.4em;
+
+	>a.number {
+		display: flex;
+		gap: 0.4em;
+		font-family: Bahnschrift;
+		font-size: 1.5em;
+
+		>span.country:before {
+			content: '+';
+		}
+
+		>span.operator:before {
+			content: '(';
+		}
+
+		>span.operator:after {
+			content: ')';
+		}
+	}
+
+	>button.copy {
+		margin: unset;
+		padding: 0 0.2em;
+		cursor: pointer;
+		border: unset;
+
+		>img.icon {
+			scale: 0.8;
+			color: #fff;
+		}
+	}
+}

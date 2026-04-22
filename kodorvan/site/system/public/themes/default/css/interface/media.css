@@ -1,0 +1,17 @@
+@charset "UTF-8";
+
+div.social.media {
+	margin: 0.6em 0;
+	height: 3.5ch;
+	display: flex;
+	gap: 1ch;
+
+	>a {
+		display: contents;
+
+		>img {
+			width: auto;
+			height: 100%;
+		}
+	}
+}

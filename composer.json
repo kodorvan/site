@@ -32,7 +32,9 @@
 		"twig/twig": "^3.2",
 		"twig/extra-bundle": "^3.7",
 		"twig/intl-extra": "^3.10",
-		"phpmailer/phpmailer": "^7.0"
+		"phpmailer/phpmailer": "^7.0",
+		"mirzaev/record": "^2.2",
+		"svoboda/time": "^1.0"
 	},
 	"suggest": {
 		"mirzaev/files": "Easy working with files",

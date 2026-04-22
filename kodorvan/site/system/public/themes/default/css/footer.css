@@ -3,42 +3,33 @@
 footer {
 	z-index: 4000;
 	position: relative;
-	height: var(--footer-height, 200px);
+	min-height: 230px;
+	height: var(--footer-height, 230px);
+	box-sizing: border-box;
 	padding: 2rem 10vw;
 	display: flex;
-	align-items: self-end;
+	flex-direction: column;
 	justify-content: space-between;
-	gap: 3rem;
-	/* overflow: hidden; */
+	gap: 2rem;
 	color: #fff;
 	background-color: #000;
 
 	>div.sector {
 		height: 100%;
 		display: flex;
-		flex-direction: column;
-		justify-content: end;
+		flex-direction: row;
+		justify-content: space-between;
 		gap: 2rem;
 
-		&.company {
-			justify-content: space-between;
-			align-items: end;
-
-			>article#contacts {
-				display: flex;
-				flex-direction: column;
-				align-items: end;
-			}
-		}
-
-		>article#office {
-			width: 250px;
-			height: 100%;
+		>article.company {
+			flex-grow: 1;
 			display: flex;
+			gap: 2rem;
 
 			>div.map {
-				width: 100%;
-				height: 100%;
+				max-width: 350px;
+				width: 250px;
+				flex-grow: 3;
 				overflow: hidden;
 				border-radius: 0.75rem;
 				border: 2px solid #474023;
@@ -70,143 +61,145 @@ footer {
 					}
 				}
 			}
-		}
 
-		nav#links {
-			flex-grow: 1;
-			display: inline-flex;
-			justify-content: center;
-			gap: 1rem;
+			>div.information {
+				min-width: 230px;
+				max-width: 250px;
+				justify-self: end;
+				flex-grow: 1;
+				display: flex;
+				flex-direction: column;
+				gap: 0.5rem;
+				font-family: "Cascadia Code";
 
-			>a {
-				text-decoration: none;
-				font-family: "Geologica";
-				font-weight: 400;
-				font-size: 0.85rem;
-				color: #807f7f;
-				transition: color 0.1s ease-out;
-
-				&:is(:hover, :focus) {
-					color: #d5d5d5;
-					transition: color 0s;
+				>h1.name {
+					margin: unset;
+					display: block;
+					font-weight: 600;
+					font-size: 1rem;
 				}
 
-				&:active {
-					color: #4b4b4b;
-					transition: color 0s;
+				>p.column {
+					margin: unset;
+					display: inline-flex;
+					flex-direction: column;
+					gap: 0.2em;
+					font-size: 0.8rem;
+					color: #a3a396;
+
+					::selection {
+						color: #000;
+						background: #F22;
+					}
+
+					::-moz-selection {
+						color: #000;
+						background: #F22;
+					}
+
+					>span.row {
+						display: inline-flex;
+						justify-content: end;
+						font-weight: 400;
+						gap: 0.6em;
+
+						&:before {
+							margin-right: auto;
+							font-weight: 600;
+							color: #fff;
+						}
+					}
+
+					>span.tax {
+						&:before {
+							content: var(--company-tax) ":";
+						}
+					}
+
+					>span.identifier {
+						&:before {
+							content: var(--company-identifier) ":";
+						}
+					}
+				}
+
+				>p.worktime {
+					margin: unset;
+					margin-top: auto;
+					display: flex;
+					gap: 0.5em;
+					font-family: "Bahnschrift";
+
+					>span.time.from {
+						margin-left: auto;
+						display: flex;
+						gap: 0.2em;
+
+						&:before {
+							content: var(--contacts-worktime-from, 'from');
+						}
+					}
+
+					>span.time.to {
+						display: flex;
+						gap: 0.2em;
+
+						&:before {
+							content: var(--contacts-worktime-to, 'to');
+						}
+					}
 				}
 			}
 		}
 
-		>article#contacts {
-			>h1.sim {
+		>article.contacts {
+			min-height: 100px;
+			display: flex;
+			flex-direction: column;
+			align-items: end;
+			text-align: right;
+
+			>div.media {
 				margin: unset;
-				display: flex;
-				gap: 0.4em;
-				font-size: 1.4em;
+				margin-top: auto;
+				justify-content: end;
+			}
 
-				>span.country:before {
-					content: '+';
-				}
-
-				>span.operator:before {
-					content: '(';
-				}
-
-				>span.operator:after {
-					content: ')';
+			>div.sim {
+				a.number {
+					color: #fff;
 				}
 			}
 
 			>a.mail {
 				margin-top: 0.2em;
-			}
-
-			>p.worktime {
-				margin: unset;
-				margin-top: 0.8em;
-				display: flex;
-				gap: 0.5em;
-
-				>span.time.from {
-					display: flex;
-					gap: 0.2em;
-
-					&:before {
-						content: var(--contacts-worktime-from, 'from');
-					}
-				}
-
-				>span.time.to {
-					display: flex;
-					gap: 0.2em;
-
-					&:before {
-						content: var(--contacts-worktime-to, 'to');
-					}
-				}
+				margin-bottom: 1rem;
+				font-family: "Cascadia Code";
 			}
 		}
+	}
 
-		>article#company {
-			justify-self: end;
-			width: 160px;
-			display: flex;
-			flex-direction: column;
-			gap: 0.5rem;
-			font-family: "Cascadia Code";
+	>nav#links {
+		display: inline-flex;
+		justify-content: start;
+		gap: 1rem;
 
-			>h1.name {
-				margin: unset;
-				display: block;
-				text-align: right;
-				font-weight: 600;
-				font-size: 1rem;
+		>a {
+			text-decoration: none;
+			font-family: "Geologica";
+			font-weight: 400;
+			font-size: 0.85rem;
+			color: #807f7f;
+			transition: color 0.1s ease-out;
+
+			&:is(:hover, :focus) {
+				color: #d5d5d5;
+				transition: color 0s;
 			}
 
-			>p.column {
-				margin: unset;
-				display: inline-flex;
-				flex-direction: column;
-				text-align: right;
-				gap: 0.2em;
-				font-size: 0.8rem;
-				color: #a3a396;
-
-				::selection {
-					color: #000;
-					background: #F22;
-				}
-
-				::-moz-selection {
-					color: #000;
-					background: #F22;
-				}
-
-				>span.row {
-					display: inline-flex;
-					justify-content: end;
-					font-weight: 400;
-					gap: 0.6em;
-
-					&:before {
-						margin-right: auto;
-						font-weight: 600;
-						color: #fff;
-					}
-				}
-
-				>span.tax {
-					&:before {
-						content: var(--company-tax) ":";
-					}
-				}
-
-				>span.identifier {
-					&:before {
-						content: var(--company-identifier) ":";
-					}
-				}
+			&:active {
+				color: #4b4b4b;
+				transition: color 0s;
 			}
 		}
 	}
@@ -233,52 +226,48 @@ footer {
 @media (width < 1200px) {
 	footer {
 		height: unset;
-		flex-direction: column;
-		align-items: center;
 
 		>div.sector {
 			width: 100%;
+			flex-direction: column;
 
-			>article#office {
-				width: 100%;
-				height: 100px;
-			}
-
-			nav#links {
-				display: inline-flex;
-				justify-content: space-between;
-				gap: 1rem;
-				flex-flow: wrap row;
-				align-items: center;
-			}
-
-			&:is(.company) {
-				flex-direction: row;
-
-				>article#contacts {
-					align-items: start;
+			>article.company {
+				>div.map {
+					max-width: unset;
+					width: 100%;
+					height: 150px;
 				}
 			}
+
+			>article.contacts {
+				align-items: center;
+			}
+		}
+
+		>nav#links {
+			display: inline-flex;
+			/* justify-content: space-between; */
+			flex-flow: wrap row;
+			justify-content: center;
+			gap: 1rem;
 		}
 	}
 }
 
-@media (width < 520px) {
+@media (width < 800px) {
 	footer {
 		>div.sector {
-			&:is(.company) {
+			>article.company {
 				flex-direction: column;
-				gap: 3rem;
 
-				>article#contacts {
-					width: 100%;
-					align-items: center;
-				}
-
-				>article#company {
-					width: 100%;
+				>div.information {
+					max-width: unset;
 				}
 			}
+		}
+
+		>nav#links {
+			justify-content: space-between;
 		}
 	}
 }

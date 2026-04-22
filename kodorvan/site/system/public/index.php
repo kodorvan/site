@@ -47,6 +47,11 @@ $core = new core(namespace: __NAMESPACE__);
 $core->router
 	->write('/', new route('index', 'index'), 'GET')
 	->write('/offer', new route('offer', 'index'), 'GET')
+	->write('/policy', new route('policy', 'index'), 'GET')
+	->write('/recomendations', new route('recomendations', 'index'), 'GET')
+
+	->write('/superpack/$urn', new route('superpack', 'index'), 'GET')
+
 	->write('/project/request', new route('project', 'request'), 'PUT')
 ;
 

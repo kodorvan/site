@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3d3b850ebd1027cf1790dfa901746eab",
+    "content-hash": "15ac0ce9a39edb330d95b578175d5636",
     "packages": [
         {
             "name": "mirzaev/baza",
@@ -140,6 +140,48 @@
                 "issues": "https://git.svoboda.works/mirzaev/minimal/issues"
             },
             "time": "2026-04-17T06:08:04+00:00"
+        },
+        {
+            "name": "mirzaev/record",
+            "version": "2.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.svoboda.works/mirzaev/record",
+                "reference": "71360614d6cbab0fe33ec0feca15005ca913397a"
+            },
+            "require": {
+                "mirzaev/baza": "^3.4",
+                "php": "^8.4",
+                "svoboda/time": "^1.0"
+            },
+            "type": "pattern",
+            "autoload": {
+                "psr-4": {
+                    "mirzaev\\record\\": "mirzaev/record/system"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "WTFPL"
+            ],
+            "authors": [
+                {
+                    "name": "Arsen Mirzaev Tatyano-Muradovich",
+                    "email": "arsen@mirzaev.sexy",
+                    "homepage": "https://mirzaev.sexy",
+                    "role": "Creator"
+                }
+            ],
+            "description": "Active Record pattern for Baza",
+            "homepage": "https://git.svoboda.works/mirzaev/record",
+            "keywords": [
+                "baza"
+            ],
+            "support": {
+                "issues": "https://git.svoboda.works/mirzaev/record/issues",
+                "wiki": "https://git.svoboda.works/mirzaev/record/wiki"
+            },
+            "time": "2026-03-08T18:23:49+00:00"
         },
         {
             "name": "mobiledetect/mobiledetectlib",
@@ -539,6 +581,39 @@
                 "source": "https://github.com/php-fig/simple-cache/tree/3.0.0"
             },
             "time": "2021-10-29T13:26:27+00:00"
+        },
+        {
+            "name": "svoboda/time",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.svoboda.works/svoboda/time",
+                "reference": "0764960606d56a9f0865ebb07671d30a7d232b6a"
+            },
+            "require": {
+                "php": "^8.4"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "svoboda\\time\\": "svoboda/time/system"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "WTFPL"
+            ],
+            "authors": [
+                {
+                    "name": "Arsen Mirzaev Tatyano-Muradovich",
+                    "email": "arsen@mirzaev.sexy",
+                    "homepage": "https://mirzaev.sexy",
+                    "role": "Programmer"
+                }
+            ],
+            "description": "Time since Svoboda was created",
+            "homepage": "https://git.svoboda.works/svoboda/time",
+            "time": "2025-02-02T11:04:25+00:00"
         },
         {
             "name": "symfony/cache",

@@ -15,48 +15,42 @@
 {% block body %}
 	<footer>
 		<div class="sector">
-			<article id="office">
+			<article class="company">
 				<div class="map">
 					<div class="loading">
 						<i class="icon loading spinner animated"></i>
 					</div>
 				</div>
+				<div class="information">
+					<h1 class="name">{{ company.name.short }}</h1>
+					<p class="column"><span class="tax row">{{ company.tax }}</span><span class="identifier row">{{ company.identifier }}</span></p>
+					<p class="worktime unselectable">
+						{% if company.address.full is not empty %}{{ company.address.full }}{% endif %}, 
+						<span class="time from">{{ company.worktime.from }}</span>
+						<span class="time to">{{ company.worktime.to }}</span>
+					</p>
+				</div>
 			</article>
 
-			<nav id="links" class="unselectable">
-				<a rel="terms-of-service noreferrer noopener" href="/offer">ОФЕРТА</a>
-				<a rel="privacy-policy noreferrer noopener" href="/policy">ПОЛИТИКА</a>
-				<a rel="license external nofollow noopener" href="https://ru.wikipedia.org/wiki/WTFPL">ЛИЦЕНЗИЯ</a>
-				<a rel="external nofollow noopener" href="https://git.svoboda.works/kodorvan">РЕПОЗИТОРИЙ</a>
-				<a rel="help external nofollow noopener" href="https://t.me/kodorvan">БЛОГ</a>
-				<a rel="author external nofollow noopener" href="https://t.me/from_mirzaev">МИРЗАЕВ</a>
-			</nav>
-		</div>
+			<article class="contacts">
+				{% include '/themes/default/interface/sim.html' %}
 
-		<div class="sector company">
-			<article id="contacts">
-				{% if company.contacts.request.sim is not empty %}
-					<h1 class="sim" aria-label="{{ company.contacts.request.sim.full }}">
-						<span class="country">{{ company.contacts.request.sim.country }}</span>
-						<span class="operator">{{ company.contacts.request.sim.operator }}</span>
-						<span>{{ company.contacts.request.sim.number[0] }}</span>
-						<span>{{ company.contacts.request.sim.number[1] ~ company.contacts.request.sim.number[2] }}</span>
-					</h1>
-				{% endif %}
 				{% if company.contacts.request.mail is not empty %}
-					<a class="mail support" href="mailto:{{ company.contacts.request.mail }}">{{ company.contacts.request.mail }}</a>
+					<a class="mail support" href="mailto:{{ company.contacts.request.mail }}" rel="external noreferrer noopener nofollow">{{ company.contacts.request.mail }}</a>
 				{% endif %}
-				<p class="worktime unselectable">
-					{% if company.address.full is not empty %}{{ company.address.full }}{% endif %}, 
-					<span class="time from">{{ company.worktime.from }}</span>
-					<span class="time to">{{ company.worktime.to }}</span></p>
-			</article>
 
-			<article id="company">
-				<h1 class="name">{{ company.name.short }}</h1>
-				<p class="column"><span class="tax row">{{ company.tax }}</span><span class="identifier row">{{ company.identifier }}</span></p>
+				{% include '/themes/default/interface/media.html' %}
 			</article>
 		</div>
+
+		<nav id="links" class="unselectable">
+			<a href="/offer" rel="terms-of-service noopener">ОФЕРТА</a>
+			<a href="/policy" rel="privacy-policy noopener">ПОЛИТИКА</a>
+			<a href="https://ru.wikipedia.org/wiki/WTFPL" rel="license external nofollow noopener" >ЛИЦЕНЗИЯ</a>
+			<a href="https://git.svoboda.works/kodorvan" rel="external nofollow noopener">РЕПОЗИТОРИЙ</a>
+			<a href="https://t.me/kodorvan" rel="help external nofollow noopener">БЛОГ</a>
+			<a href="https://t.me/from_mirzaev" rel="author external nofollow noopener">МИРЗАЕВ</a>
+		</nav>
 	</footer>
 	{% include '/themes/default/elements/rofls.html' %}
 {% endblock %}

@@ -1,7 +1,9 @@
 {% block meta %}
 	<meta charset="utf-8" />
 
-	<title>{% if head.title != empty %}{{ head.title }}{% else %}Кодорвань - разработка сайтов в Перми{% endif %}</title>
+	<link rel="canonical" href="{{ uri ?? domain ? ('https://' ~  domain) : '' }}" />
+
+	<title>{{ title ?? 'Кодорвань - разработка сайтов в Перми' }}</title>
 	<meta name="application-name" content="Кодорвань" />
 	<meta name="description" content="Чистый код, авангардный дизайн, крепкий бустинг и юридическая броня! Заходи на сайт и посчитай проект за 2 минуты! Рвём шаблоны!" />
 	<meta name="author" content="Арсен Мирзаев Татьяно-Мурадович" />
@@ -12,12 +14,24 @@
 	<meta name="MobileOptimized" content="width" />
 	<meta name="mobile-web-app-capable" content="yes" />
 
-	<meta property="og:title" content="Кодорвань - разработка сайтов в Перми" />
-	<meta property="og:description" content="Чистый код, авангардный дизайн, крепкий бустинг и юридическая броня! Заходи на сайт и посчитай проект за 2 минуты! Рвём шаблоны!" />
+	<meta property="og:title" content="{{ opengraph.title ?? 'Кодорвань - разработка сайтов в Перми' }}" />
+	<meta property="og:description" content="{{ opengraph.description ?? 'Чистый код, авангардный дизайн, крепкий бустинг и юридическая броня! Заходи на сайт и посчитай проект за 2 минуты! Рвём шаблоны!' }}" />
 	<meta property="og:locale" content="ru_RU" />
 	<meta property="og:type" content="website" />
-	<meta property="og:url" content="https://kodorvan.tech" />
-	<meta property="og:logo" content="https://kodorvan.tech/images/kodorvan.png" />
+	<meta property="og:url" content="{{ uri ?? domain ? ('https://' ~ domain) : '' }}" />
+	<meta property="og:logo" content="{{ opengraph.logo ?? 'https://kodorvan.tech/images/kodorvan.png' }}" />
+	{% if opengraph.image.uri is not empty %}
+		<meta property="og:image" content="{{ opengraph.image.uri }}" />
+		{% if opengraph.image.width is not empty %}
+			<meta property="og:image:width" content="{{ opengraph.image.width }}" />
+		{% endif %}
+		{% if opengraph.image.height is not empty %}
+			<meta property="og:image:height" content="{{ opengraph.image.height }}" />
+		{% endif %}
+		{% if opengraph.image.alt is not empty %}
+			<meta property="og:image:alt" content="{{ opengraph.image.alt }}" />
+		{% endif %}
+	{% endif %}
 	<meta property="og:image" content="https://kodorvan.tech/images/kodorvan_1200_630.webp" />
 	<meta property="og:image:width" content="1200" />
 	<meta property="og:image:height" content="630" />
@@ -59,26 +73,26 @@
 	<meta name="theme-color" content="#ffffff" />
 
 	{% for meta in head.metas %}
-		<meta {% for name, value in meta.attributes %}{{ name }}="{{ value }}" {% endfor %} />
+		<meta {% for name, value in meta.attributes %}{{ name }}="{{ value }}" {% endfor %}/>
 	{% endfor %}
 
 	<script type="application/ld+json">
-	{
-		"@context": "https://schema.org",
-		"@type": "Organization",
-		"logo": "https://kodorvan.tech/images/kodorvan.png",
-		"name": "Кодорвань",
-		"description": "Чистый код, авангардный дизайн, крепкий бустинг и юридическая броня! Заходи на сайт и посчитай проект за 2 минуты! Рвём шаблоны!",
-		"url": "https://kodorvan.tech"
-		"contactPoint": [
-			{ "@type": "ContactPoint",
-				"telephone": "+7-901-592-4211",
-				"contactType": "Бесплатная консультация",
-				"contactOption": "TollFree",
-				"areaServed": "RU"
-			}
-		] 
-	}
+		{
+			"@context": "https://schema.org",
+			"@type": "Organization",
+			"logo": "https://kodorvan.tech/images/kodorvan.png",
+			"name": "Кодорвань",
+			"description": "Чистый код, авангардный дизайн, крепкий бустинг и юридическая броня! Заходи на сайт и посчитай проект за 2 минуты! Рвём шаблоны!",
+			"url": "https://kodorvan.tech",
+			"contactPoint": [
+				{ "@type": "ContactPoint",
+					"telephone": "+7-901-592-4211",
+					"contactType": "Бесплатная консультация",
+					"contactOption": "TollFree",
+					"areaServed": "RU"
+				}
+			] 
+		}
 	</script>
 {% endblock %}
 
@@ -86,16 +100,18 @@
 	{% for element in css %}
 		<link type="text/css" rel="stylesheet" {% if element.href %} href="{{ element.href }}" {% endif %} />
 	{% endfor %}
-	<link type="text/css" rel="stylesheet" href="/themes/default/css/fonts.css" />
+	<link type="text/css" rel="stylesheet" href="/themes/default/css/colorscheme.css" />
 	<link type="text/css" rel="stylesheet" href="/themes/default/css/system.css" />
 	<link type="text/css" rel="stylesheet" href="/themes/default/css/header.css" />
+	<link type="text/css" rel="stylesheet" href="/themes/default/css/interface/logotype.css" />
 	<link type="text/css" rel="stylesheet" href="/themes/default/css/main.css" />
 	<link type="text/css" rel="stylesheet" href="/themes/default/css/aside.css" />
+	<link type="text/css" rel="stylesheet" href="/themes/default/css/interface/sim.css" />
+	<link type="text/css" rel="stylesheet" href="/themes/default/css/interface/media.css" />
+	<link type="text/css" rel="stylesheet" href="/themes/default/css/fonts.css" />
 	<link type="text/css" rel="stylesheet" href="/themes/default/css/footer.css" />
-	<style id="theme" />
-		@import url('/themes/default/css/colorscheme.css');
-	</style>
-	<style if="localization" />
+
+	<style id="localization" />
 		:root {
 			--days: "{{ language.name == 'ru' or true ? 'дн' : 'd' }}";
 			--hours: "{{ language.name == 'ru' or true ? 'ч' : 'h' }}";

@@ -4,6 +4,9 @@
 	:root {
 		--text-color: #fff;
 		--text-color-inverted: #000;
+		--link-color: #475bf9;
+		--link-hover-color: #6375ff;
+		--link-active-color: #3d53f6;
 		--button-background-color: #fff;
 		--button-background-color-inverted: #000;
 		--button-hover-background-color: #abc7c6;
@@ -55,6 +58,9 @@
 	:root {
 		--text-color: #fff;
 		--text-color-inverted: #000;
+		--link-color: #475bf9;
+		--link-hover-color: #6375ff;
+		--link-active-color: #3d53f6;
 		--button-background-color: #fff;
 		--button-background-color-inverted: #000;
 		--button-hover-background-color: #abc7c6;

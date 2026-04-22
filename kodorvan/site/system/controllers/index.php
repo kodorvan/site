@@ -248,7 +248,7 @@ final class index extends core
 
 			// Render page
 			$page = $this->view->render(
-				'main/index.html',
+				'pages/index.html',
 				[
 					'smartphone' => $this->request->smartphone,
 					'tablet' => $this->request->tablet

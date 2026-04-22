@@ -1,7 +1,7 @@
 @charset "UTF-8";
 
 body {
-	main {
+	>main {
 		>h1#title {
 			z-index: 200;
 			margin: unset;
@@ -87,5 +87,17 @@ body {
 		pointer-events: none;
 		background: linear-gradient(90deg, var(--dot-bg) calc(var(--dot-space) - var(--dot-size)), transparent 1%) center / var(--dot-space) var(--dot-space), linear-gradient(var(--dot-bg) calc(var(--dot-space) - var(--dot-size)), transparent 1%) center / var(--dot-space) var(--dot-space), var(--dot-color);
 		transform-origin: top left;
+	}
+}
+
+@media (width < 1000px) {
+	body {
+		>main {
+			>article#offer {
+				margin-bottom: unset;
+				width: 100%;
+				border-radius: unset;
+			}
+		}
 	}
 }
