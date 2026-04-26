@@ -12,7 +12,7 @@
 {% endblock %}
 
 {% block main %}
-	{% include '/themes/default/interface/logotype.html %}
+	{% include '/themes/default/interface/logotype.html' %}
 
 
 	<article id="offer" aria-label="Публичная оферта">
@@ -116,7 +116,7 @@
 			</ul>
 
 			<p>Я уведомлен, что при необходимости я могу ознакомиться с актуальной версией Политики обработки
-			персональных данных {{ company.name.short }} по адресу <a	href="/offer" rel="nofollow noopener">https://{{ domain }}/policy</a>.</p>
+			персональных данных {{ company.name.short }} по адресу <a class="tech"	href="/offer" rel="nofollow noopener">https://{{ domain }}/policy</a>.</p>
 		</div>
 	</article>
 {% endblock %}

@@ -73,22 +73,51 @@ export default class paginator {
 	#page = 1;
 
 	/**
+	 * @name Page (get)
+	 *
+	 * @return {number}
+	 *
+	 * @public
+	 */
+	get page() {
+		return this.#page;
+	}
+
+	/**
+	 * @name The initial page
+	 *
+	 * @type {number}
+	 *
+	 * @protected
+	 */
+	#initial = 1;
+
+	/**
+	 * @name The initial page (get)
+	 *
+	 * @return {number}
+	 *
+	 * @public
+	 */
+	get initial() {
+		return this.#initial;
+	}
+
+	/**
 	 * @name Constructor
 	 *
 	 * @description
 	 * Initialize a hotline instance
 	 *
 	 * @param {HTMLElement} shell The shell element
-	 * @param {NodeList} pages
-	 * @param {Set} hide_on_the_first_page HTML-elements that will be hidden on the first page
-	 * @param {Set} hide_on_the_last_page HTML-elements that will be hidden on the last page
+	 * @param {NodeList} pages The pages HTML-elements list
+	 * @param {number} initial The initial page identifier
 	 * @param {boolean} [inject=false] Write the hotline instance into the shell element?
 	 **/
 	constructor(
 		shell,
 		pages,
-		hide_on_the_first_page,
-		hide_on_the_last_page,
+		initial,
 		inject = false
 	) {
 		if (shell instanceof HTMLElement) {
@@ -102,10 +131,17 @@ export default class paginator {
 		}
 
 		if (pages instanceof NodeList) {
-			// Initialized pages
+			// Initialized the pages HTML-elements list
 
-			// Writing the pages
+			// Writing the pages HTML-elements list
 			this.#pages = pages;
+		}
+
+		if (typeof initial === 'number') {
+			// Initialized the initial page identifier
+
+			// Writing the initial page identifier
+			this.#page = this.#initial = initial;
 		}
 	}
 

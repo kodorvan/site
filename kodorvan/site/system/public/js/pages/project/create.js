@@ -11,27 +11,27 @@ core.modules.connect(["damper", "project"]).then((connected) => {
 
 	// Initializing the instance of the project.mjs
 	core.global.project = new connected.global.project(
-		document.querySelector('section[data-paginator-page="2"]'), 
-		undefined, 
-		undefined, 
-		undefined, 
-		undefined, 
-		undefined, 
-		undefined, 
-		undefined, 
-		undefined, 
-		undefined, 
-		undefined, 
-		undefined, 
-		undefined, 
-		undefined, 
-		undefined, 
-		undefined, 
-		undefined, 
-		undefined, 
-		undefined, 
-		undefined, 
-		undefined, 
+		document.querySelector('section[data-paginator-page="1"]'), 
+		document.getElementById("architecture"),
+		document.getElementById("purpose"),
+		document.getElementById("integrations"),
+		document.getElementById("team"),
+		document.getElementById("programmers"),
+		document.getElementById("designers"),
+		document.getElementById("boosters"),
+		document.getElementById("reward"),
+		document.getElementById("hour"),
+		document.getElementById("hour_input_number"),
+		document.getElementById("hour_input_range"),
+		document.getElementById("result"),
+		document.getElementById("calculated"),
+		document.getElementById("hours"),
+		document.getElementById("hours_output"),
+		document.getElementById("days_output"),
+		document.getElementById("payment"),
+		document.getElementById("payment_output"),
+		document.getElementById("prepayment"),
+		document.getElementById("prepayment_output"),
 		document.getElementById("project_name"),
 		document.getElementById("project_description"),
 		files,
@@ -42,6 +42,23 @@ core.modules.connect(["damper", "project"]).then((connected) => {
 		document.getElementById("requester_personal"),
 		true
 	);
+
+	// Initializing the hour input number HTML-element
+	const hour_number = document.getElementById('hour_input_number');
+
+	// Initializing the hour input range HTML-element
+	const hour_range = document.getElementById('hour_input_range');
+
+	hour_range.addEventListener("input", () => {
+		hour_inputs_syncronize(hour_range, hour_number);
+	});
+
+	function hour_inputs_syncronize(range, number) {
+		const min = range.min ? range.min : 300;
+		const max = range.max ? range.max : 5000;
+
+		number.value = range.value;
+	}
 
 	// Initializing the "back" button
 	const back = document.getElementById('back');
@@ -55,8 +72,7 @@ core.modules.connect(["damper", "project"]).then((connected) => {
 		// Initializing the instance of the paginator.mjs
 		core.global.paginator = new connected.global.paginator(
 			document.getElementById('buttons'), 
-			pages,
-			2
+			pages
 		);
 
 		// Initializing the buttons
@@ -79,7 +95,7 @@ core.modules.connect(["damper", "project"]).then((connected) => {
 				// Showing the target page button HTML-element
 				active.style.removeProperty('display');
 
-				if (identifier > core.global.paginator.initial) {
+				if (identifier > 1) {
 					// Second or more page
 
 					// Showing the "back" button
@@ -93,17 +109,17 @@ core.modules.connect(["damper", "project"]).then((connected) => {
 			}
 		}
 
-		// Initializing the page buttons menu
-		core.global.paginator.shell.addEventListener("paginator.page.opened", function (event) {
-			// Scrolling to the introdution HTML-element
-			introdution?.scrollIntoView({ behavior: 'smooth' });
-
-			// Initializing the page buttons menu
-			menu(event.detail.identifier);
-		});
-
 		// Connecting event listener for project calculation
 		core.global.project.shell.addEventListener("project.write", function() {
+			// Initializing the "calculator" page button HTML-element
+			const calculator = core.global.paginator.shell.querySelector('button[data-paginator-page-button="1"]');
+
+			if (calculator instanceof HTMLElement) {
+				// Initialized the "calculator" page button HTML-element
+
+				// Showing or hiding the "calculator" page button HTML-element
+				calculator.disabled = !(core.global.project.architecture != null);
+			}
 
 			// Initializing the "project" page button HTML-element
 			const project = core.global.paginator.shell.querySelector('button[data-paginator-page-button="2"]');

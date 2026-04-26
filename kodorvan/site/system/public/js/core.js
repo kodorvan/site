@@ -10,6 +10,20 @@
  * @author Arsen Mirzaev Tatyano-Muradovich <arsen@mirzaev.sexy>
  */
 class core {
+	/**
+	 * @name Global modules
+	 *
+	 * @type {object}
+	 */
+	static global = {};
+
+	/**
+	 * @name System modules
+	 *
+	 * @type {object}
+	 */
+	static system = {};
+
 	// Domain
 	static domain = window.location.hostname;
 
@@ -125,7 +139,7 @@ class core {
 	 *
 	 * @return {void}
 	 */
-	/* static choose = core.damper(
+	/* static choose = core.global.damper(
 		(
 			title = "Выбор действия",
 			text = "",
@@ -299,32 +313,50 @@ Object.assign(
 		/**
 		 * @name Connect modules
 		 *
-		 * @param {(Array|string)} modules Names of modules without extension (`.mjs` only)
+		 * @param {(Array|string)} global Names of global modules without extension (`.mjs` only)
+		 * @param {(Array|string)} system Names of system modules without extenstion (`.mjs` only)
 		 *
 		 * @return {Promise}
 		 */
-		async connect(modules) {
+		async connect(global, system) {
 			// Normalisation required arguments
-			if (typeof modules === "string") modules = [modules];
+			if (typeof global === "string") global = [global];
+			if (typeof system === "string") system = [system];
 
-			if (modules instanceof Array) {
-				// Received and validated required arguments
+			// Initializing the registry of connected modules
+			const connected = {
+				system: [], 
+				global: []
+			};
 
-				// Initializing the registry of connected modules
-				const connected = [];
+			if (global?.length > 0) {
+				// Global
 
-				for (const module of modules) {
-					// Iterating over modules
+				for (const module of global) {
+					// Iterating over global modules
 
-					// Downloading, importing and writing the module into a core property and into registry of connected modules
-					core[module] =
-						connected[module] =
+					// Downloading, importing and writing the global module into a core property and into registry of connected modules
+					core.global[module] =
+						connected.global[module] =
 							await (await import(`./modules/${module}.mjs`)).default;
 				}
-
-				// Exit (success)
-				return connected;
 			}
+
+			if (system?.length > 0) {
+				// System
+
+				for (const module of system) {
+					// Iterating over system modules
+
+					// Downloading, importing and writing the system module into a core property and into registry of connected modules
+					core.system[module] =
+						connected.system[module] =
+							await (await import(`./modules/system/${module}.mjs`)).default;
+				}
+			}
+
+			// Exit (success)
+			return connected;
 		},
 	},
 );
@@ -347,7 +379,7 @@ core.modules.connect("damper").then(() => {
 			 *
 			 * @return {Promise}
 			 */
-			damper: core.damper(
+			damper: core.global.damper(
 				(...variables) => core.buffer.write.system(...variables),
 				300,
 				2,

@@ -1,10 +1,11 @@
 @charset "UTF-8";
 
 section#project {
-	--width: 420px;
+	--margin-bottom: 0.8rem;
+	--width: 480px;
 	z-index: 200;
 	position: relative;
-	margin-top: 2rem;
+	margin-top: 3rem;
 	margin-bottom: 5rem;
 	min-width: var(--width);
 	max-width: var(--width);
@@ -30,6 +31,14 @@ section#project {
 
 			&:not(+small) {
 				margin-bottom: 0.5em;
+			}
+
+			&+span {
+				margin-top: 0.2em;
+				margin-bottom: 1em;
+				text-align: center;
+				color: #e9e8e2;
+				text-shadow: 0px 1px 3px #000C, 0px 1px 1px #000B;
 			}
 
 			&+small {
@@ -67,6 +76,7 @@ section#project {
 		--shadow: 0px 6px 6px -2px rgba(0, 0, 0, 0.5), 0px 0px 14px 5px rgba(0, 0, 0, 0.4);
 		position: relative;
 		padding: 2rem 1.4rem;
+		padding: 1.6rem 1.4rem;
 		display: flex;
 		flex-direction: column;
 		gap: 1.4rem;
@@ -854,7 +864,7 @@ section#project {
 			--radius: calc(var(--diameter, 4ch) / 2);
 			position: absolute;
 			left: calc(-1.2rem - var(--diameter, 4ch));
-			top: calc(7.4rem - var(--radius, 2ch));
+			top: calc(10rem - var(--radius, 2ch));
 			width: var(--diameter, 4ch);
 			height: var(--diameter, 4ch);
 			display: flex;
@@ -878,6 +888,7 @@ section#project {
 		}
 
 		>section#buttons {
+			margin-bottom: var(--margin-bottom, 0.8rem);
 			flex-direction: row;
 			justify-content: center;
 
@@ -953,6 +964,63 @@ section#project {
 		}
 	}
 
+	>small.description {
+		padding: 0.9em 1.2em;
+		text-align: left;
+		font-family: Nunito;
+		font-size: 0.9em;
+		color: #d6c1c1;
+		background: #b3ced31a;
+		border-radius: 1.25rem;
+		border-top: 1px solid #84d1d526;
+		backdrop-filter: blur(2px) contrast(1.14);
+		/* text-shadow: 0px 1px 3px #000C, 0px 1px 1px #000B; */
+		text-shadow: unset;
+
+		>:is(strong, b) {
+			/* display: block; */
+			font-weight: 600;
+			color: #ebdada;
+		}
+	}
+
+	>small.guarantee {
+		padding: 0.9em 1.2em;
+		text-align: left;
+		font-family: Nunito;
+		font-size: 0.9em;
+		color: #d6c1c1;
+		background: #b3ced31a;
+		border-radius: 1.25rem;
+		border-top: 1px solid #84d1d526;
+		backdrop-filter: blur(2px) contrast(1.14);
+		/* text-shadow: 0px 1px 3px #000C, 0px 1px 1px #000B; */
+		text-shadow: unset;
+
+		>:is(strong, b) {
+			/* display: block; */
+			font-weight: 600;
+			color: #ebdada;
+		}
+	}
+
+	>b.partners {
+		margin-top: 1.2rem;
+		padding: 0 1em;
+		text-align: center;
+		font-family: Bahnschrift;
+		font-weight: 600;
+		font-size: 1.2em;
+		color: #d6c1c1;
+		text-shadow: 0px 1px 3px #000C, 0px 1px 1px #000B;
+
+		>:is(strong, b) {
+			/* display: block; */
+			font-weight: 600;
+			color: #ebdada;
+		}
+	}
+
 	>small.offer {
 		margin-top: 1.2rem;
 		padding: 0 1.5em;
@@ -998,12 +1066,13 @@ section#project {
 	}
 }
 
-@media (width < 550px) {
+@media (width < 700px) {
 	section#project {
 		--width: 100vw;
 		padding: 0 2rem;
 
 		>div.adaptive {
+			margin-bottom: var(--margin-bottom, 0.8rem);
 			display: flex;
 			flex-direction: row;
 			gap: 1rem;
@@ -1021,6 +1090,10 @@ section#project {
 				width: 30%;
 				height: auto;
 				border-radius: 1.25rem;
+			}
+
+			>section#buttons {
+				margin-bottom: unset;
 			}
 		}
 	}

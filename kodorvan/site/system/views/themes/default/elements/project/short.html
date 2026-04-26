@@ -1,0 +1,195 @@
+<style>
+	:root {
+		--project-loading: "{{ language.name == 'ru' or true ? 'Загрузка' : 'Loading' }}";
+	}
+</style>
+
+<section id="project">
+	<div>
+		<h1 class="unselectable">СОЗДАНИЕ ПРОЕКТА</h1>
+		<span class="unselectable">Отправьте заявку и получите бесплатный<br/>расчёт с индивидуальными рекомендациями!</span>
+	</div>
+
+	<noscript>
+		<b>Калькулятор не загрузится в вашем браузере</b></br>
+		<i>Оформите заказ через звонок оператору по номеру {{ contacts.sim.requests.full ?? 'Ошибка' }}</i>
+	</noscript>
+
+	<article class="loading" aria-label="Конструктор проекта">
+		<div class="loading"><i class="icon loading spinner animated"></i></div>
+
+		<section data-paginator-page="2" data-paginator-page-focus="name_input" class="unselectable">
+			<section id="metadata">
+				<label id="project_name" class="input icon" for="project_name_input">
+					<img class="icon" src="/themes/default/images/icons/nametag.svg" alt="nametag kodorvan" ondragstart="return false"/>
+					<span class="title">Название</span>
+					<input 
+						id="project_name_input" 
+						class="input"
+						name="project_name_input" 
+						type="text"
+						placeholder="Проект А"
+						value="" 
+						autocomplete="off"
+						onkeyup="core.global.project.project.name = this.value"
+					/>
+					<small class="guide active">Введите внутреннее название проекта</small>
+				</label>
+				<label id="project_description" class="input icon" for="project_description_input">
+					<img class="icon" src="/themes/default/images/icons/notes.svg" alt="notes kodorvan" ondragstart="return false"/>
+					<span class="title">Описание</span>
+					<textarea 
+						id="project_description_input"
+						class="input"
+						name="project_description_input"
+						cols="100%"
+						maxlength="4096"
+						value="" 
+						autocomplete="off"
+						placeholder="Сделайте, чтобы всё было красиво, спасибо"
+						onkeyup="core.global.project.project.description = this.value"
+					></textarea>
+					<small class="guide active">Опишите задачу в свободной форме</small>
+				</label>
+				<div id="project_files" class="input icon">
+					<img class="icon" src="/themes/default/images/icons/import.svg" alt="import kodorvan" ondragstart="return false"/>
+					<div>
+						<span class="title">Импорт</span>
+						<ol style="display: none;" class="files"></ol>
+						<small class="guide active">Загрузите документы и изображения</small>
+						<label class="pseudoinput" for="project_files_input"></label>
+						<input 
+							id="project_files_input"
+							class="input"
+							name="project_files_input"
+							type="file",
+							accept="image/*,.pdf,pptx,.doc,.docx,.odt,.word,.pages,.rtf,.txt"
+							multiple="true"
+							value="" 
+							autocomplete="off"
+							oninput="core.global.project.project.files = this.files"
+						/>
+					</div>
+				</div>
+			</section>
+		</section>
+
+		<section data-paginator-page="3" data-paginator-page-focus="requester_name_input" class="unselectable" style="display: none;">
+			<section id="requester">
+				<label id="requester_name" class="input icon" for="requester_name_input">
+					<img class="icon" src="/themes/default/images/icons/smile.svg" alt="smile kodorvan" ondragstart="return false"/>
+					<span class="title">Представитель</span>
+					<input 
+						id="requester_name_input" 
+						class="input"
+						name="requester_name_input" 
+						type="text" 
+						placeholder="Богдан"
+						value="" 
+						autocomplete="off"
+						onkeyup="core.global.project.requester.name = this.value"
+					/>
+					<small class="guide active">Введите ваши инициалы</small>
+				</label>
+				<label id="requester_sim" class="input icon" for="requester_sim_input">
+					<img class="icon" src="/themes/default/images/icons/phone.svg" alt="phone kodorvan" ondragstart="return false"/>
+					<span class="title">SIM-номер</span>
+					<input 
+						id="requester_sim_input" 
+						class="input"
+						name="requester_sim_input" 
+						type="text" 
+						placeholder="7 (000) 000 0000"
+						value="" 
+						autocomplete="off"
+						onkeyup="core.global.project.requester.sim = this.value"
+					/>
+					<small class="guide active">Введите номер телефона для связи</small>
+				</label>
+				<label id="requester_mail" class="input icon" for="requester_mail_input">
+					<img class="icon" src="/themes/default/images/icons/mail.svg" alt="mail kodorvan" ondragstart="return false"/>
+					<span class="title">Почта</span>
+					<input 
+						id="requester_mail_input" 
+						class="input"
+						name="requester_mail_input" 
+						type="email" 
+						placeholder="project@company.org"
+						value="" 
+						autocomplete="off"
+						onkeyup="core.global.project.requester.mail = this.value"
+					/>
+					<small class="guide active">Введите почту для связи</small>
+				</label>
+				<label id="requester_other" class="input icon"for="requester_other_input">
+					<img class="icon" src="/themes/default/images/icons/comment.svg" alt="comment kodorvan" ondragstart="return false"/>
+					<span class="title">Дополнительные контакты</span>
+					<textarea 
+						id="requester_other_input"
+						class="input"
+						name="name_input"
+						cols="100%"
+						maxlength="2048"
+						value=""
+						autocomplete="off"
+						placeholder="Синяя программа: @zornhut"
+						onkeyup="core.global.project.requester.other = this.value"
+					></textarea>
+					<small class="guide active">Введите дополнительные удобные способы связи</small>
+				</label>
+			</section>
+
+			<section id="confirmation">
+				<label id="requester_personal" for="requester_personal_input">
+						<div>
+							<input 
+								id="requester_personal_input"
+								class="input"
+								name="requester_personal_input" 
+								type="checkbox" 
+								value="" 
+								autocomplete="off"
+								oninput="core.global.project.requester.personal = this.checked"
+							/>
+							<img src="/themes/default/images/icons/circle.svg" alt="lock kodorvan" style="display: var(--display, none)" ondragstart="return false"/>
+							<img src="/themes/default/images/icons/circle_dot.svg" alt="unlock kodorvan" style="display: var(--display, none)" ondragstart="return false"/>
+						</div>
+						<span class="title">Разрешаю запись, обработку и хранение моих персональных данных</span>
+				</label>
+			</section>
+		</section>
+	</article>
+	
+	<div class="adaptive">
+		<button id="back" class="unselectable" onclick="core.global.paginator.relative(-1)" style="display: none">
+			<img src="/themes/default/images/icons/arrow_left.svg" alt="back button kodorvan" ondragstart="return false"/>
+		</button>
+
+		<section id="buttons">
+			<button onclick="core.global.paginator.relative(1)"  data-paginator-page-button="2" disabled="true">ПРОДОЛЖИТЬ</button>
+			<button 
+				id="send" 
+				style="display: none"
+				onclick="core.global.project.send();"
+				data-paginator-page-button="3"
+				disabled="true"
+			>СОЗДАТЬ ПРОЕКТ</button>
+		</section>
+
+		<script>
+			const send = document.getElementById('send');
+			let deg = 120;
+			setInterval(() => send.style.setProperty('--button-send-background-color', (deg += 43) + 'deg'), 1200);
+		</script>
+	</div>
+
+	<small class="description unselectable"><strong>Команда разработчиков</strong> - мы реальные исполнители из <strong>Перми</strong>! <wbr/>Передача кода заказчику в его полную собственность и подпись <b>NDA</b>. Не используем ИИ в разработке! <wbr/><b>Полная анонимность</b> проектов - никто не узнает кто разработчик. <wbr/><b>Не оставляем</b> блокировки и скрытую рекламу в коде!</small>
+	<small class="guarantee unselectable"><strong>Гарантия качества</strong><b>:</b> небольшие и простые проекты мы передаём нашим студентам, но за качество кода и соблюдение сроков всегда отвечает наставник!</small>
+	<b class="partners unselectable">Поддерживаем проекты наших<br/>партнёров с 2014 года!</b>
+
+	<section id="contacts_shortcut">
+		{% include '/themes/default/interface/media.html' %}
+		{% include '/themes/default/interface/sim.html' %}
+		<small class="unselectable">ЗВОНИТЕ ПО НОМЕРУ</small>
+	</section>
+</section>

@@ -74,11 +74,11 @@ final class superpack extends core implements record_interface
 			->columns(
 				new column('identifier', type::long_long_unsigned),
 				/* new column('account', type::long_long_unsigned), */
-				new column('urn', type::long_long_unsigned),
-				new column('title', type::string, ['length' => 64]),
+				new column('urn', type::string, ['length' => 64]),
+				new column('title', type::string, ['length' => 128]),
 				new column('html', type::string, ['length' => 8192]),
 				new column('text', type::string, ['length' => 8192]),
-				new column('supercost', type::integer_unsigned),
+				new column('supercost', type::float),
 				new column('active', type::char),
 				new column('updated', type::integer_unsigned),
 				new column('created', type::integer_unsigned)
@@ -99,7 +99,7 @@ final class superpack extends core implements record_interface
 	 * @param string $title Title
 	 * @param string|null $html Content (HTML)
 	 * @param string|null $html Content (text)
-	 * @param int $supercost Cost
+	 * @param int|float|null $supercost Cost
 	 * @param int $active Is the record active?
 	 *
 	 * @return record|false The record, if created
@@ -110,7 +110,7 @@ final class superpack extends core implements record_interface
 		string $title,
 		?string $html = null,
 		?string $text = null,
-		?int $supercost = null,
+		int|float|null $supercost = null,
 		bool $active = true,
 	): record|false {
 		if (!empty($html) || !empty($text)) {
@@ -122,7 +122,7 @@ final class superpack extends core implements record_interface
 				$title,
 				(string) $html,
 				(string) $text,
-				(int) $supercost,
+				(float) $supercost,
 				(int) $active,
 				svoboda::timestamp(),
 				svoboda::timestamp()

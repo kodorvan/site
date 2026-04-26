@@ -250,6 +250,7 @@ final class index extends core
 			$page = $this->view->render(
 				'pages/index.html',
 				[
+					'uri' => 'https://' . DOMAIN,
 					'smartphone' => $this->request->smartphone,
 					'tablet' => $this->request->tablet
 				]

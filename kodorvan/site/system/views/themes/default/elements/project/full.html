@@ -28,7 +28,7 @@
 						class="input"
 						name="architecture_input" 
 						autocomplete="off"
-						oninput="core.project.architecture = this.value"
+						oninput="core.global.project.architecture = this.value"
 					>
 						<option value="" selected="true" disabled="true" hidden="true" data-project-select-title="true">Выберите архитектуру</option>
 						{% for value, label in project.architectures %}
@@ -45,7 +45,7 @@
 						class="input"
 						name="purpose_input" 
 						autocomplete="off"
-						oninput="core.project.purpose = this.value"
+						oninput="core.global.project.purpose = this.value"
 					>
 						<option value="" selected="true" disabled="true" hidden="true" data-project-select-title="true">Выберите назначение</option>
 						{% for value, label in project.purposes %}
@@ -67,7 +67,7 @@
 									type="checkbox"
 									value=""
 									autocomplete="off"
-									onchange="this.checked ? core.project.integrate(this.value) : core.project.desintegrate(this.value)" 
+									onchange="this.checked ? core.global.project.integrate(this.value) : core.global.project.desintegrate(this.value)" 
 								/>
 								<label for="integration_input_{{ value}}">{{ label }}</label>
 							</div>
@@ -89,7 +89,7 @@
 							max="3" 
 							value="0" 
 							autocomplete="off"
-							onkeyup="core.project.programmers = this.value"
+							onkeyup="core.global.project.programmers = this.value"
 						/>
 						<span>Программисты</span>
 					</label>
@@ -102,7 +102,7 @@
 							max="4" 
 							value="0"
 							autocomplete="off"
-							onkeyup="core.project.designers = this.value"
+							onkeyup="core.global.project.designers = this.value"
 						/>
 						<span>Дизайнеры</span>
 					</label>
@@ -115,7 +115,7 @@
 							max="2" 
 							value="0" 
 							autocomplete="off"
-							onkeyup="core.project.boosters = this.value"
+							onkeyup="core.global.project.boosters = this.value"
 						/>
 						<span>Бустеры</span>
 					</label>
@@ -135,7 +135,7 @@
 							max="5000"
 							value="1800"
 							autocomplete="off"
-							oninput="document.getElementById('hour_input_range').value = this.value; core.project.hour = this.value;"
+							oninput="document.getElementById('hour_input_range').value = this.value; core.global.project.hour = this.value;"
 						/>
 						<span class="currency rubles"></span>
 						<input
@@ -147,7 +147,7 @@
 							step="100"
 							value="1800"
 							autocomplete="off"
-							oninput="document.getElementById('hour_input_number').value = this.value; core.project.hour = this.value;"
+							oninput="document.getElementById('hour_input_number').value = this.value; core.global.project.hour = this.value;"
 						/>
 					</div>
 					<small class="guide">Введите предложение оплаты за рабочий час команды</small>
@@ -168,7 +168,7 @@
 						placeholder="Проект А"
 						value="" 
 						autocomplete="off"
-						onkeyup="core.project.project.name = this.value"
+						onkeyup="core.global.project.project.name = this.value"
 					/>
 					<small class="guide active">Введите внутреннее название проекта</small>
 				</label>
@@ -184,7 +184,7 @@
 						value="" 
 						autocomplete="off"
 						placeholder="Сделайте, чтобы всё было красиво, спасибо"
-						onkeyup="core.project.project.description = this.value"
+						onkeyup="core.global.project.project.description = this.value"
 					></textarea>
 					<small class="guide active">Опишите задачу в свободной форме</small>
 				</label>
@@ -204,7 +204,7 @@
 							multiple="true"
 							value="" 
 							autocomplete="off"
-							oninput="core.project.project.files = this.files"
+							oninput="core.global.project.project.files = this.files"
 						/>
 					</div>
 				</div>
@@ -224,7 +224,7 @@
 						placeholder="Богдан"
 						value="" 
 						autocomplete="off"
-						onkeyup="core.project.requester.name = this.value"
+						onkeyup="core.global.project.requester.name = this.value"
 					/>
 					<small class="guide active">Введите ваши инициалы</small>
 				</label>
@@ -239,7 +239,7 @@
 						placeholder="7 (000) 000 0000"
 						value="" 
 						autocomplete="off"
-						onkeyup="core.project.requester.sim = this.value"
+						onkeyup="core.global.project.requester.sim = this.value"
 					/>
 					<small class="guide active">Введите номер телефона для связи</small>
 				</label>
@@ -254,7 +254,7 @@
 						placeholder="project@company.org"
 						value="" 
 						autocomplete="off"
-						onkeyup="core.project.requester.mail = this.value"
+						onkeyup="core.global.project.requester.mail = this.value"
 					/>
 					<small class="guide active">Введите почту для связи</small>
 				</label>
@@ -270,7 +270,7 @@
 						value=""
 						autocomplete="off"
 						placeholder="Синяя программа: @zornhut"
-						onkeyup="core.project.requester.other = this.value"
+						onkeyup="core.global.project.requester.other = this.value"
 					></textarea>
 					<small class="guide active">Введите дополнительные удобные способы связи</small>
 				</label>
@@ -286,7 +286,7 @@
 								type="checkbox" 
 								value="" 
 								autocomplete="off"
-								oninput="core.project.requester.personal = this.checked"
+								oninput="core.global.project.requester.personal = this.checked"
 							/>
 							<img src="/themes/default/images/icons/circle.svg" alt="lock kodorvan" style="display: var(--display, none)" ondragstart="return false"/>
 							<img src="/themes/default/images/icons/circle_dot.svg" alt="unlock kodorvan" style="display: var(--display, none)" ondragstart="return false"/>
@@ -306,20 +306,20 @@
 	</article>
 	
 	<div class="adaptive">
-		<button id="back" class="unselectable" onclick="core.paginator.relative(-1)" style="display: none">
+		<button id="back" class="unselectable" onclick="core.global.paginator.relative(-1)" style="display: none">
 			<img src="/themes/default/images/icons/arrow_left.svg" alt="back button kodorvan" ondragstart="return false"/>
 		</button>
 
 		<section id="buttons" style="display: none">
-			<button onclick="core.paginator.relative(1)" data-paginator-page-button="1">ПРОДОЛЖИТЬ</button>
-			<button onclick="core.paginator.relative(1)" style="display: none" data-paginator-page-button="2" disabled="true">ПРОДОЛЖИТЬ</button>
+			<button onclick="core.global.paginator.relative(1)" data-paginator-page-button="1">ПРОДОЛЖИТЬ</button>
+			<button onclick="core.global.paginator.relative(1)" style="display: none" data-paginator-page-button="2" disabled="true">ПРОДОЛЖИТЬ</button>
 			<button 
 				id="send" 
 				style="display: none"
-				onclick="core.project.send();" 
+				onclick="core.global.project.send();"
 				data-paginator-page-button="3"
 				disabled="true"
-			>ОТПРАВИТЬ</button>
+			>СОЗДАТЬ ПРОЕКТ</button>
 		</section>
 
 		<script>

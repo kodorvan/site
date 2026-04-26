@@ -1,7 +1,7 @@
 {% block meta %}
 	<meta charset="utf-8" />
 
-	<link rel="canonical" href="{{ uri ?? domain ? ('https://' ~  domain) : '' }}" />
+	<link rel="canonical" href="{{ uri ?? (domain ? ('https://' ~  domain) : '') }}" />
 
 	<title>{{ title ?? 'Кодорвань - разработка сайтов в Перми' }}</title>
 	<meta name="application-name" content="Кодорвань" />
@@ -18,7 +18,7 @@
 	<meta property="og:description" content="{{ opengraph.description ?? 'Чистый код, авангардный дизайн, крепкий бустинг и юридическая броня! Заходи на сайт и посчитай проект за 2 минуты! Рвём шаблоны!' }}" />
 	<meta property="og:locale" content="ru_RU" />
 	<meta property="og:type" content="website" />
-	<meta property="og:url" content="{{ uri ?? domain ? ('https://' ~ domain) : '' }}" />
+	<meta property="og:url" content="{{ uri ?? (domain ? ('https://' ~ domain) : '') }}" />
 	<meta property="og:logo" content="{{ opengraph.logo ?? 'https://kodorvan.tech/images/kodorvan.png' }}" />
 	{% if opengraph.image.uri is not empty %}
 		<meta property="og:image" content="{{ opengraph.image.uri }}" />
@@ -44,10 +44,10 @@
 	<meta name="twitter:card" content="summary_large_image" />
 	<meta name="twitter:creator" content="@mirzaev_sexy" />
 	<meta name="twitter:site" content="@mirzaev_sexy" />
-	<meta name="twitter:url" content="https://kodorvan.tech/" />
-	<meta name="twitter:title" content="Kodorvan" />
-	<meta name="twitter:description" content="Programming, design, boosting and legal armor!" />
-	<meta name="twitter:image" content="https://kodorvan.tech/images/kodorvan_1200_630.webp" />
+	<meta name="twitter:url" content="{{ uri ?? (domain ? ('https://' ~  domain) : '') }}" />
+	<meta name="twitter:title" content="{{ twitter.title ?? 'Кодорвань - разработка сайтов в Перми' }}" />
+	<meta name="twitter:description" content="{{ twitter.description ?? 'Programming, design, boosting and legal armor!' }}" />
+	<meta name="twitter:image" content="{{ twitter.image.uri ?? 'https://kodorvan.tech/images/kodorvan_1200_630.webp' }}" />
 
 	<link rel="apple-touch-icon" sizes="57x57" href="/images/favicon/favicon-57x57.png" />
 	<link rel="apple-touch-icon" sizes="60x60" href="/images/favicon/favicon-60x60.png" />
@@ -77,22 +77,26 @@
 	{% endfor %}
 
 	<script type="application/ld+json">
-		{
-			"@context": "https://schema.org",
-			"@type": "Organization",
-			"logo": "https://kodorvan.tech/images/kodorvan.png",
-			"name": "Кодорвань",
-			"description": "Чистый код, авангардный дизайн, крепкий бустинг и юридическая броня! Заходи на сайт и посчитай проект за 2 минуты! Рвём шаблоны!",
-			"url": "https://kodorvan.tech",
-			"contactPoint": [
-				{ "@type": "ContactPoint",
-					"telephone": "+7-901-592-4211",
-					"contactType": "Бесплатная консультация",
-					"contactOption": "TollFree",
-					"areaServed": "RU"
-				}
-			] 
-		}
+		{% if ldjson is not empty %}
+			{{ ldjson }}
+		{% else %}
+			{
+				"@context": "https://schema.org",
+				"@type": "Organization",
+				"logo": "https://kodorvan.tech/images/kodorvan.png",
+				"name": "Кодорвань",
+				"description": "Чистый код, авангардный дизайн, крепкий бустинг и юридическая броня! Заходи на сайт и посчитай проект за 2 минуты! Рвём шаблоны!",
+				"url": "https://kodorvan.tech",
+				"contactPoint": [
+					{ "@type": "ContactPoint",
+						"telephone": "+7-901-592-4211",
+						"contactType": "Бесплатная консультация",
+						"contactOption": "TollFree",
+						"areaServed": "RU"
+					}
+				] 
+			}
+		{% endif %}
 	</script>
 {% endblock %}
 

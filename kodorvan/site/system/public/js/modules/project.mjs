@@ -1896,7 +1896,7 @@ export default class project {
 						 *
 						 * @return {void}
 						 */
-						damper: core.damper(
+						damper: core.global.damper(
 							(...variables) => this.send.system(...variables),
 							300,
 							2,
@@ -2153,20 +2153,32 @@ export default class project {
 			// Initializing the result HTML-element
 			const result = this.#elements.get('result');
 
-			// Showing the result HTML-element
-			result.style.removeProperty('display');
+			if (result instanceof HTMLElement) {
+				// Initialized the result HTML-element
+
+				// Showing the result HTML-element
+				result.style.removeProperty('display');
+			}
 
 			// Initializing the hours HTML-element
 			const output = this.#elements.get('hours_output');
 
-			// Writing into the hours output HTML-element
-			output.innerText = hours;
+			if (output instanceof HTMLElement) {
+				// Initialized the hours HTML-element
+
+				// Writing into the hours output HTML-element
+				output.innerText = hours;
+			}
 
 			// Initializing the hours wrap HTML-element
 			const wrap = this.#elements.get('hours');
 
-			// Showing the hours wrap HTML-element
-			wrap.style.removeProperty('display');
+			if (wrap instanceof HTMLElement) {
+				// Initialized the hours wrap HTML-element
+
+				// Showing the hours wrap HTML-element
+				wrap.style.removeProperty('display');
+			}
 		}
 
 		// Exit (success)
@@ -2197,8 +2209,12 @@ export default class project {
 			// Initializing the days HTML-element
 			const output = this.#elements.get('days_output');
 
-			// Writing into the days output HTML-element
-			output.innerText = days;
+			if (output instanceof HTMLElement) {
+				// Initialized the days HTML-element
+
+				// Writing into the days output HTML-element
+				output.innerText = days;
+			}
 		}
 
 		// Exit (success)
@@ -2256,24 +2272,52 @@ export default class project {
 			// Initializing the result HTML-element
 			const result = this.#elements.get('result');
 
-			// Showing the result HTML-element
-			result.style.removeProperty('display');
+			if (result instanceof HTMLElement) {
+				// Initialized the result HTML-element
 
-			// Initializing the output HTML-elements
+				// Showing the result HTML-element
+				result.style.removeProperty('display');
+			}
+
+			// Initializing the payment output HTML-element
 			const payment_output = this.#elements.get('payment_output');
+
+			if (payment_output instanceof HTMLElement) {
+				// Initialized the payment output HTML-element
+
+				// Writing into the payment output HTML-element
+				payment_output.innerText = new Intl.NumberFormat("ru-RU", { maximumSignificantDigits: 3 }).format(costs.full);
+			}
+
+			// Initializing the prepayment output HTML-element
 			const prepayment_output = this.#elements.get('prepayment_output');
 
-			// Writing into the output HTML-elements
-			payment_output.innerText = new Intl.NumberFormat("ru-RU", { maximumSignificantDigits: 3 }).format(costs.full);
-			prepayment_output.innerText =  new Intl.NumberFormat("ru-RU", { maximumSignificantDigits: 3 }).format(costs.prepayment);
+			if (prepayment_output instanceof HTMLElement) {
+				// Initialized the prepayment output HTML-element
 
-			// Initializing the wrap HTML-elements
+				// Writing into the prepayment output HTML-element
+				prepayment_output.innerText = new Intl.NumberFormat("ru-RU", { maximumSignificantDigits: 3 }).format(costs.prepayment);
+			}
+
+			// Initializing the payment wrap HTML-element
 			const payment_wrap = this.#elements.get('payment');
+
+			if (payment_wrap instanceof HTMLElement) {
+				// Initialized the payment wrap HTML-element
+
+				// Showing the payment wrap HTML-element
+				payment_wrap.style.removeProperty('display');
+			}
+
+			// Initializing the prepayment wrap HTML-element
 			const prepayment_wrap = this.#elements.get('prepayment');
 
-			// Showing the wrap HTML-elements
-			payment_wrap.style.removeProperty('display');
-			prepayment_wrap.style.removeProperty('display');
+			if (prepayment_wrap instanceof HTMLElement) {
+				// Initialized the prepayment wrap HTML-element
+
+				// Showing the prepayment wrap HTML-element
+				prepayment_wrap.style.removeProperty('display');
+			}
 		}
 
 		// Exit (success)

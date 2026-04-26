@@ -21,7 +21,7 @@ body {
 
 	>article#rofls {
 		z-index: 50;
-		width: min-content;
+		width: 100vw;
 		height: 32px;
 		display: flex;
 		flex-direction: row;
@@ -36,7 +36,11 @@ body {
 		>img {
 			margin: unset;
 			height: 100%;
-			overflow: hidden;
+			cursor: grab;
+
+			&:is(:active) {
+				cursor: grabbing;
+			}
 
 			&:is(.noclick) {
 				cursor: not-allowed;

@@ -48,6 +48,7 @@ final class offer extends core
 			$page = $this->view->render(
 				'pages/offer.html',
 				[
+					'uri' => 'https://' . DOMAIN . '/offer',
 					'smartphone' => $this->request->smartphone,
 					'tablet' => $this->request->tablet
 				]
