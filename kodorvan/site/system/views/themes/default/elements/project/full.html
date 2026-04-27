@@ -31,7 +31,7 @@
 						oninput="core.global.project.architecture = this.value"
 					>
 						<option value="" selected="true" disabled="true" hidden="true" data-project-select-title="true">Выберите архитектуру</option>
-						{% for value, label in project.architectures %}
+						{% for value, label in calculator.architectures %}
 							<option value="{{ value }}">{{ label }}</option>
 						{% endfor %}
 					</select>
@@ -48,7 +48,7 @@
 						oninput="core.global.project.purpose = this.value"
 					>
 						<option value="" selected="true" disabled="true" hidden="true" data-project-select-title="true">Выберите назначение</option>
-						{% for value, label in project.purposes %}
+						{% for value, label in calculator.purposes %}
 							<option value="{{ value }}">{{ label }}</option>
 						{% endfor %}
 					</select>
@@ -57,7 +57,7 @@
 				<div id="integrations" style="display: none;">
 					<fieldset>
 						<legend>Интеграции</legend>
-						{% for value, label in project.integrations %}
+						{% for value, label in calculator.integrations %}
 							<div class="integration hidden">
 								<input 
 									id="integration_input_{{ value }}" 

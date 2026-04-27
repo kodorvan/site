@@ -4,7 +4,7 @@
 	{{ parent() }}
 
 	<link type="text/css" rel="stylesheet" href="/css/icons/loading_spinner.css" />
-	<link type="text/css" rel="stylesheet" href="/themes/default/css/pages/offer.css" />
+	<link type="text/css" rel="stylesheet" href="/themes/default/css/pages/article.css" />
 	<link type="text/css" rel="stylesheet" href="/themes/default/css/elements/cookies.css" />
 {% endblock %}
 
@@ -14,10 +14,23 @@
 {% block main %}
 	{% include '/themes/default/interface/logotype.html' %}
 
-	<article id="{{ article.identifier }}" aria-label="{{ article.title }}">
-		<h1>{{ article.title }}</h1>
+	<article id="article" aria-label="Статья">
+		<section class="head" aria-label="Верхний колонтинул статьи">
+			<h1 aria-label="Заголовок статьи">{{ article.head.title }}</h1>
+			{% if article.head.image.src is not empty %}
+				<img 
+					src="{{ article.head.image.src }}"
+					{% if article.head.image.width is not empty %}width="{{ article.head.image.width }}"{% endif %}
+					{% if article.head.image.height is not empty %}height="{{ article.head.image.height }}"{% endif %}
+					{% if article.head.image.alt is not empty %}alt="{{ article.head.image.alt }}"{% endif %}
+					aria-label="Фоновое изображение верхнего колонтинула статьи"
+				/>
+			{% endif %}
+		</section>
 
-		{{ article.html|raw }}
+		<section class="body" aria-label="Содержимое статьи">
+			{{ article.body.html|raw }}
+		</section>
 	</article>
 {% endblock %}
 

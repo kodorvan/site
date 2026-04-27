@@ -66,8 +66,12 @@ final class superpack extends core
 						'uri' => 'https://' . DOMAIN . "/superpack/$urn",
 						'article' => [
 							'urn' => $superpack->urn,
-							'title' => $superpack->title,
-							'html' => $superpack->html
+							'head' => [
+								'title' => $superpack->title
+							],
+							'body' => [
+								'html' => $superpack->html
+							]
 						],
 						'smartphone' => $this->request->smartphone,
 						'tablet' => $this->request->tablet
@@ -172,8 +176,17 @@ final class superpack extends core
 				if ($superpack instanceof record) {
 					// Created the superpack
 
-					// Sending redirect to the superpack
-					header('Location: /superpack/' . $urn);
+					// Sending response
+					$this->response
+						->start()
+						->clean()
+						->sse()
+						->json([
+							'redirect' => "/superpack/$urn"
+						])
+						->validate($this->request)
+						?->body()
+						->end();
 				}
 			}
 		}

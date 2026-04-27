@@ -187,47 +187,7 @@ final class index extends core
 			];
 
 			// Sending the cookie with the team workload (1800 = 30min)
-			setcookie('workload', $this->view->workload, time() + 1800, '/');
-
-			// Initializing the project constructor data
-			$this->view->project = [
-				'architectures' => [
-					'site' => 'Сайт',
-					'chat_robot' => 'Чат-робот',
-					'program' => 'Программа',
-					'game' => 'Видеоигра',
-					'script' => 'Скрипт, парсер, макрос',
-					'module' => 'Модуль, плагин, расширение',
-				],
-				'purposes' => [
-					'funnel' => 'Воронка (обработка пользователя)',
-					'contacts' => 'Контакты (сбор данных)',
-					'ai' => 'Внедрение ИИ',
-					'archive' => 'Архив (галерея, библиотека, реестр)',
-					'crm' => 'Индивидуальная CRM',
-					'landing' => 'Лендинг (посадочная страница)',
-					'marketplace' => 'Маркетплейс, магазин, витрина',
-					'saas' => 'SaaS проект',
-					'search' => 'Поиск и анализ',
-					'calculate' => 'Вычисления (калькулятор)',
-					'individual' => 'Индивидуальная разработка',
-				],
-				'integrations' => [
-					'one_c' => '1C',
-					'bitrix24' => 'Битрикс24',
-					'moy_sklad' => 'Мой Склад',
-					'mail' => 'Почта',
-					'excel' => 'Excel',
-					'ozon' => 'OZON',
-					'wildberries' => 'Wildberries',
-					'yandex_market' => 'Яндекс Маркет',
-					'avito' => 'Авито',
-					'vk' => 'ВКонтакте',
-					'max' => 'МАКС',
-					'telegram' => 'Телеграм',
-					'neural_networks' => 'Нейросети'
-				]
-			];
+			/* setcookie('workload', $this->view->workload, time() + 1800, '/'); */
 
 			// Initializing contacts data
 			$this->view->integrations = [

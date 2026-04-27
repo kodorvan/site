@@ -130,6 +130,10 @@ a {
 	user-select: none;
 }
 
+.underline {
+	text-decoration: underline;
+}
+
 input[type="range"] {
 	cursor: grab;
 

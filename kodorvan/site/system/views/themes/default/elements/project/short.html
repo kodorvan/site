@@ -10,6 +10,10 @@
 		<span class="unselectable">Отправьте заявку и получите бесплатный<br/>расчёт с индивидуальными рекомендациями!</span>
 	</div>
 
+	<section class="promotion unselectable">
+		<p>Скидка <b>10%</b> в честь запуска сайта <b>до 1 мая</b></p>
+	</section>
+
 	<noscript>
 		<b>Калькулятор не загрузится в вашем браузере</b></br>
 		<i>Оформите заказ через звонок оператору по номеру {{ contacts.sim.requests.full ?? 'Ошибка' }}</i>
@@ -154,7 +158,7 @@
 							<img src="/themes/default/images/icons/circle.svg" alt="lock kodorvan" style="display: var(--display, none)" ondragstart="return false"/>
 							<img src="/themes/default/images/icons/circle_dot.svg" alt="unlock kodorvan" style="display: var(--display, none)" ondragstart="return false"/>
 						</div>
-						<span class="title">Разрешаю запись, обработку и хранение моих персональных данных</span>
+						<span class="title">Разрешаю запись, обработку и хранение моих персональных данных, <span class="underline">без передачи третьим лицам</span></span>
 				</label>
 			</section>
 		</section>
@@ -162,7 +166,7 @@
 	
 	<div class="adaptive">
 		<button id="back" class="unselectable" onclick="core.global.paginator.relative(-1)" style="display: none">
-			<img src="/themes/default/images/icons/arrow_left.svg" alt="back button kodorvan" ondragstart="return false"/>
+			<img class="icon" src="/themes/default/images/icons/arrow_left.svg" alt="back button kodorvan" ondragstart="return false"/>
 		</button>
 
 		<section id="buttons">
@@ -183,9 +187,12 @@
 		</script>
 	</div>
 
-	<small class="description unselectable"><strong>Команда разработчиков</strong> - мы реальные исполнители из <strong>Перми</strong>! <wbr/>Передача кода заказчику в его полную собственность и подпись <b>NDA</b>. Не используем ИИ в разработке! <wbr/><b>Полная анонимность</b> проектов - никто не узнает кто разработчик. <wbr/><b>Не оставляем</b> блокировки и скрытую рекламу в коде!</small>
-	<small class="guarantee unselectable"><strong>Гарантия качества</strong><b>:</b> небольшие и простые проекты мы передаём нашим студентам, но за качество кода и соблюдение сроков всегда отвечает наставник!</small>
-	<b class="partners unselectable">Поддерживаем проекты наших<br/>партнёров с 2014 года!</b>
+	<small class="description unselectable" aria-label="Описание"><strong>Команда разработчиков</strong> - реальные исполнители! <wbr/>Передача кода заказчику в его полную собственность и подпись <b>NDA</b>. Не используем ИИ в разработке! <wbr/><b>Полная анонимность</b> проектов - никто не узнает кто разработчик. <wbr/><b>Не оставляем</b> блокировки и скрытую рекламу в коде! Собственные сервера в <strong>Перми</strong>!</small>
+	<small class="guarantee unselectable" aria-label="Гарантия"><strong>Гарантия качества</strong><b>:</b> небольшие и простые проекты мы передаём нашим студентам, но за качество кода и соблюдение сроков всегда отвечает наставник!</small>
+	<div class="partners unselectable" aria-label="Партнёры">
+		<div class="icon" style="--mask-image: url('/themes/default/images/icons/white/solid/crown.svg')"></div>
+		<b>Поддерживаем проекты наших<br/>партнёров с 2014 года!</b>
+	</div>
 
 	<section id="contacts_shortcut">
 		{% include '/themes/default/interface/media.html' %}

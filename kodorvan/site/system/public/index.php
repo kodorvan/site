@@ -50,11 +50,13 @@ $core->router
 	->write('/policy', new route('policy', 'index'), 'GET')
 	->write('/recomendations', new route('recomendations', 'index'), 'GET')
 
-	->write('/system/superpack/create', new route('superpack', 'create'), 'GET')
-	->write('/system/superpack/create', new route('superpack', 'create'), 'PUT')
 	->write('/superpack/$urn', new route('superpack', 'index'), 'GET')
 
+	->write('/project/calculator', new route('project', 'calculator'), 'GET')
 	->write('/project/request', new route('project', 'request'), 'PUT')
+
+	->write('/system/superpack/create', new route('superpack', 'create'), 'GET')
+	->write('/system/superpack/create', new route('superpack', 'create'), 'PUT')
 ;
 
 // Handling request

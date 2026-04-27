@@ -1,0 +1,134 @@
+{% extends "/themes/default/index.html" %}
+
+
+{% block css %}
+	{{ parent() }}
+
+	<link type="text/css" rel="stylesheet" href="/css/icons/loading_spinner.css" />
+	<link type="text/css" rel="stylesheet" href="/themes/default/css/pages/system/superpack/create.css" />
+	<link type="text/css" rel="stylesheet" href="/themes/default/css/elements/cookies.css" />
+{% endblock %}
+
+{% block before %}
+{% endblock %}
+
+{% block main %}
+	{% include '/themes/default/interface/logotype.html' %}
+
+	<article id="superpack" aria-label="Форма создания суперпака">
+		<h1 class="unselectable">СОЗДАНИЕ СУПЕРПАКА</h1>
+		
+		<section class="unselectable">
+			<label id="superpack_urn" class="input icon" for="superpack_urn_input">
+				<img class="icon" src="/themes/default/images/icons/nametag.svg" alt="nametag kodorvan" ondragstart="return false"/>
+				<span class="title">URN</span>
+				<input 
+					id="superpack_urn_input" 
+					class="input domain"
+					name="superpack_urn_input" 
+					type="text"
+					placeholder="chat-bot-market"
+					value="" 
+					autocomplete="off"
+					onkeyup="core.system.superpack.urn = this.value"
+				/>
+				<small class="guide active">Введите URN суперпака</small>
+			</label>
+			<label id="superpack_title" class="input icon" for="superpack_title_input">
+				<img class="icon" src="/themes/default/images/icons/notes.svg" alt="notes kodorvan" ondragstart="return false"/>
+				<span class="title">Название</span>
+				<input 
+					id="superpack_title_input" 
+					class="input"
+					name="superpack_title_input" 
+					type="text"
+					placeholder="Чат-бот для магазина"
+					value="" 
+					autocomplete="off"
+					onkeyup="core.system.superpack.title = this.value"
+				/>
+				<small class="guide active">Введите название суперпака</small>
+			</label>
+			<div id="superpack_image" class="input icon">
+				<img class="icon" src="/themes/default/images/icons/import.svg" alt="import kodorvan" ondragstart="return false"/>
+				<div>
+					<span class="title">Импорт</span>
+					<ol style="display: none;" class="files"></ol>
+					<small class="guide active">Загрузите фоновое изображение верхнего колонтинула</small>
+					<label class="pseudoinput" for="superpack_image_input"></label>
+					<input 
+						id="superpack_image_input"
+						class="input"
+						name="superpack_image_input"
+						type="file",
+						accept="image/*"
+						value="" 
+						autocomplete="off"
+						oninput="core.system.superpack.files = this.files"
+					/>
+				</div>
+			</div>
+			<label id="superpack_text" class="input icon" for="superpack_text_input">
+				<img class="icon" src="/themes/default/images/icons/notes.svg" alt="notes kodorvan" ondragstart="return false"/>
+				<span class="title">Описание</span>
+				<textarea 
+					id="superpack_text_input"
+					class="input"
+					name="superpack_text_input"
+					cols="100%"
+					maxlength="4096"
+					value="" 
+					autocomplete="off"
+					placeholder="Готовое техническое решение для открытия новой точки продаж в сети"
+					onkeyup="core.system.superpack.text = this.value"
+				></textarea>
+				<small class="guide active">Введите описание суперпака</small>
+			</label>
+			<label id="superpack_html" class="input icon" for="superpack_html_input">
+				<img class="icon" src="/themes/default/images/icons/notes.svg" alt="notes kodorvan" ondragstart="return false"/>
+				<span class="title">Описание в формате HTML</span>
+				<textarea 
+					id="superpack_html_input"
+					class="input"
+					name="superpack_html_input"
+					cols="100%"
+					maxlength="4096"
+					value="" 
+					autocomplete="off"
+					placeholder="<p>Готовое техническое решение для открытия новой точки продаж в сети</p>"
+					onkeyup="core.system.superpack.html = this.value"
+				></textarea>
+				<small class="guide active">Введите описание суперпака в формате HTML</small>
+			</label>
+			<label id="superpack_supercost" class="input icon" for="superpack_supercost_input">
+				<img class="icon" src="/themes/default/images/icons/notes.svg" alt="notes kodorvan" ondragstart="return false"/>
+				<span class="title">Стоимость</span>
+				<input 
+					id="superpack_supercost_input" 
+					class="input"
+					name="superpack_supercost_input" 
+					type="number"
+					placeholder="2000"
+					value="" 
+					autocomplete="off"
+					onkeyup="core.system.superpack.supercost = this.value"
+				/>
+				<small class="guide active">Введите стоимость суперпака</small>
+			</label>
+			<button
+				id="send"
+				onclick="core.system.superpack.send();"
+			>Отправить на сервер</button>
+		</section>
+	</article>
+{% endblock %}
+
+{% block after %}
+	<div class="vignette"></div>
+	<div class="dots"></div>
+{% endblock %}
+
+{% block js %}
+	{{ parent() }}
+	<script src="/js/pages/system/superpack.js" type="module" defer></script>
+{% endblock %}

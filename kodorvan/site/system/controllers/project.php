@@ -9,6 +9,7 @@ use kodorvan\site\controllers\core;
 
 // PHP framework
 use mirzaev\minimal\http\enumerations\content,
+	mirzaev\minimal\http\enumerations\method,
 	mirzaev\minimal\http\enumerations\status;
 
 // Mail server
@@ -40,85 +41,176 @@ final class project extends core
 	];
 
 	/**
-	 * 
+	 * Page: calculator
+	 *
+	 * @return null
+	 */
+	public function calculator(): null
+	{
+		if ($this->request->method === method::get) {
+			// GET
+
+			if (str_contains($this->request->headers['accept'] ?? '', content::html->value)) {
+				// Request for HTML response
+
+				// Initializing the project constructor data
+				$this->view->calculator = [
+					'architectures' => [
+						'site' => 'Сайт',
+						'chat_robot' => 'Чат-робот',
+						'program' => 'Программа',
+						'game' => 'Видеоигра',
+						'script' => 'Скрипт, парсер, макрос',
+						'module' => 'Модуль, плагин, расширение',
+					],
+					'purposes' => [
+						'funnel' => 'Воронка (обработка пользователя)',
+						'contacts' => 'Контакты (сбор данных)',
+						'ai' => 'Внедрение ИИ',
+						'archive' => 'Архив (галерея, библиотека, реестр)',
+						'crm' => 'Индивидуальная CRM',
+						'landing' => 'Лендинг (посадочная страница)',
+						'marketplace' => 'Маркетплейс, магазин, витрина',
+						'saas' => 'SaaS проект',
+						'search' => 'Поиск и анализ',
+						'calculate' => 'Вычисления (калькулятор)',
+						'individual' => 'Индивидуальная разработка',
+					],
+					'integrations' => [
+						'one_c' => '1C',
+						'bitrix24' => 'Битрикс24',
+						'moy_sklad' => 'Мой Склад',
+						'mail' => 'Почта',
+						'excel' => 'Excel',
+						'ozon' => 'OZON',
+						'wildberries' => 'Wildberries',
+						'yandex_market' => 'Яндекс Маркет',
+						'avito' => 'Авито',
+						'vk' => 'ВКонтакте',
+						'max' => 'МАКС',
+						'telegram' => 'Телеграм',
+						'neural_networks' => 'Нейросети'
+					]
+				];
+
+				// Render page
+				$page = $this->view->render(
+					'pages/project/calculator.html',
+					[
+						'uri' => 'https://' . DOMAIN . "/project/calculator",
+						'smartphone' => $this->request->smartphone,
+						'tablet' => $this->request->tablet
+					]
+				);
+
+				// Sending response
+				$this->response
+					->start()
+					->clean()
+					->sse()
+					->write($page)
+					->validate($this->request)
+					?->body()
+					->end();
+
+				// Deinitializing rendered page
+				unset($page);
+
+				// Exit (success)
+				return null;
+			}
+		}
+
+		// Exit (fail)
+		return null;
+	}
+
+	/**
+	 * Request the project by calculator
 	 *
 	 * @return null
 	 */
 	public function request(string $request): null
 	{
-		// Initializing the project identifier (temporary solution)
-		$identifier = blake3($request, 20);
+		if ($this->request->method === method::put) {
+			// PUT
+			// Initializing the project identifier (temporary solution)
+			$identifier = blake3($request, 20);
 
-		// Initializing the project storage path
-		$path = STORAGE . DIRECTORY_SEPARATOR . 'projects' . DIRECTORY_SEPARATOR . $identifier;
+			// Initializing the project storage path
+			$path = STORAGE . DIRECTORY_SEPARATOR . 'projects' . DIRECTORY_SEPARATOR . $identifier;
 
-		// Initializing the project storage directory in the storage
-		if (!file_exists($path))	mkdir($path, 0775, true);
+			// Initializing the project storage directory in the storage
+			if (!file_exists($path))	mkdir($path, 0775, true);
 
-		// Declaring the project storage files registry
-		$files = [];
+			// Declaring the project storage files registry
+			$files = [];
 
-		foreach ($this->request->files as $file) {
-			// Iterating over files
+			foreach ($this->request->files as $file) {
+				// Iterating over files
 
-			// Initializing the file destination path
-			$destination = $path . DIRECTORY_SEPARATOR . $file['name'];
+				// Initializing the file destination path
+				$destination = $path . DIRECTORY_SEPARATOR . $file['name'];
 
-			// Writing the file into the project storage
-			copy($file['tmp_name'], $destination);
+				// Writing the file into the project storage
+				copy($file['tmp_name'], $destination);
 
-			// Writing the file destination path into the project storage files registry
-			$files[$file['name']] = $destination;
-		}
-
-		// Decoding the request JSON argument
-		$request = json_decode(json: $request, associative: true, depth: 5);
-
-		// Initializing the mail server
-		$mail = new mail(true);
-
-		try {
-			// Writing the mail server parameters
-			/* $mail->SMTPDebug = smtp::DEBUG_SERVER; */
-			$mail->setLanguage('ru');
-			$mail->CharSet = mail::CHARSET_UTF8;
-			$mail->isSMTP();
-			$mail->Host = MAIL['host'];
-			$mail->SMTPAuth = true;
-			$mail->Username = MAIL['sender']['mail'];
-			$mail->Password = MAIL['sender']['password'];
-			$mail->SMTPSecure = mail::ENCRYPTION_SMTPS;
-			$mail->Port = 465;
-			$mail->setFrom(MAIL['sender']['mail'], MAIL['sender']['name']);
-			$mail->addAddress(MAIL['receiver']['mail'], MAIL['receiver']['name']);
-
-			// The message
-			$mail->isHTML(true);
-			$mail->Subject = empty($request['project']['name']) ? 'Заказ' : 'Заказ: ' . $request['project']['name'];
-			$mail->Body = $this->view->render('messages/request.html', $request);
-			/* $mail->AltBody = 'This is the body in plain text for non-HTML mail clients'; */
-
-			// Attachments
-			foreach ($files as $name => $file) {
-				// Iterating of project storage files registry
-
-				// Writing the attachment into the message
-				$mail->addAttachment($file, $name);
+				// Writing the file destination path into the project storage files registry
+				$files[$file['name']] = $destination;
 			}
 
-			// Sending the message
-			$mail->send();
-		} catch (mail_exception $exception) {
-		}
+			// Decoding the request JSON argument
+			$request = json_decode(json: $request, associative: true, depth: 5);
 
-		// Sending response
-		$this->response
-			->start()
-			->clean()
-			->sse()
-			->validate($this->request)
-			?->body()
-			->end();
+			// Initializing the mail server
+			$mail = new mail(true);
+
+			try {
+				// Writing the mail server parameters
+				/* $mail->SMTPDebug = smtp::DEBUG_SERVER; */
+				$mail->setLanguage('ru');
+				$mail->CharSet = mail::CHARSET_UTF8;
+				$mail->isSMTP();
+				$mail->Host = MAIL['host'];
+				$mail->SMTPAuth = true;
+				$mail->Username = MAIL['sender']['mail'];
+				$mail->Password = MAIL['sender']['password'];
+				$mail->SMTPSecure = mail::ENCRYPTION_SMTPS;
+				$mail->Port = 465;
+				$mail->setFrom(MAIL['sender']['mail'], MAIL['sender']['name']);
+				$mail->addAddress(MAIL['receiver']['mail'], MAIL['receiver']['name']);
+
+				// The message
+				$mail->isHTML(true);
+				$mail->Subject = empty($request['project']['name']) ? 'Заказ' : 'Заказ: ' . $request['project']['name'];
+				$mail->Body = $this->view->render('messages/request.html', $request);
+				/* $mail->AltBody = 'This is the body in plain text for non-HTML mail clients'; */
+
+				// Attachments
+				foreach ($files as $name => $file) {
+					// Iterating of project storage files registry
+
+					// Writing the attachment into the message
+					$mail->addAttachment($file, $name);
+				}
+
+				// Sending the message
+				$mail->send();
+			} catch (mail_exception $exception) {
+			}
+
+			// Sending response
+			$this->response
+				->start()
+				->clean()
+				->sse()
+				->validate($this->request)
+				?->body()
+				->end();
+
+			// Exit (success)
+			return null;
+		}
 
 		// Exit (fail)
 		return null;

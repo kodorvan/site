@@ -190,6 +190,70 @@ export default class superpack {
 	}
 
 	/**
+	 * @name Image
+	 *
+	 * @description
+	 * The head image of the article
+	 *
+	 * @type {File}
+	 *
+	 * @protected
+	 */
+	#image;
+
+	/**
+	 * @name Image (set)
+	 *
+	 * @public
+	 */
+	set image(value) {
+		if (value instanceof File){
+			// File
+
+			// Writing into the property
+			this.#image = value;
+		} else {
+			// Undefined
+
+			// Deleting the property
+			this.#image = undefined;
+		}
+
+		if (this.#image.length > 0) {
+			// Has the image
+
+			// Deleting from the stages registry
+			this.#stages.delete('image');
+		} else {
+			// Has no image
+
+			// Writing into the stages registry
+			this.#stages.add('image');
+		}
+
+		// Dispatching event: "article.write"
+		this.shell.dispatchEvent(
+			new CustomEvent("article.write", {
+				detail: { name: 'image', value: this.#image }
+			})
+		);
+
+		// Reinitializing guide HTML-elements
+		this.guide();
+	};
+
+	/**
+	 * @name Image (get)
+	 *
+	 * @return {File}
+	 *
+	 * @public
+	 */
+	get image() {
+		return this.#image;
+	}
+
+	/**
 	 * @name HTML
 	 *
 	 * @description
