@@ -132,8 +132,15 @@ final class project extends core
 	 */
 	public function request(string $request): null
 	{
+		// Debugging
+		date_default_timezone_set('Asia/Yekaterinburg');
+		file_put_contents('requests.txt', '[' . date('Y.m.d H:i:s') . '] Заказ с сайта: ' . DOMAIN . "\n", FILE_APPEND);
+		file_put_contents('requests.txt', print_r($request, true) . "\n", FILE_APPEND);
+		file_put_contents('requests.txt', print_r($this->request->files, true) . "\n", FILE_APPEND);
+
 		if ($this->request->method === method::put) {
 			// PUT
+
 			// Initializing the project identifier (temporary solution)
 			$identifier = blake3($request, 20);
 
@@ -141,7 +148,7 @@ final class project extends core
 			$path = STORAGE . DIRECTORY_SEPARATOR . 'projects' . DIRECTORY_SEPARATOR . $identifier;
 
 			// Initializing the project storage directory in the storage
-			if (!file_exists($path))	mkdir($path, 0775, true);
+			if (!file_exists($path)) mkdir($path, 0775, true);
 
 			// Declaring the project storage files registry
 			$files = [];
@@ -197,6 +204,36 @@ final class project extends core
 				// Sending the message
 				$mail->send();
 			} catch (mail_exception $exception) {
+				file_put_contents('requests.txt', '[' . date('Y.m.d H:i:s') . "] ПИЗДЕЦ\n", FILE_APPEND);
+				file_put_contents('requests.txt', '[' . date('Y.m.d H:i:s') . ']' . $exception->getMessage() . "\n", FILE_APPEND);
+
+				try {
+					// Initializing the mail server
+					$mail = new mail(true);
+					
+					$mail->setLanguage('ru');
+					$mail->CharSet = mail::CHARSET_UTF8;
+					$mail->isSMTP();
+					$mail->Host = MAIL['host'];
+					$mail->SMTPAuth = true;
+					$mail->Username = MAIL['sender']['mail'];
+					$mail->Password = MAIL['sender']['password'];
+					$mail->SMTPSecure = mail::ENCRYPTION_SMTPS;
+					$mail->Port = 465;
+					$mail->setFrom(MAIL['sender']['mail'], MAIL['sender']['name']);
+					$mail->addAddress(MAIL['receiver']['mail'], MAIL['receiver']['name']);
+
+					// The message
+					$mail->isHTML(true);
+					$mail->Subject = empty($request['project']['name']) ? 'Заказ без документов' : 'Заказ без документов: ' . $request['project']['name'];
+					$mail->Body = $this->view->render('messages/request.html', $request);
+
+					// Sending the message
+					$mail->send();
+				} catch (mail_exception $exception) {
+					file_put_contents('requests.txt', '[' . date('Y.m.d H:i:s') . "] ПИЗДЕЦ БЕЗ КАРТИНОК\n", FILE_APPEND);
+					file_put_contents('requests.txt', '[' . date('Y.m.d H:i:s') . ']' . $exception->getMessage() . "\n", FILE_APPEND);
+				}
 			}
 
 			// Sending response

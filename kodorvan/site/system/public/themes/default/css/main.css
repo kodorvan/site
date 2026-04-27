@@ -12,8 +12,6 @@ main {
 	align-items: center;
 	transition: 0s;
 	overflow-x: hidden;
-	overflow-y: scroll;
-	overscroll-behavior: none;
 
 	&:not(:has(*)) {
 		display: none;

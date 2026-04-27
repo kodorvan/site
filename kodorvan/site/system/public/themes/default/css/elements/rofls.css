@@ -20,7 +20,8 @@ body {
 	}
 
 	>article#rofls {
-		z-index: 50;
+		z-index: 4000;
+		position: relative;
 		width: 100vw;
 		height: 32px;
 		display: flex;

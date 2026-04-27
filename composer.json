@@ -26,7 +26,7 @@
 	"require": {
 		"php": "^8.5",
 		"ext-blake3": "^0.1",
-		"mirzaev/minimal": "^3.8",
+		"mirzaev/minimal": "^3.10.4",
 		"mirzaev/baza": "^3.4",		
 		"mirzaev/languages": "^1",		
 		"twig/twig": "^3.2",
