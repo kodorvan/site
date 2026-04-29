@@ -998,7 +998,7 @@ section#project {
 		}
 	}
 
-	>small.description {
+	>small:is(.description, .technologies, .guarantee) {
 		padding: 0.9em 1.2em;
 		text-align: left;
 		font-family: Nunito;
@@ -1011,25 +1011,12 @@ section#project {
 		/* text-shadow: 0px 1px 3px #000C, 0px 1px 1px #000B; */
 		text-shadow: unset;
 
-		>:is(strong, b) {
-			/* display: block; */
-			font-weight: 600;
-			color: #ebdada;
+		>img.icon {
+			margin-right: 0.2em;
+			height: 2ch;
+			padding-top: 0.1em;
+			vertical-align: top;
 		}
-	}
-
-	>small.guarantee {
-		padding: 0.9em 1.2em;
-		text-align: left;
-		font-family: Nunito;
-		font-size: 0.9em;
-		color: #d6c1c1;
-		background: #a5c2c724;
-		border-radius: 1.25rem;
-		border-top: 1px solid #84d1d52e;
-		backdrop-filter: blur(2px) contrast(1.14);
-		/* text-shadow: 0px 1px 3px #000C, 0px 1px 1px #000B; */
-		text-shadow: unset;
 
 		>:is(strong, b) {
 			/* display: block; */
@@ -1037,6 +1024,10 @@ section#project {
 			color: #ebdada;
 		}
 	}
+
+	/* >small.description {}
+
+	>small.guarantee {} */
 
 	>div.partners {
 		margin-top: 1.4rem;

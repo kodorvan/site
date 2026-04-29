@@ -134,9 +134,11 @@ final class project extends core
 	{
 		// Debugging
 		date_default_timezone_set('Asia/Yekaterinburg');
-		file_put_contents('requests.txt', '[' . date('Y.m.d H:i:s') . '] Заказ с сайта: ' . DOMAIN . "\n", FILE_APPEND);
-		file_put_contents('requests.txt', print_r($request, true) . "\n", FILE_APPEND);
-		file_put_contents('requests.txt', print_r($this->request->files, true) . "\n", FILE_APPEND);
+		$jornal = JOURNAL . '/requests.txt';
+		file_put_contents($jornal, "\n\n\n\n", FILE_APPEND);
+		file_put_contents($jornal, '[' . date('Y.m.d H:i:s') . '] Заказ с сайта: ' . DOMAIN . "\n", FILE_APPEND);
+		file_put_contents($jornal, print_r($request, true) . "\n", FILE_APPEND);
+		file_put_contents($jornal, print_r($this->request->files, true) . "\n", FILE_APPEND);
 
 		if ($this->request->method === method::put) {
 			// PUT
@@ -204,8 +206,8 @@ final class project extends core
 				// Sending the message
 				$mail->send();
 			} catch (mail_exception $exception) {
-				file_put_contents('requests.txt', '[' . date('Y.m.d H:i:s') . "] ПИЗДЕЦ\n", FILE_APPEND);
-				file_put_contents('requests.txt', '[' . date('Y.m.d H:i:s') . ']' . $exception->getMessage() . "\n", FILE_APPEND);
+				file_put_contents($jornal, '[' . date('Y.m.d H:i:s') . "] ПИЗДЕЦ\n", FILE_APPEND);
+				file_put_contents($jornal, '[' . date('Y.m.d H:i:s') . ']' . $exception->getMessage() . "\n", FILE_APPEND);
 
 				try {
 					// Initializing the mail server
@@ -231,8 +233,8 @@ final class project extends core
 					// Sending the message
 					$mail->send();
 				} catch (mail_exception $exception) {
-					file_put_contents('requests.txt', '[' . date('Y.m.d H:i:s') . "] ПИЗДЕЦ БЕЗ КАРТИНОК\n", FILE_APPEND);
-					file_put_contents('requests.txt', '[' . date('Y.m.d H:i:s') . ']' . $exception->getMessage() . "\n", FILE_APPEND);
+					file_put_contents($jornal, '[' . date('Y.m.d H:i:s') . "] ПОВТОРНЫЙ ПИЗДЕЦ\n", FILE_APPEND);
+					file_put_contents($jornal, '[' . date('Y.m.d H:i:s') . ']' . $exception->getMessage() . "\n", FILE_APPEND);
 				}
 			}
 

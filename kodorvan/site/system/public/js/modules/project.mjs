@@ -1819,7 +1819,7 @@ export default class project {
 									// Iterating over files
 
 									// Writing the parameter into the body buffer
-									body.append('file_' + index++, file);
+									body.append('file_' + index++, file, file.name);
 								}
 
 								return await core.request(
@@ -1828,8 +1828,7 @@ export default class project {
 									"PUT",
 									{
 										"Accept": "application/json",
-									},
-									null,
+									}
 								).then(
 									async (json) => {
 										if (json) {
