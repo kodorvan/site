@@ -9,7 +9,7 @@
 			--company-tax: "{{ language.name == 'ru' or true ? 'ИНН' : 'TAX' }}";
 		}
 	</style>
-	<link type="text/css" rel="stylesheet" href="/themes/default/css/elements/rofls.css" />
+	<link type="text/css" rel="stylesheet" href="/themes/default/css/elements/rofls.css">
 {% endblock %}
 
 {% block body %}
@@ -24,8 +24,8 @@
 				<div class="information">
 					<h1 class="name">{{ company.name.short }}</h1>
 					<p class="column">
-						<span class="tax row">{{ company.tax }}</span>
-						<span class="identifier row">{{ company.identifier }}</span>
+						<span class="tax row important">{{ company.tax }}</span>
+						<span class="identifier row important">{{ company.identifier }}</span>
 					</p>
 					<p class="worktime unselectable">
 						{% if company.address.full is not empty %}{{ company.address.full }}{% endif %}, 
@@ -39,7 +39,12 @@
 				{% include '/themes/default/interface/sim.html' %}
 
 				{% if company.contacts.request.mail is not empty %}
-					<a class="mail support" href="mailto:{{ company.contacts.request.mail }}" rel="external noreferrer noopener nofollow">{{ company.contacts.request.mail }}</a>
+					<a 
+						class="mail support" 
+						href="mailto:{{ company.contacts.request.mail }}" 
+						rel="external noreferrer noopener nofollow"
+						tabindex="45"
+					>{{ company.contacts.request.mail }}</a>
 				{% endif %}
 
 				{% include '/themes/default/interface/media.html' %}
@@ -47,12 +52,12 @@
 		</div>
 
 		<nav id="links" class="unselectable">
-			<a href="/offer" rel="terms-of-service noopener">ОФЕРТА</a>
-			<a href="/policy" rel="privacy-policy noopener">ПОЛИТИКА</a>
-			<a href="https://ru.wikipedia.org/wiki/WTFPL" rel="license external nofollow noopener" >ЛИЦЕНЗИЯ</a>
-			<a href="https://git.svoboda.works/kodorvan" rel="external nofollow noopener">РЕПОЗИТОРИЙ</a>
-			<a href="https://t.me/kodorvan" rel="help external nofollow noopener">БЛОГ</a>
-			<a href="https://t.me/from_mirzaev" rel="author external nofollow noopener">МИРЗАЕВ</a>
+			<a href="/offer" rel="terms-of-service noopener" tabindex="50">ОФЕРТА</a>
+			<a href="/policy" rel="privacy-policy noopener" tabindex="50">ПОЛИТИКА</a>
+			<a href="https://ru.wikipedia.org/wiki/WTFPL" rel="license external nofollow noopener" tabindex="50">ЛИЦЕНЗИЯ</a>
+			<a href="https://git.svoboda.works/kodorvan" rel="external nofollow noopener" tabindex="50">РЕПОЗИТОРИЙ</a>
+			<a href="https://t.me/kodorvan" rel="help external nofollow noopener" tabindex="50">БЛОГ</a>
+			<a href="https://t.me/from_mirzaev" rel="author external nofollow noopener" tabindex="50">МИРЗАЕВ</a>
 		</nav>
 	</footer>
 	{% include '/themes/default/elements/rofls.html' %}

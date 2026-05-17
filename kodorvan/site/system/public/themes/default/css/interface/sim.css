@@ -30,7 +30,7 @@ div.sim {
 		border: unset;
 
 		>img.icon {
-			scale: 0.8;
+			/* scale: 0.8; */
 			color: #fff;
 		}
 	}

@@ -21,7 +21,7 @@
 		<section data-paginator-page="1" data-paginator-page-focus="architecture_input" class="unselectable">
 			<section id="parameters">
 				<label id="architecture" class="input icon" for="architecture_input">
-					<img class="icon" src="/themes/default/images/icons/extension.svg" alt="extension kodorvan" ondragstart="return false"/>
+					<img class="icon" src="/themes/default/images/icons/extension.svg" alt="extension kodorvan" ondragstart="return false">
 					<span class="title">Архитектура</span>
 					<select 
 						id="architecture_input" 
@@ -38,7 +38,7 @@
 					<small class="guide active">Для начала выберите фундамент проекта</small>
 				</label>
 				<label id="purpose" class="input icon" for="purpose_input" style="display: none;">
-					<img class="icon" src="/themes/default/images/icons/track.svg" alt="track kodorvan" ondragstart="return false"/>
+					<img class="icon" src="/themes/default/images/icons/track.svg" alt="track kodorvan" ondragstart="return false">
 					<span class="title">Назначение</span>
 					<select 
 						id="purpose_input" 
@@ -68,7 +68,7 @@
 									value=""
 									autocomplete="off"
 									onchange="this.checked ? core.global.project.integrate(this.value) : core.global.project.desintegrate(this.value)" 
-								/>
+								>
 								<label for="integration_input_{{ value}}">{{ label }}</label>
 							</div>
 						{% endfor %}
@@ -90,7 +90,7 @@
 							value="0" 
 							autocomplete="off"
 							onkeyup="core.global.project.programmers = this.value"
-						/>
+						>
 						<span>Программисты</span>
 					</label>
 					<label for="designers">
@@ -103,7 +103,7 @@
 							value="0"
 							autocomplete="off"
 							onkeyup="core.global.project.designers = this.value"
-						/>
+						>
 						<span>Дизайнеры</span>
 					</label>
 					<label for="boosters">
@@ -116,7 +116,7 @@
 							value="0" 
 							autocomplete="off"
 							onkeyup="core.global.project.boosters = this.value"
-						/>
+						>
 						<span>Бустеры</span>
 					</label>
 				</fieldset>
@@ -136,7 +136,7 @@
 							value="1800"
 							autocomplete="off"
 							oninput="document.getElementById('hour_input_range').value = this.value; core.global.project.hour = this.value;"
-						/>
+						>
 						<span class="currency rubles"></span>
 						<input
 							id="hour_input_range"
@@ -148,7 +148,7 @@
 							value="1800"
 							autocomplete="off"
 							oninput="document.getElementById('hour_input_number').value = this.value; core.global.project.hour = this.value;"
-						/>
+						>
 					</div>
 					<small class="guide">Введите предложение оплаты за рабочий час команды</small>
 				</label>
@@ -156,9 +156,9 @@
 		</section>
 
 		<section data-paginator-page="2" data-paginator-page-focus="name_input" class="unselectable" style="display: none;">
-			<section id="metadata">
+			<div id="metadata">
 				<label id="project_name" class="input icon" for="project_name_input">
-					<img class="icon" src="/themes/default/images/icons/nametag.svg" alt="nametag kodorvan" ondragstart="return false"/>
+					<img class="icon" src="/themes/default/images/icons/nametag.svg" alt="nametag kodorvan" ondragstart="return false">
 					<span class="title">Название</span>
 					<input 
 						id="project_name_input" 
@@ -169,19 +169,17 @@
 						value="" 
 						autocomplete="off"
 						onkeyup="core.global.project.project.name = this.value"
-					/>
+					>
 					<small class="guide active">Введите внутреннее название проекта</small>
 				</label>
 				<label id="project_description" class="input icon" for="project_description_input">
-					<img class="icon" src="/themes/default/images/icons/notes.svg" alt="notes kodorvan" ondragstart="return false"/>
+					<img class="icon" src="/themes/default/images/icons/notes.svg" alt="notes kodorvan" ondragstart="return false">
 					<span class="title">Описание</span>
 					<textarea 
 						id="project_description_input"
 						class="input"
 						name="project_description_input"
-						cols="100%"
 						maxlength="4096"
-						value="" 
 						autocomplete="off"
 						placeholder="Сделайте, чтобы всё было красиво, спасибо"
 						onkeyup="core.global.project.project.description = this.value"
@@ -189,7 +187,7 @@
 					<small class="guide active">Опишите задачу в свободной форме</small>
 				</label>
 				<div id="project_files" class="input icon">
-					<img class="icon" src="/themes/default/images/icons/import.svg" alt="import kodorvan" ondragstart="return false"/>
+					<img class="icon" src="/themes/default/images/icons/import.svg" alt="import kodorvan" ondragstart="return false">
 					<div>
 						<span class="title">Импорт</span>
 						<ol style="display: none;" class="files"></ol>
@@ -199,22 +197,20 @@
 							id="project_files_input"
 							class="input"
 							name="project_files_input"
-							type="file",
+							type="file"
 							accept="image/*,.pdf,pptx,.doc,.docx,.odt,.word,.pages,.rtf,.txt"
-							multiple="true"
-							value="" 
-							autocomplete="off"
+							multiple
 							oninput="core.global.project.project.files = this.files"
-						/>
+						>
 					</div>
 				</div>
-			</section>
+			</div>
 		</section>
 
 		<section data-paginator-page="3" data-paginator-page-focus="requester_name_input" class="unselectable" style="display: none;">
 			<section id="requester">
 				<label id="requester_name" class="input icon" for="requester_name_input">
-					<img class="icon" src="/themes/default/images/icons/smile.svg" alt="smile kodorvan" ondragstart="return false"/>
+					<img class="icon" src="/themes/default/images/icons/smile.svg" alt="smile kodorvan" ondragstart="return false">
 					<span class="title">Представитель</span>
 					<input 
 						id="requester_name_input" 
@@ -225,11 +221,11 @@
 						value="" 
 						autocomplete="off"
 						onkeyup="core.global.project.requester.name = this.value"
-					/>
+					>
 					<small class="guide active">Введите ваши инициалы</small>
 				</label>
 				<label id="requester_sim" class="input icon" for="requester_sim_input">
-					<img class="icon" src="/themes/default/images/icons/phone.svg" alt="phone kodorvan" ondragstart="return false"/>
+					<img class="icon" src="/themes/default/images/icons/phone.svg" alt="phone kodorvan" ondragstart="return false">
 					<span class="title">SIM-номер</span>
 					<input 
 						id="requester_sim_input" 
@@ -240,11 +236,11 @@
 						value="" 
 						autocomplete="off"
 						onkeyup="core.global.project.requester.sim = this.value"
-					/>
+					>
 					<small class="guide active">Введите номер телефона для связи</small>
 				</label>
 				<label id="requester_mail" class="input icon" for="requester_mail_input">
-					<img class="icon" src="/themes/default/images/icons/mail.svg" alt="mail kodorvan" ondragstart="return false"/>
+					<img class="icon" src="/themes/default/images/icons/mail.svg" alt="mail kodorvan" ondragstart="return false">
 					<span class="title">Почта</span>
 					<input 
 						id="requester_mail_input" 
@@ -255,30 +251,28 @@
 						value="" 
 						autocomplete="off"
 						onkeyup="core.global.project.requester.mail = this.value"
-					/>
+					>
 					<small class="guide active">Введите почту для связи</small>
 				</label>
-				<label id="requester_other" class="input icon"for="requester_other_input">
-					<img class="icon" src="/themes/default/images/icons/comment.svg" alt="comment kodorvan" ondragstart="return false"/>
+				<label id="requester_other" class="input icon" for="requester_other_input">
+					<img class="icon" src="/themes/default/images/icons/comment.svg" alt="comment kodorvan" ondragstart="return false">
 					<span class="title">Дополнительные контакты</span>
 					<textarea 
 						id="requester_other_input"
 						class="input"
 						name="name_input"
-						cols="100%"
 						maxlength="2048"
-						value=""
 						autocomplete="off"
 						placeholder="Синяя программа: @zornhut"
 						onkeyup="core.global.project.requester.other = this.value"
 					></textarea>
-					<small class="guide active">Введите дополнительные удобные способы связи</small>
+					<small class="guide active">Введите дополнительные способы связи</small>
 				</label>
 			</section>
 
 			<section id="confirmation">
 				<label id="requester_personal" for="requester_personal_input">
-						<div>
+						<span class="icon">
 							<input 
 								id="requester_personal_input"
 								class="input"
@@ -287,11 +281,11 @@
 								value="" 
 								autocomplete="off"
 								oninput="core.global.project.requester.personal = this.checked"
-							/>
-							<img src="/themes/default/images/icons/circle.svg" alt="lock kodorvan" style="display: var(--display, none)" ondragstart="return false"/>
-							<img src="/themes/default/images/icons/circle_dot.svg" alt="unlock kodorvan" style="display: var(--display, none)" ondragstart="return false"/>
-						</div>
-						<span class="title">Разрешаю запись, обработку и хранение моих персональных данных</span>
+							>
+							<img src="/themes/default/images/icons/circle.svg" alt="lock kodorvan" style="display: var(--display, none)" ondragstart="return false">
+							<img src="/themes/default/images/icons/circle_dot.svg" alt="unlock kodorvan" style="display: var(--display, none)" ondragstart="return false">
+						</span>
+						<span class="text">Разрешаю запись, обработку и хранение моих персональных данных</span>
 				</label>
 			</section>
 		</section>
@@ -304,10 +298,20 @@
 			</section>
 		</section>
 	</article>
+
+	<div id="superpack" class="mega" style="display: none" aria-label="Суперпак">
+		<div class="content">
+			<img class="icon" src="/themes/default/images/icons/superpack/small/white.svg" alt="+" ondragstart="return false">
+			<span class="superpack value"></span>
+		</div>
+		<button class="delete" onclick="core.global.project.superpack = undefined" title="Удалить суперпак">
+			<img class="icon" src="/themes/default/images/icons/white/close.svg" alt="+" ondragstart="return false">
+		</button>
+	</div>
 	
 	<div class="adaptive">
 		<button id="back" class="unselectable" onclick="core.global.paginator.relative(-1)" style="display: none">
-			<img src="/themes/default/images/icons/arrow_left.svg" alt="back button kodorvan" ondragstart="return false"/>
+			<img src="/themes/default/images/icons/arrow_left.svg" alt="back button kodorvan" ondragstart="return false">
 		</button>
 
 		<section id="buttons" style="display: none">

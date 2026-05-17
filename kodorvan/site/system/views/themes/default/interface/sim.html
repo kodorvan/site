@@ -6,6 +6,7 @@
 			rel="external noreferrer noopener nofollow" 
 			title="SIM-номер оператора Кодорвань"
 			aria-label="SIM-номер оператора Кодорвань"
+			tabindex="-1"
 		>
 			<span class="country">{{ company.contacts.request.sim.country }}</span>
 			<span class="operator">{{ company.contacts.request.sim.operator }}</span>
@@ -17,13 +18,14 @@
 			onclick="navigator.clipboard.writeText('{{ company.contacts.request.sim.full }}')"
 			title="Скопировать SIM-номер"
 			aria-label="Скопировать SIM-номер"
+			tabindex="0"
 		>
 			<img 
 				class="icon" 
 				src="/themes/{{ theme }}/images/icons/white/copy.svg" 
 				alt="copy kodorvan" 
 				ondragstart="return false"
-			/>
+			>
 		</button>
 	</div>
 {% endif %}

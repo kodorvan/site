@@ -1,0 +1,31 @@
+@charset "UTF-8";
+
+@font-face {
+	font-family: 'ALS Schlange';
+	src: url("/fonts/als_schlange/alsschlangesans-thin.otf");
+	font-weight: 100;
+}
+
+@font-face {
+	font-family: 'ALS Schlange';
+	src: url("/fonts/als_schlange/alsschlangesans-light.otf");
+	font-weight: 200;
+}
+
+@font-face {
+	font-family: 'ALS Schlange';
+	src: url("/fonts/als_schlange/alsschlangesans.otf");
+	font-weight: 400;
+}
+
+@font-face {
+	font-family: 'ALS Schlange';
+	src: url("/fonts/als_schlange/alsschlangesans-bold.otf");
+	font-weight: 600;
+}
+
+@font-face {
+	font-family: 'ALS Schlange';
+	src: url("/fonts/als_schlange/alsschlangesans-black.otf");
+	font-weight: 800;
+}

@@ -2,27 +2,27 @@
 
 <html lang="ru">
 
-<head>
-	{% use '/themes/default/head.html' with meta as head_meta, css as head_css %}
+	<head>
+		{% use '/themes/default/head.html' with meta as head_meta, css as head_css %}
 
-	{{ block('head_meta') }}
-	{% block meta %}
-	{% endblock %}
+		{{ block('head_meta') }}
+		{% block meta %}
+		{% endblock %}
 
-	{{ block('head_css') }}
-	{% block css %}
-	{% endblock %}
+		{{ block('head_css') }}
+		{% block css %}
+		{% endblock %}
 
-	{% include '/metrics/yandex.html' %}
-</head>
+		{% include '/metrics/yandex.html' %}
+	</head>
 
-<body>
-	{% block body %}
-	{% endblock %}
+	<body>
+		{% block body %}
+		{% endblock %}
 
-	{% include '/themes/default/js.html' %}
-	{% block js %}
-	{% endblock %}
-</body>
+		{% include '/themes/default/js.html' %}
+		{% block js %}
+		{% endblock %}
+	</body>
 
 </html>

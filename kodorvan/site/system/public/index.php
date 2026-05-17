@@ -43,7 +43,7 @@ $core->router
 
 	->write('/superpack/$urn', new route('superpack', 'index'), 'GET')
 
-	->write('/project/calculator', new route('project', 'calculator'), 'GET')
+	->write('/project/constructor', new route('project', 'constructor'), 'GET')
 	->write('/project/request', new route('project', 'request'), 'PUT')
 
 	->write('/system/superpack/create', new route('superpack', 'create'), 'GET')

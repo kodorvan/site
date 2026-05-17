@@ -3,34 +3,36 @@
 {% block css %}
 	{{ parent() }}
 
-	<link type="text/css" rel="stylesheet" href="/css/icons/loading_spinner.css" />
-	<!-- <link type="text/css" rel="stylesheet" href="/css/icons/code_slash.css" />
-	<link type="text/css" rel="stylesheet" href="/css/icons/coffe.css" />
-	<link type="text/css" rel="stylesheet" href="/css/icons/close.css" />
-	<link type="text/css" rel="stylesheet" href="/css/icons/check.css" />
-	<link type="text/css" rel="stylesheet" href="/css/icons/eye.css" />
-	<link type="text/css" rel="stylesheet" href="/css/icons/close.css" />
-	<link type="text/css" rel="stylesheet" href="/css/icons/plus.css" />
-	<link type="text/css" rel="stylesheet" href="/css/icons/minus.css" />
-	<link type="text/css" rel="stylesheet" href="/css/icons/server.css" />
-	<link type="text/css" rel="stylesheet" href="/css/icons/trend.css" />
-	<link type="text/css" rel="stylesheet" href="/css/icons/terminal.css" />
-	<link type="text/css" rel="stylesheet" href="/css/icons/list_tree.css" />
-	<link type="text/css" rel="stylesheet" href="/css/icons/gift.css" />
-	<link type="text/css" rel="stylesheet" href="/css/icons/phone.css" /> -->
-	<link type="text/css" rel="stylesheet" href="/themes/default/css/pages/index.css" />
-	<link type="text/css" rel="stylesheet" href="/themes/default/css/elements/companies.css" />
-	<link type="text/css" rel="stylesheet" href="/themes/default/css/elements/project.css" />
-	<link type="text/css" rel="stylesheet" href="/themes/default/css/elements/superpacks.css" />
+	<link type="text/css" rel="stylesheet" href="/css/icons/loading_spinner.css">
+	<!-- <link type="text/css" rel="stylesheet" href="/css/icons/code_slash.css">
+	<link type="text/css" rel="stylesheet" href="/css/icons/coffe.css">
+	<link type="text/css" rel="stylesheet" href="/css/icons/check.css">
+	<link type="text/css" rel="stylesheet" href="/css/icons/eye.css">
+	<link type="text/css" rel="stylesheet" href="/css/icons/close.css">
+	<link type="text/css" rel="stylesheet" href="/css/icons/plus.css">
+	<link type="text/css" rel="stylesheet" href="/css/icons/minus.css">
+	<link type="text/css" rel="stylesheet" href="/css/icons/server.css">
+	<link type="text/css" rel="stylesheet" href="/css/icons/trend.css">
+	<link type="text/css" rel="stylesheet" href="/css/icons/terminal.css">
+	<link type="text/css" rel="stylesheet" href="/css/icons/list_tree.css">
+	<link type="text/css" rel="stylesheet" href="/css/icons/gift.css">
+	<link type="text/css" rel="stylesheet" href="/css/icons/phone.css"> -->
+	<link type="text/css" rel="stylesheet" href="/themes/default/css/pages/index.css">
+	<link type="text/css" rel="stylesheet" href="/themes/default/css/elements/companies.css">
+	<link type="text/css" rel="stylesheet" href="/themes/default/css/elements/project.css">
+	<link type="text/css" rel="stylesheet" href="/themes/default/css/elements/facer.css">
+	<link type="text/css" rel="stylesheet" href="/themes/default/css/elements/superpacks.css">
 	{% if smartphone %}
-		<link rel="preload expect" as="image" href="/themes/default/images/interface/labubumba_2_mobile.svg" />
+		<link rel="preload expect" as="image" href="/themes/default/images/interface/labubumba_2_mobile.svg">
 	{% else %}
-		<link rel="preload expect" as="image" href="/themes/default/images/interface/labubumba_2.svg" />
-		<!-- <link type="text/css" rel="stylesheet" href="/themes/default/css/elements/cases.css" /> -->
+		<link rel="preload expect" as="image" href="/themes/default/images/interface/labubumba_2.svg">
+		<!-- <link type="text/css" rel="stylesheet" href="/themes/default/css/elements/cases.css"> -->
 	{% endif %}
-	<link type="text/css" rel="stylesheet" href="/themes/default/css/elements/cookies.css" />
-	<link type="text/css" rel="stylesheet" href="/themes/default/css/elements/gradient.css" />
-	<link rel="preload" as="image" href="/themes/default/images/icons/close.svg" />
+	<link type="text/css" rel="stylesheet" href="/themes/default/css/elements/cookies.css">
+	<link type="text/css" rel="stylesheet" href="/themes/default/css/elements/gradient.css">
+	<link rel="preload" as="image" href="/themes/default/images/icons/close.svg">
+
+	<link type="text/css" rel="stylesheet" href="/themes/default/css/elements/ender.css">
 {% endblock %}
 
 {% block before %}
@@ -39,10 +41,119 @@
 {% block main %}
 	{% include '/themes/default/interface/logotype.html' %}
 
-	{% include '/themes/default/elements/project/short.html' %}
+	<section id="facer">
+		<header>
+			<h1 class="unselectable">СОЗДАНИЕ ПРОЕКТА</h1>
+			<span class="unselectable">Отправьте заявку и получите бесплатную консультацию с расчётом стоимости</span>
+		</header>
+
+		<!-- <p class="promotion unselectable">Скидка <b>10%</b> в честь запуска сайта</p> -->
+
+		<noscript>
+			<b>Калькулятор не загрузится в вашем браузере</b><br>
+			<i>Оформите заказ через звонок оператору по номеру {{ contacts.sim.requests.full ?? 'Ошибка' }}</i>
+		</noscript>
+
+		{% include '/themes/default/elements/project/short.html' %}
+
+		<div id="superpack" class="mega" style="display: none" aria-label="Суперпак">
+			<div class="content">
+				<img 
+					class="icon unselectable" 
+					src="/themes/default/images/icons/superpack/small/white.svg" 
+					width="24" 
+					height="24" 
+					alt="+" 
+					ondragstart="return false"
+				>
+				<span class="superpack value unselectable"></span>
+			</div>
+			<button class="delete" onclick="core.global.project.superpack = undefined" title="Удалить суперпак">
+				<img 
+					class="icon unselectable" 
+					src="/themes/default/images/icons/bold/close.svg" 
+					width="24" 
+					height="24" 
+					alt="+" 
+					ondragstart="return false"
+				>
+			</button>
+		</div>
+
+		<div class="adaptive">
+			<button id="back" class="unselectable" onclick="core.global.paginator.relative(-1)" style="display: none">
+				<img 
+					class="icon unselectable" 
+					src="/themes/default/images/icons/arrow-left.svg" 
+					width="24" 
+					height="24" 
+					alt="←" 
+					ondragstart="return false"
+				>
+			</button>
+
+			<div id="buttons">
+				<button onclick="core.global.paginator.relative(1)"  data-paginator-page-button="2" disabled>
+					<span class="label">ПРОДОЛЖИТЬ</span>
+					<small class="disabled">Чтобы продолжить, заполните форму</small>
+				</button>
+				<button 
+					id="send" 
+					style="display: none"
+					onclick="core.global.project.send();"
+					data-paginator-page-button="3"
+					disabled="true"
+				>СОЗДАТЬ ПРОЕКТ</button>
+			</div>
+
+			<script>
+				const send = document.getElementById('send');
+				let deg = 120;
+				setInterval(() => send.style.setProperty('--button-send-background-color', (deg += 43) + 'deg'), 1200);
+			</script>
+		</div>
+
+		<a 
+			class="full unselectable" 
+			href="/project/constructor" 
+			title="Открыть полную версию конструктора заказа" 
+			rel="noopener" 
+			onclick="alert('Временно деактивирован. Спасибо за интерес! Очень стараемся доделать его до июня :)'); return false;"
+		>Продвинутый конструктор заказа</a>
+
+		<ul class="window description unselectable" aria-label="Описание">
+			<li>Передаём проект заказчику в <b>полную собственность</b></li>
+			<li><b>Не оставляем блокировки и скрытые метки</b> в коде</li>
+			<li><strong>Юридическая броня</strong> каждому пикселю на экране</li>
+			<li><strong>Команда профессионалов</strong> по цене программиста с авито</li>
+			<li><strong>Грамотные SEO и GEO</strong> - не текстом, а глубоко в архитектуре</li>
+			<li><strong>Собственные сервера в Перми</strong>, бесплатно на этапе разработки</li>
+			<!-- <li>Не перекрашиваем шаблон цветочного магазина, а пишем проект с нуля</li> -->
+		</ul>
+
+		<div class="other">
+			<small class="window technologies text unselectable" aria-label="Наши технологии"><img class="icon thunder" src="/themes/default/images/icons/white/bolt.svg" alt="⚡" ondragstart="return false"><strong>Уникальные технологии</strong><b>:</b> самые передовые российские разработки, <b class="green">мощные и надёжные</b><br><br>Часть из них - фреймворки и библиотеки <b class="blue">нашего производства</b></small>
+			
+			<small class="window students unselectable" aria-label="Наши студенты"><img class="icon" src="/themes/default/images/icons/white/solid/heart.svg" alt="♥" ondragstart="return false"><strong>Низкие цены</strong><b>:</b> в разработке участвуют наши студенты, а за <b class="green">качество</b> и <b class="green">соблюдение сроков</b> отвечает наставник</small>
+
+			<small class="window guarantee unselectable" aria-label="Наша гарантия"><img class="icon" src="/themes/default/images/icons/white/phone.svg" alt="📞" ondragstart="return false"><strong>Вечная поддержка</strong> - наша гарантия качества</small>
+		</div>
+
+		<!-- <div class="partners unselectable" aria-label="Партнёры">
+			<div class="icon" style="--mask-image: url('/themes/default/images/icons/white/solid/crown.svg')"></div>
+			<b>Поддерживаем проекты наших<br>партнёров с 2014 года!</b>
+		</div> -->
+
+		<div id="contacts_shortcut">
+			{% include '/themes/default/interface/media.html' %}
+			{% include '/themes/default/interface/sim.html' %}
+			<small class="unselectable">ЗВОНИТЕ ПО НОМЕРУ</small>
+		</div>
+	</section>
 	
 	{% include '/themes/default/elements/companies.html' %}
 	{% include '/themes/default/elements/superpacks.html' %}
+	{% include '/themes/default/elements/ender.html' %}
 
 	{% if cookies.cookies_popup_closed is empty %}
 		{% include '/themes/default/elements/cookies.html' %}
@@ -61,26 +172,28 @@
 		let main = document.getElementById('main');
 
 		setInterval(() => {
-			main.style.setProperty('--scroll-px', window.pageYOffset + 'px');
-			main.style.setProperty('--scroll-deg', window.pageYOffset / 100 + 'deg')
-		}, 60);
+			const scroll = window.pageYOffset.toFixed(2);
+			main.style.setProperty('--scroll', scroll);
+			main.style.setProperty('--scroll-px', scroll + 'px');
+			main.style.setProperty('--scroll-deg', (scroll / 140).toFixed(2) + 'deg')
+		}, 120);
 	</script>
 
 	<script>
-		const companies = document.getElementById("companies");
+		// const companies = document.getElementById("companies");
 
-		companies.style.setProperty('margin-top', '70vh');
-		companies.style.setProperty('transition', 'margin 0.6s cubic-bezier(0, 1, .45, 1)');
+		// companies.style.setProperty('margin-top', '70vh');
+		// companies.style.setProperty('transition', 'margin 0.6s cubic-bezier(0, 1, .45, 1)');
 
-		const companies_show = setTimeout(() => companies.style.removeProperty('margin-top'), 2000);
+		// const companies_show = setTimeout(() => companies.style.removeProperty('margin-top'), 2000);
 
-		document.addEventListener('load', () => {
-			clearTimeout(companies_show);
-			companies.style.removeProperty('margin-top');
-		});
+		// document.addEventListener('load', () => {
+		// 	clearTimeout(companies_show);
+		// 	companies.style.removeProperty('margin-top');
+		// });
 	</script>
 
-	<link rel="modulepreload" href="/js/modules/hotline.mjs" ></script>
+	<link rel="modulepreload" href="/js/modules/hotline.mjs"></script>
 	<script src="/js/modules/project.mjs" type="module"></script>
 	<script src="/js/modules/paginator.mjs" type="module"></script>
 	<script src="/js/pages/main.js" type="module" defer></script>

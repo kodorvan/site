@@ -6,11 +6,18 @@
 
 	<title>{{ project.name }}</title>
 
-	<link type="text/css" rel="stylesheet" href="/themes/default/css/messages/request.css" />
+	<link type="text/css" rel="stylesheet" href="/themes/default/css/messages/request.css">
 </head>
 
 <body>
 	<main>
+		{% if superpack is not empty %}
+		<section id="superpack">
+			<h1>Суперпак</h1>
+			<p>{{ superpack }}</p>
+		</section>
+		{% endif %}
+
 		<section id="project">
 			<h1>Проект</h1>
 			<span>{{ project.name }}</span>

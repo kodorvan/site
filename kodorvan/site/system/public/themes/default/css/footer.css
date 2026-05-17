@@ -87,16 +87,6 @@ footer {
 					font-size: 0.8rem;
 					color: #a3a396;
 
-					::selection {
-						color: #000;
-						background: #F22;
-					}
-
-					::-moz-selection {
-						color: #000;
-						background: #F22;
-					}
-
 					>span.row {
 						display: inline-flex;
 						justify-content: end;

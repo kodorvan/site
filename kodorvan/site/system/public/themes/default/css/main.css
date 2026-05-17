@@ -4,6 +4,7 @@ main {
 	--scroll-px-ten: calc(var(--scroll-px) / 10);
 	--scroll-px-hundred: calc(var(--scroll-px-ten) / 10);
 	--scroll-px-thousand: calc(var(--scroll-px-hundred) / 10);
+	--main-gap: 60px;
 	margin-top: var(--menu-height);
 	min-height: 100vh;
 	display: flex;

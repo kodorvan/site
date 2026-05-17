@@ -9,6 +9,10 @@ core.modules.connect(["damper", "project"]).then((connected) => {
 	// Initializing the files input wrap HTML-element
 	const files = document.getElementById("project_files");
 
+	// Initializing the superpack HTML-elements
+	const superpack = document.getElementById("superpack");
+	const superpack_value = superpack.querySelector('span.value');
+
 	// Initializing the instance of the project.mjs
 	core.global.project = new connected.global.project(
 		document.querySelector('section[data-paginator-page="2"]'), 
@@ -32,6 +36,7 @@ core.modules.connect(["damper", "project"]).then((connected) => {
 		undefined, 
 		undefined, 
 		undefined, 
+		superpack,
 		document.getElementById("project_name"),
 		document.getElementById("project_description"),
 		files,
@@ -96,14 +101,38 @@ core.modules.connect(["damper", "project"]).then((connected) => {
 		// Initializing the page buttons menu
 		core.global.paginator.shell.addEventListener("paginator.page.opened", function (event) {
 			// Scrolling to the introdution HTML-element
-			introdution?.scrollIntoView({ behavior: 'smooth' });
+			// introdution?.scrollIntoView({ behavior: 'smooth' });
+			// Сделать для мобилок 300 а для пк 0
+			window.scrollTo({ top: window.innerHeight > 1500 ? 0 : 300, behavior: 'smooth' });
 
 			// Initializing the page buttons menu
 			menu(event.detail.identifier);
 		});
 
-		// Connecting event listener for project calculation
-		core.global.project.shell.addEventListener("project.write", function() {
+		// Connecting event listener for project parameters writings
+		core.global.project.shell.addEventListener("project.write", function(event) {
+			if (event.detail.name === 'superpack') {
+				// Superpack
+				
+				if (superpack_value instanceof HTMLElement) {
+					// Initialized the superpack value HTML-element
+
+					// Writing the superpack value
+					superpack_value.innerText = event.detail.value ?? '';
+
+					if (superpack_value.innerText.length > 1) {
+						// Has a value
+
+						// Showing the superpack HTML-element
+						superpack.style.removeProperty('display');
+					} else {
+						// Has no value
+
+						// Hiding the sueprpack HTML-element
+						superpack.style.setProperty('display', 'none');
+					}
+				}
+			}
 
 			// Initializing the "project" page button HTML-element
 			const project = core.global.paginator.shell.querySelector('button[data-paginator-page-button="2"]');
@@ -146,7 +175,10 @@ core.modules.connect(["damper", "project"]).then((connected) => {
 		// Initializing the page buttons menu
 		core.global.paginator.shell.addEventListener("paginator.page.opened", function (event) {
 			// Scrolling to the introdution HTML-element
-			introdution?.scrollIntoView({ behavior: 'smooth' });
+			// introdution?.scrollIntoView({ behavior: 'smooth' });
+			// window.scrollTo({ top: 300, behavior: 'smooth' });
+			// Сделать для мобилок 300 а для пк 0
+			window.scrollTo({ top: window.innerHeight > 1500 ? 0 : 300, behavior: 'smooth' });
 
 			// Initializing the page buttons menu
 			menu(event.detail.identifier);

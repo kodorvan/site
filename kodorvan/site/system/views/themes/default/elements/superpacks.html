@@ -1,120 +1,113 @@
-{% macro service(class, title, icon_left, icon_center, icon_right, description, howto, extra, buttons, theses, background_image_src, background_image_alt, cost, canceled) %}
-	<article class="superpack{% if class is not empty %} {{ class }}{% endif %}">
-		{% if icon_left is not empty %}<i class="icon left {{ icon_left }}"></i>{% endif %}
-			{% if icon_center is not empty %}
-				<link type="text/css" rel="stylesheet" href="/css/icons/{{ icon_center|replace({' ': '_'}) }}.css" />
-				<i class="icon center {{ icon_center }}"></i>
-			{% endif %}
-		{% if icon_right is not empty %}<i class="icon right {{ icon_right }}"></i>{% endif %}
-
-		{% if icon_center2222 is not empty %}
-			<link type="text/css" rel="stylesheet" href="/css/icons/{{ icon_center|replace({' ': '_'}) }}.css" />
-			<div class="icon">
-				<i class="icon center {{ icon_center }}"></i>
-			</div>
+{% macro superpack(identifier, class, icon, image, title, description, features, article, deal, button, reversed = false) %}
+	{% set id = "superpack_" ~ identifier %}
+	<article id="{{ id }}" class="superpack{% if class is not empty %} {{ class }}{% endif %}{{ reversed ? ' reversed' : '' }}" aria-label="Суперпак">
+		{% if image is not empty %}
+			<img class="cover unselectable" src="{{ image.src }}"{% if image.alt is not empty %} alt={{ image.alt }}{% endif %} ondragstart="return false">
 		{% endif %}
 
-		<div class="head">
-			<h4>{{ title is empty ? 'Разработка' : title }}</h4>
-		</div>
-
-		<div class="body">
-			{% if canceled is not empty %}
-				<span class="canceled">{{ canceled }}</span>
+		<section class="short unselectable">
+			{% if title is not empty %}
+				<h1 class="title">{{ title }}</h1>
 			{% endif %}
 
 			{% if description is not empty %}
-				<p class="description">{{ description|raw }}</p>
+				<p class="description unselectable">{{ description }}</p>
 			{% endif %}
 
-			{% if howto is not empty %}
-				<p class="howto">{{ howto|raw }}</p>
+			{% if features is not empty %}
+				<ul class="features unselectable">
+					{% for feature in features %}
+						<li>
+							<img class="icon" src="/themes/{{ theme }}/images/icons/{{ feature.icon }}.svg" alt="+" ondragstart="return false">
+							<span class="text">{{ feature.text }}</span>
+						</li>
+					{% endfor %}
+				</ul>
 			{% endif %}
+		</section>
 
-			{% if extra is not empty %}
-				<div class="extra">
-					<p>
-						{% for text in extra %}
-						<span>{{ text }}</span>
-						{% endfor %}
-					</p>
-					<p>
-						{% for text in extra %}
-						<span>{{ text }}</span>
-						{% endfor %}
-					</p>
-				</div>
+		{% if deal.cost is not empty %}
+			<p class="cost">
+				<span class="amount" aria-label="Стоимость суперпака в российских рублях">{{ deal.cost }}</span>
+				<span class="label">{{ deal.text }}</span>
+			</p>
+		{% endif %}
+
+		<div class="buttons">
+			{% if button.text is not empty %}
+				<a
+					{% if article is not empty %}style="display: none"{% endif %}
+					class="{{ article is not empty ? 'chooser ' : '' }}button unselectable{% if button.class is not empty %} {{ button.class }}{% endif %}"
+					{% if button.href is not empty %}href="{{ button.href }}"{% else %}onclick="core.global.project.superpack = '{{ title }}'; window.scrollTo({ top: window.innerHeight > 1500 ? 0 : 300, behavior: 'smooth' })"{% endif %}
+					aria-label="{{ button.label }}"
+					tabindex="0"
+				>
+					{{ button.text }}
+					{% if button.href is not empty %}
+						<!-- <img class="icon" src="/themes/{{ theme }}/images/icons/white/external.svg" alt="⤴"> -->
+					{% endif %}
+				</a>
 			{% endif %}
-
-			<div class="footer">
-				{% if theses is not empty %}
-					<div class="buttons">
-						{% for button in buttons %}
-							{% set icon = button.icon ?? 'close' %}
-							<link type="text/css" rel="stylesheet" href="/css/icons/{{ button.icon|replace({' ': '_'}) }}.css" />
-							<a type="button" href="{{ button.href }}" target="_blank" rel="external nofollow noopener noreferrer"><i class="icon {{ button.icon }}"></i></a>
-						{% endfor %}
-					</div>
-				{% endif %}
-
-				{% if theses is not empty %}
-					<div class="theses">
-						{% for thesis in theses %}
-							<p{% if thesis.class is not empty %} class="{{ thesis.class }}{% if thesis.colored is true %} colored{% endif %}"{% endif %}>
-								{% if thesis.icon is not empty %}
-									<span class="characteristic">
-										<link type="text/css" rel="stylesheet" href="/css/icons/{{ thesis.icon|replace({' ': '_'}) }}.css" />
-										<i class="icon {{ thesis.icon }}"></i>
-									</span>
-								{% elseif thesis.characteristic is not empty %}
-									<span class="characteristic">{{ thesis.characteristic }}</span>
-								{% endif %}
-								{{ thesis.text }}
-							</p>
-						{% endfor %}
-					</div>
-				{% endif %}
-			</div>
-
-			{% if background_image_src is not empty and background_image_alt is not empty %}
-				<img class="background" src="{{ background_image_src }}" alt="{{ background_image_alt }}" ondragstart="return false;"/>
+				
+			{% if article is not empty %}
+				<button class="toggler unselectable" tabindex="0">
+					<span class="text">ПОДРОБНЕЕ</span>
+					<img 
+						class="icon" 
+						style="display: none" 
+						src="/themes/{{ theme }}/images/icons/bold/close.svg"
+						width="24" 
+						height="24"
+						alt="❌"
+						title="Закрыть" 
+						ondragstart="return false"
+					>
+				</button>
 			{% endif %}
 		</div>
 
-		{% if cost is not empty %}
-			<p class="cost">ОТ <span>{{ cost }}₽</span></p>
+		{% if article is not empty %}
+			<section style="display: none" class="full" aria-label="Описание суперпака {{ title }}">
+				<!-- <h1 class="unselectable">{{ title }}</h1> -->
+				<p>{{ article|raw }}</p>
+			</section>
+
+			<script>
+				const superpack = document.getElementById("{{ id }}");
+				const toggler = superpack.querySelector('button.toggler');
+				const chooser = superpack.querySelector('a.chooser');
+				toggler?.addEventListener('click', () => superpack.classList.toggle('full'));
+				chooser?.addEventListener('click', () => superpack.classList.remove('full'));
+				window.addEventListener('load', () => superpack.querySelectorAll('[style="display: none"]').forEach((element) => element.style.removeProperty('display')));
+			</script>
 		{% endif %}
 	</article>
-{% endmacro service %}
+{% endmacro superpack %}
 
-<section id="superpacks" class="section unselectable">
-	<h1 class="unselectable" aria-label="СУПЕРПАКИ">
-		<img class="super layer" src="/themes/{{ theme }}/images/superpacks/super.svg" alt="СУПЕР" ondragstart="return false"/>
-		<img class="packs layer" src="/themes/{{ theme }}/images/superpacks/packs.svg" alt="ПАКИ" ondragstart="return false"/>
-		<div class="labubumba" style="--mask: url('/themes/{{ theme }}/images/interface/labubumba_2.svg') center/var(--mask-size, 72vw) no-repeat; --mask-mobile: url('/themes/{{ theme }}/images/interface/labubumba_2_mobile.svg') center/var(--mask-size, 72vw) no-repeat;"></div>	
-	</h1>
+<section id="superpacks" class="section">
+	<div class="separator" style="--mask: url('/themes/{{ theme }}/images/interface/sigmumba.svg') center/var(--mask-size, 72vw) no-repeat; --mask-mobile: url('/themes/{{ theme }}/images/interface/labubumba_2_mobile.svg') center/var(--mask-size, 72vw) no-repeat;"></div>
 
-	<p style="margin-bottom: unset; font-family: 'Cascadia Code'; padding: 0 5rem; text-align: center;">На момент <b>2026.04.18</b> суперпаки находятся в полной переработке</p>
-	<p style="margin-top: 0.5rem; margin-bottom: 4rem; padding: 0 5rem; text-align: center;">Формируем готовые предложения с мощной и проверенной годами кодовой базой</p>
+	<h1 class="unselectable"><span class="super" aria-label="СУПЕР">СУПЕР</span><span class="packs" aria-label="ПАКИ">ПАКИ</span></h1>
+
+	<h2 class="unselectable">Готовые технические решения</h2>
+
+	<p class="description unselectable">Проект <span class="quality">эталонного качества</span> по <span class="cost">фиксированной цене</span> с проверенной годами кодовой базой для максимально быстрого и уверенного старта</p>
 
 	<div class="flow">
-		{% for service in services %}
+		{% for superpack in superpacks %}
 			{{ 
-				_self.service(
-					class: service.class,
-					title: service.title,
-					icon_left: service.icon_left,
-					icon_center: service.icon_center,
-					icon_right: service.icon_right,
-					description: service.description,
-					howto: service.howto,
-					extra: service.extra,
-					buttons: service.buttons,
-					theses: service.theses,
-					background_image_src: service.background_image_src,
-					background_image_alt: service.background_image_alt,
-					cost: service.cost,
-					canceled: service.canceled
+				_self.superpack(
+					identifier: loop.index,
+					class: superpack.class,
+					icon: superpack.icon,
+					image: superpack.image,
+					title: superpack.title,
+					description: superpack.description,
+					features: superpack.features,
+					article: superpack.article,
+					deal: superpack.deal,
+					button: superpack.button,
+					reversed: loop.index % 2 == 0
 				) 
 			}}
 		{% endfor %}

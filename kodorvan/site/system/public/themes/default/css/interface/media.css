@@ -7,7 +7,7 @@ div.social.media {
 	gap: 1ch;
 
 	>a {
-		display: contents;
+		display: block;
 
 		>img {
 			width: auto;

@@ -3,9 +3,9 @@
 {% block css %}
 	{{ parent() }}
 
-	<link type="text/css" rel="stylesheet" href="/css/icons/loading_spinner.css" />
-	<link type="text/css" rel="stylesheet" href="/themes/default/css/pages/article.css" />
-	<link type="text/css" rel="stylesheet" href="/themes/default/css/elements/cookies.css" />
+	<link type="text/css" rel="stylesheet" href="/css/icons/loading_spinner.css">
+	<link type="text/css" rel="stylesheet" href="/themes/default/css/pages/article.css">
+	<link type="text/css" rel="stylesheet" href="/themes/default/css/elements/cookies.css">
 {% endblock %}
 
 {% block before %}
@@ -24,7 +24,7 @@
 					{% if article.head.image.height is not empty %}height="{{ article.head.image.height }}"{% endif %}
 					{% if article.head.image.alt is not empty %}alt="{{ article.head.image.alt }}"{% endif %}
 					aria-label="Фоновое изображение верхнего колонтинула статьи"
-				/>
+				>
 			{% endif %}
 		</section>
 

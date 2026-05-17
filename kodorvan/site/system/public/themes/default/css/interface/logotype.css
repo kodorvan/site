@@ -1,9 +1,10 @@
 h1#logotype {
 	z-index: 200;
 	margin: unset;
-	margin-top: 6rem;
-	margin-bottom: 2rem;
+	margin-top: 100px;
+	margin-bottom: unset;
 	width: max-content;
+	height: 200px;
 	display: flex;
 	flex-direction: column;
 	text-align: center;

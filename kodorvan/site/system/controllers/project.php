@@ -41,11 +41,11 @@ final class project extends core
 	];
 
 	/**
-	 * Page: calculator
+	 * Page: constructor
 	 *
 	 * @return null
 	 */
-	public function calculator(): null
+	public function constructor(): null
 	{
 		if ($this->request->method === method::get) {
 			// GET
@@ -243,6 +243,7 @@ final class project extends core
 				->start()
 				->clean()
 				->sse()
+				->json(['errors' => []])
 				->validate($this->request)
 				?->body()
 				->end();

@@ -8,6 +8,11 @@
  * @description
  * Module for creating projects
  *
+ * @todo
+ * 1. Удалить полностью `this.#elements` и перенести всё управление HTML-элементами
+ * в систему слушателей событий `EventListener`, для управления извне и разделения логики
+ * 2. После первого пункта можно будет наконец очистить ебучий конструктор с его аргументами
+ *
  * @class
  * @public
  *
@@ -1066,6 +1071,64 @@ export default class project {
 	}
 
 	/**
+	 * @name Superpack
+	 *
+	 * @description
+	 * The project superpack
+	 *
+	 * @type {string}
+	 *
+	 * @protected
+	 */
+	#superpack;
+
+	/**
+	 * @name Superpack (set)
+	 *
+	 * @public
+	 */
+	set superpack(value) {
+		if (typeof value === 'string' && value.length > 0) {
+			// String
+
+			// Writing the property
+			this.#superpack = value;
+
+			// Deleting from the stages registry
+			this.stages.delete('superpack');
+		} else {
+			// Undefined
+
+			// Deleting the property
+			this.#superpack = undefined;
+
+			// Writing into the stages registry
+			this.stages.add('superpack');
+		}
+
+		// Dispatching event: "project.write"
+		this.shell.dispatchEvent(
+			new CustomEvent("project.write", {
+				detail: { name: 'superpack', value: this.#superpack }
+			})
+		);
+
+		// Reinitializing guide HTML-elements
+		this.guide();
+	};
+
+	/**
+	 * @name Superpack (get)
+	 *
+	 * @return {string}
+	 *
+	 * @public
+	 */
+	get superpack() {
+		return this.#superpack;
+	}
+
+	/**
 	 * @name Project
 	 *
 	 * @description
@@ -1729,6 +1792,7 @@ export default class project {
 		payment_output,
 		prepayment,
 		prepayment_output,
+		superpack,
 		project_name,
 		project_description,
 		project_files,
@@ -1774,6 +1838,8 @@ export default class project {
 
 			if (prepayment instanceof HTMLElement) this.#elements.set('prepayment', prepayment);
 			if (prepayment_output instanceof HTMLElement) this.#elements.set('prepayment_output', prepayment_output);
+
+			if (superpack instanceof HTMLElement) this.#elements.set('superpack', superpack);
 
 			if (project_name instanceof HTMLElement) this.#elements.set('project_name', project_name);
 			if (project_description instanceof HTMLElement) this.#elements.set('project_description', project_description);
@@ -2367,6 +2433,7 @@ export default class project {
     // Exit (success)
 		return JSON.stringify({
 			identifier: new Date().valueOf(),
+		  superpack: this.#superpack,
 			calculator: {
 				architecture: this.#architecture?.symbol.description,
 				purpose: this.#purpose?.symbol.description,

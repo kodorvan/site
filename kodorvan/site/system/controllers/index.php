@@ -47,143 +47,193 @@ final class index extends core
 			// Initializing the team workload
 			$this->view->workload = (string) ($_COOKIE['workload'] ?? rand(20, 80));
 
-			// Initializing services
-			$this->view->services = [
+			// Initializing superpacks
+			$this->view->superpacks = [
 				[
-					'class' => 'telegram voronka',
-					'title' => 'Телеграм воронка',
-					'icon_left' => '',
-					/* 'icon_center' => 'import', */
+					'class' => 'site direct',
 					'icon_center' => 'crown',
-					'icon_right' => '',
-					'description' => <<<TXT
-						Поступательно запросит данные пользователя, скомпонует, запишет в базу данных и синхронизирует в CRM
-						<br><br>
-						Используя иммерсивные технологии и многофакторный сбор обеспечивает максимальное удержание пользователя
-						TXT,
-					'howto' => 'Направьте к нему клиентов и ждите новых заказов в вашей CRM, на сайте или в чате',
-					'buttons' => [
-						[
-							'icon' => 'comment',
-							'href' => 'https://t.me/' . TELEGRAM_ROBOT['domain'] . '?start=telegram voronka'
-						]
+					'image' => [
+						'src' => '/themes/' . THEME . '/images/site_example.jpg',
+						'alt' => 'Сайт для рекламы'
 					],
-					'theses' => [
+					'title' => 'Лендинг',
+					'description' => 'Сайт для рекламной компании',
+					'features' => [
 						[
-							'class' => 'yellow',
-							'characteristic' => '-80%',
-							'text' => 'НАГРУЗКА'
+							'icon' => 'template',
+							'text' => 'Авангардный дизайн'
 						],
 						[
-							'class' => 'blue',
-							'colored' => true,
-							'characteristic' => '+5%',
-							'text' => 'КОНВЕРСИИ'
+							'icon' => '',
+							'text' => 'Продумана каждая деталь'
 						],
 						[
-							'class' => 'green',
-							'characteristic' => '0₽',
-							'text' => 'НИКАКОЙ АРЕНДЫ'
+							'icon' => 'list-tree',
+							'text' => 'Глубокий SEO'
+						],
+						/* [
+							'icon' => 'document',
+							'text' => 'Юридическая броня'
+						], */
+						[
+							'icon' => 'bell',
+							'text' => 'Регистрация в Роскомнадзор'
 						]
 					],
-					'background_image_src' => '/themes/default/images/telegram_voronka.png',
-					'background_image_alt' => 'Телеграм воронка КОДОРВАНЬ',
-					'cost' => '2000',
-					'canceled' => 'ЗАБЛОКИРОВАН'
+					'deal' => [
+						'cost' => '30 000',
+						'text' => 'ПОЛНАЯ СТОИМОСТЬ'
+					],
+					'button' => [
+						'class' => 'request',
+						'text' => 'ВЫБРАТЬ',
+						'label' => 'Кнопка для заказа'
+					]
 				],
 				[
-					'class' => 'parser',
-					'title' => 'Парсер',
-					'icon_left' => '',
-					'icon_center' => 'search',
-					'icon_right' => '',
-					'description' => <<<TXT
-						Любая работа за компьютером может быть автоматизирована
-						<br><br>
-						Парсер берёт данные с сайтов через API, либо эмулируя пользователя, а так же из excel-документов, CRM и бухгалтерии, затем просчитывает, анализирует и записывает результат
-						TXT,
-					'howto' => 'Подключите источники и снизьте нагрузку на операторов, оптимизируйте процессы',
-					'extra' => [
-						'Wildberries',
-						'OZON',
-						'Yandex Market',
-						'Avito',
-						'CDEK',
-						'1C',
-						'Bitrix',
-						'Мой Склад'
+					'class' => 'voronka',
+					'icon_center' => 'crown',
+					'image' => [
+						'src' => '/themes/' . THEME . '/images/telegram_voronka.png',
+						'alt' => 'Воронка в Телеграм'
 					],
-					'buttons' => [
+					'title' => 'Воронка',
+					/* 'description' => '', */
+					'features' => [
 						[
-							'icon' => 'comment',
-							/* 'href' => 'https://t.me/' . TELEGRAM_ROBOT['domain'] . '?start=parser' */
-							'href' => 'https://t.me/' . TELEGRAM_ROBOT['domain'] . '?start=parser'
-						]
-					],
-					'theses' => [
-						[
-							'class' => 'yellow',
-							'colored' => true,
-							'characteristic' => '-100%',
-							'text' => 'НАГРУЗКА'
+							'icon' => 'phone',
+							'text' => 'Сбор данных'
 						],
 						[
-							'class' => 'cyan',
-							'icon' => 'infinity',
-							'text' => 'ВЕЧНАЯ ПОДДЕРЖКА'
+							'icon' => 'copy',
+							'text' => 'Синхронизация с CRM'
 						],
 						[
-							'class' => 'green',
-							'icon' => 'play forwards',
-							'text' => 'РЕКОРД СКОРОСТИ'
+							'icon' => 'track',
+							'text' => 'Аналитика всех этапов'
+						],
+						/* [
+							'icon' => '',
+							'text' => 'Повышение конверсий'
+						], */
+						[
+							'icon' => 'style',
+							'text' => 'Иммерсивные техники'
+						],
+						[
+							'icon' => 'smile',
+							'text' => 'Никакой аренды'
 						]
 					],
-					'background_image_src' => '/themes/default/images/excel_small_compressed.jpg',
-					'background_image_alt' => 'Парсеры КОДОРВАНЬ',
-					'cost' => '3000'
+					'deal' => [
+						'cost' => '10 000',
+						'text' => 'ПОЛНАЯ СТОИМОСТЬ'
+					],
+					'button' => [
+						'class' => 'request',
+						'text' => 'ВЫБРАТЬ',
+						'label' => 'Кнопка для заказа'
+					]
 				],
 				[
-					'class' => 'calculator',
-					'title' => 'Калькулятор',
-					'icon_left' => '',
-					'icon_center' => 'calculator',
-					'icon_right' => '',
-					'description' => <<<TXT
-						Составление алгоритма обработки большого объёма данных с использованием нейросетей и грамотно выбранной сортировки
-						<br><br>
-						Оператор вводит данные, нажимает на кнопки, двигает ползунки и мгновенно получает точный результат вычислений
-						TXT,
-					'howto' => 'Настройте параметры в панели управления и в долгосрочной перспективе сэкономьте тысячи часов рабочего времени',
-					'extra' => [],
-					'buttons' => [
-						[
-							'icon' => 'comment',
-							'href' => 'https://t.me/' . TELEGRAM_ROBOT['domain'] . '?start=calculator'
-						]
+					'class' => 'ai assistent telegram',
+					'icon_center' => '',
+					'image' => [
+						'src' => '/themes/' . THEME . '/images/telegram_voronka.png',
+						'alt' => 'Воронка в Телеграм'
 					],
-					'theses' => [
+					'title' => 'ИИ-ассистент',
+					'description' => 'Личный консультант',
+					'features' => [
 						[
-							'class' => 'yellow',
-							'characteristic' => '-95%',
-							'text' => 'НАГРУЗКА'
+							'icon' => 'assign',
+							'text' => 'Самообучение',
 						],
 						[
-							'class' => 'green',
-							'characteristic' => '-80%',
-							'text' => 'ОШИБОК ВЫЧИСЛЕНИЙ'
+							'icon' => 'performance',
+							'text' => 'Индивидуальная настройка'
 						],
 						[
-							'class' => 'red',
-							'colored' => true,
-							'characteristic' => '+20%',
-							'text' => 'ОБУЧАЕМОСТЬ'
+							'icon' => 'extension',
+							'text' => 'Актуализация базы данных'
+						],
+						[
+							'icon' => '',
+							'text' => 'Передовая ИИ-модель'
+						],
+						[
+							'icon' => 'smile',
+							'text' => 'Никакой аренды'
 						]
 					],
-					'background_image_src' => '/themes/default/images/tordv_compressed.jpg',
-					'background_image_alt' => 'Калькулятор КОДОРВАНЬ',
-					'cost' => '10 000'
-				]
-
+					'deal' => [
+						'cost' => '15 000',
+						'text' => 'ПОЛНАЯ СТОИМОСТЬ'
+					],
+					'button' => [
+						'class' => 'request',
+						'text' => 'ВЫБРАТЬ',
+						'label' => 'Кнопка для заказа'
+					]
+				],
+				[
+					'class' => 'marketplace',
+					'icon_center' => 'crown',
+					'image' => [
+						'src' => '/themes/' . THEME . '/images/site_example.jpg',
+						'alt' => 'Сайт для рекламы'
+					],
+					'title' => 'Маркетплейс',
+					'description' => 'Бюджет разработки >2млн',
+					'features' => [
+						[
+							'icon' => 'trophy',
+							'text' => 'Чистый код, без конструкторов'
+						],
+						[
+							'icon' => 'template',
+							'text' => 'Индивидуальный дизайн'
+						],
+						/* [
+							'icon' => 'import',
+							'text' => 'Годовая подписка на обновления'
+						], */
+						[
+							'icon' => 'extension',
+							'text' => 'Подключение к Мой Склад'
+						],
+						[
+							'icon' => 'performance',
+							'text' => 'Физический сервер с личным администратором'
+						]
+					],
+					'article' => <<<HTML
+						Изначально проект создавался как чат-робот Telegram с Web App, где по нажатию на кнопку пользователь попадал в мини-приложение, автоматически авторизовавшись через мессенджер.<br>
+						<br>
+						Там он видел весь каталог товаров с категориями, ценами, фильтрами и умным поиском. Всего за 2 минуты он проходил все этапы: наполнял корзину товарами, заполнял адрес доставки (в первый раз) и оплачивал через СБП! Сессия сохраняла данные между устройствами (смартфон и компьютер). Была проведена огромная аналитическая работа с фокус-группами и сбором статистики. Каждый элемент на экране размещён очень обоснованно.<br>
+						<br>
+						После оплаты приложение автоматически закрывается и пользователь возвращается в чат с роботом, где он видит список купленных товаров, статус заказа, оплаченный счёт, а так же подтверждение от оператора. Операторам в чат прилетает заказ с кнопкой "написать покупателю" прямо в Telegram!<br>
+						<br>
+						Сейчас мы развиваем проект как полноценный сайт, оставляя поддержку версии для мессенджеров.<br>
+					  <br>
+						В покупку лицензии включена стоимость разработки индивидуального дизайна<br>
+						<br>
+						После покупки вам нужно будет оплачивать размещение проекта на наших серверах - так мы гарантируем сохранность нашего кода, а вы экономите сотни тысяч рублей на системном администраторе, бекапах, юридических заморочках с роскомнадзором (берём ответственность на себя) и постоянным масштабированием. Цена небольшая, особенно учитывая, что туда входит наша постоянная тех. поддержка<br>
+						<br>
+						Не берём никаких процент с продаж!<br>
+						<br>
+						По желанию добавляем или удаляем функции, а критические обновления безопасности устанавливаем бесплатно. В случае проблем, тех.работ или утечек оповещаем моментально.
+					HTML,
+					'deal' => [
+						'cost' => '120 000',
+						'text' => 'ВЕЧНАЯ ЛИЦЕНЗИЯ НА КОД'
+					],
+					'button' => [
+						'class' => 'deal blue',
+						'text' => 'ВЫБРАТЬ',
+						'label' => 'Кнопка выбора суперпака для калькулятора'
+					]
+				],
 			];
 
 			// Sending the cookie with the team workload (1800 = 30min)
