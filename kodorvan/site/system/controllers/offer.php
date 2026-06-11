@@ -48,6 +48,8 @@ final class offer extends core
 			$page = $this->view->render(
 				'pages/offer.html',
 				[
+					'title' => 'Публичная оферта',
+					'description' => 'Заходи на сайт и изучи нашу оферту. Тут есть на что посмотреть!',
 					'uri' => 'https://' . DOMAIN . '/offer',
 					'smartphone' => $this->request->smartphone,
 					'tablet' => $this->request->tablet

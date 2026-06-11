@@ -125,6 +125,8 @@ final class article extends core
 				$page = $this->view->render(
 					'pages/system/superpack/create.html',
 					[
+						'title' => $title,
+						'description' => $text,
 						'uri' => 'https://' . DOMAIN . "/system/superpack/create",
 						'smartphone' => $this->request->smartphone,
 						'tablet' => $this->request->tablet

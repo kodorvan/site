@@ -260,6 +260,8 @@ final class index extends core
 			$page = $this->view->render(
 				'pages/index.html',
 				[
+					'title' => 'Разработка сайтов в Перми',
+					'description' => 'Чистый код, авангардный дизайн, крепкий бустинг и юридическая броня! Заходи на сайт и посчитай проект за 2 минуты! Рвём шаблоны!',
 					'uri' => 'https://' . DOMAIN,
 					'smartphone' => $this->request->smartphone,
 					'tablet' => $this->request->tablet
