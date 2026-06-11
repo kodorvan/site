@@ -3,9 +3,10 @@
 
 	<link rel="canonical" href="{{ uri ?? (domain ? ('https://' ~  domain) : '') }}">
 
-	<title>{% if not empty title %}{{ title }} @Кодорвань{% else %}Кодорвань{% endif %}</title>
+	<title>{% if title is not empty  %}{{ title }} @Кодорвань{% else %}Кодорвань{% endif %}</title>
+
 	<meta name="application-name" content="Кодорвань">
-	<meta name="description" content="{% if not empty description %}{{ description }}{% else %}Чистый код, авангардный дизайн, крепкий бустинг и юридическая броня! Заходи на сайт и посчитай проект за 2 минуты! Рвём шаблоны!{% endif %}">
+	<meta name="description" content="{% if description is not empty %}{{ description }}{% else %}Чистый код, авангардный дизайн, крепкий бустинг и юридическая броня! Заходи на сайт и посчитай проект за 2 минуты! Рвём шаблоны!{% endif %}">
 	<meta name="author" content="Арсен Мирзаев Татьяно-Мурадович">
 	 
 	<meta name="robots" content="index, follow">
